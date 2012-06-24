@@ -48,6 +48,11 @@ IPurple="\[\033[0;95m\]"
 ICyan="\[\033[0;96m\]"  
 IWhite="\[\033[0;97m\]" 
 
+Color_Off="\[\033[m\]"
+
+Time12h="\T"
+PathShort="\w"
+
 if [ `id -u` == 0 ]; then
   _linecolor=$IRed
   _seta=$IRed
@@ -80,7 +85,7 @@ if [ $? -eq 0 ]; then \
   else \
     # Mudanças no tree atual
     echo "'$IRed'"$(__git_ps1 " {%s}"); \
-  fi) '$BYellow$PathShort${_linecolor}\\n${_ps1_nl_tg}\ ${IBlue}#$Color_Off' "; \
+  fi) '$Yellow$PathShort${_linecolor}\\n${_ps1_nl_tg}\ ${IBlue}#$Color_Off' "; \
 else \
   # Não é repositório git
   echo " '$Yellow$PathShort${_linecolor}\\n${_ps1_nl_tg}${IBlue}$Color_Off' "; \
