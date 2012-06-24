@@ -1,0 +1,31 @@
+! Fontes -------
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+! Xterm -------
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
+URxvt*foreground: white
+URxvt*geometry:           90x22
+URxvt*faceName:           terminus:bold:pixelsize=14
+URxvt.font:               -*-terminus-*-*-*-*-16-*-*-*-*-*-*-*
+URxvt*dynamicColors:      true
+URxvt*utf8:               2
+URxvt*eightBitInput:      true
+URxvt*saveLines:          1512
+URxvt*scrollKey:          true
+URxvt*scrollTtyOutput:    true
+URxvt*scrollBar:          false
+URxvt*rightScrollBar:     true
+URxvt*jumpScroll:         true
+URxvt*multiScroll:        true
+URxvt*toolBar:            true
+
+! Mouse -------
+Xcursor.theme: DMZ-Red
+Xcursor.size: 64
