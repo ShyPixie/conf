@@ -1,0 +1,10 @@
+[Unit]
+Description=No-IP
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/noip2
+
+[Install]
+WantedBy=multi-user.target
