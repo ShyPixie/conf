@@ -27,5 +27,5 @@ URxvt*multiScroll:        true
 URxvt*toolBar:            true
 
 ! Mouse -------
-Xcursor.theme: DMZ-Red
+Xcursor.theme: PlyWood
 Xcursor.size: 64

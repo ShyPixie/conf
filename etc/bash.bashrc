@@ -29,6 +29,8 @@ alias pacman='pacman-color'
 alias mv='mv -v'
 alias cp='cp -v'
 #alias geany='geany_subprocess'
+alias psc='ps xawf -eo pid,user,cgroup,args'
+alias psd='systemd-cgls'
 
 Black="\[\033[0;30m\]"  
 Red="\[\033[0;31m\]"    

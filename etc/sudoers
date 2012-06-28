@@ -1,5 +1,4 @@
 root ALL=(ALL) ALL
 lara ALL=(ALL) ALL
-lara ALL=NOPASSWD:/usr/sbin/reboot, /usr/sbin/halt, /sbin/halt, /sbin/reboot
-
-
+lara ALL=NOPASSWD:/usr/sbin/reboot, /usr/sbin/halt, /sbin/halt /sbin/reboot
+lara ALL=NOPASSWD:/usr/bin/systemctl
