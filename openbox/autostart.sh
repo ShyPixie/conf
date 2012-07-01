@@ -30,7 +30,7 @@ volwheel &
 #pyvol &
 
 #--- Gerenciadores de clipboard ---
-pasteall &
+(sleep 3 && pasteall) &
 
 #--- Torrent ---
 # deluge &
