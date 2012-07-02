@@ -4,4 +4,5 @@ setxkbmap -model abnt2 br
 nitrogen --restore
 nvidia-settings -a GPUOverclockingState=1
 nvidia-settings -a GPU3DClockFreqs=650,800
+export __GL_SYNC_TO_VBLANK=0
 exec ck-launch-session openbox-session
