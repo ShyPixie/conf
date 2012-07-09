@@ -10,7 +10,7 @@ function _cp() {
 _cp "${HOME}/.Xresources"                  "Xresources"
 _cp "${HOME}/.xinitrc"                     "xinitrc"
 _cp "${HOME}/.asoundrc"                    "asoundrc"
-_cp "${HOME}/.config/geany/geany.conf"     "geany.conf"
+#_cp "${HOME}/.config/geany/geany.conf"     "geany.conf"
 _cp "${HOME}/.config/openbox/autostart.sh" "openbox/autostart.sh"
 _cp "${HOME}/.config/openbox/menu.xml"     "openbox/menu.xml"
 _cp "${HOME}/.config/openbox/rc.xml"       "openbox/rc.xml"

@@ -1,14 +1,14 @@
 [Unit]
 Description=Pacmandb
 DefaultDependencies=no
-Before=shutdown.target local-fs.target
-After=remount-rootfs.service
+Before=shutdown.target
+After=remount-rootfs.service local-fs.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/etc/rc.d/pacmandb start
-ExecStop=/etc/rc.d/pacmandb stop
+ExecStart=/bin/mount -o loop,relatime,sync /var/lib/pacman.db /var/lib/pacman
+ExecStop=/bin/umount /var/lib/pacman.db
 
 [Install]
 WantedBy=local-fs.target

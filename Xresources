@@ -29,3 +29,9 @@ URxvt*toolBar:            true
 ! Mouse -------
 Xcursor.theme: PlyWood
 Xcursor.size: 64
+
+! xclock ------
+xclock*update:            1
+xclock*analog:            false
+xclock*Foreground:        white
+xclock*background:        black
