@@ -224,9 +224,16 @@ def clockButtonEvent(pp, button):
     elif button == 3:
         pass
     elif button == 4:
-        pp.showDesktop()
+        os.system("windows=(`wmctrl -l | awk '{print $1}'`);  \
+                   for window in ${windows[@]}; do            \
+                       wmctrl -i -r $window -b remove,hidden; \
+                   done")
     elif button == 5:
-        pp.showDesktop()
+        os.system("windows=(`wmctrl -l | awk '{print $1}'`); \
+                   for window in ${windows[@]}; do           \
+                       wmctrl -i -r $window -b add,hidden;   \
+                   done;                                     \
+                   wmctrl -a tilda")
         
 #--------------------------------
 def panelButtonEvent(pp, button):
