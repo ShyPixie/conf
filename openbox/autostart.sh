@@ -7,8 +7,7 @@ hsetroot -fill ~/Imagens/papel_de_parede.png &
 tilda &
 
 #--- Compositores ---
-(sleep 2 && compton -cCf -I 0.065 -O 0.065 -D 4 -e 0.80) &
-#compmgr -CcfF -I-.015 -O-.03 -D6 -t-1 -l-3 -r4.2 -o.5 &
+~/.compstart
 
 #--- Daemons de notificação ---
 notipy &

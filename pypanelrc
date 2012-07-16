@@ -224,16 +224,9 @@ def clockButtonEvent(pp, button):
     elif button == 3:
         pass
     elif button == 4:
-        os.system("windows=(`wmctrl -l | awk '{print $1}'`);  \
-                   for window in ${windows[@]}; do            \
-                       wmctrl -i -r $window -b remove,hidden; \
-                   done")
+        os.system("/usr/bin/showdesktop 0")
     elif button == 5:
-        os.system("windows=(`wmctrl -l | awk '{print $1}'`); \
-                   for window in ${windows[@]}; do           \
-                       wmctrl -i -r $window -b add,hidden;   \
-                   done;                                     \
-                   wmctrl -a tilda")
+        os.system("/usr/bin/showdesktop 1")
         
 #--------------------------------
 def panelButtonEvent(pp, button):
@@ -257,6 +250,7 @@ def taskButtonEvent(pp, button, task):
     """ Button event handler for the panel's tasks """
     
     if button == 1:
+        pp.taskFocus(task)
         pp.taskFocus(task)
     elif button == 2:
         # Destroy the application
