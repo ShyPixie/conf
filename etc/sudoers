@@ -1,4 +1,4 @@
 root ALL=(ALL) ALL
-lara ALL=(ALL) ALL
-lara ALL=NOPASSWD:/usr/sbin/reboot, /usr/sbin/halt, /sbin/halt /sbin/reboot
-lara ALL=NOPASSWD:/usr/bin/systemctl
+mrk3004 ALL=(ALL) ALL
+mrk3004 ALL=NOPASSWD:/usr/sbin/reboot, /usr/sbin/halt, /sbin/halt /sbin/reboot
+mrk3004 ALL=NOPASSWD:/usr/bin/systemctl

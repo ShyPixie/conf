@@ -23,7 +23,7 @@
 
 # Aliases
 alias sudo='sudo '
-alias yaourt='yaourt-mktmp'
+#alias yaourt='yaourt-mktmp'
 alias ls='ls --color=auto'
 alias pacman='pacman-color'
 alias mv='mv -v'
