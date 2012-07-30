@@ -1,0 +1,13 @@
+[Unit]
+Description=Keyboard leds configuration
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/tleds -d 100 -c -q eth0
+ExecStart=/usr/bin/cpuled tty1 -c nfn -f
+KillMode=process
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

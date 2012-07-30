@@ -38,6 +38,7 @@ _cp "/etc/resolv.conf.tail"                "etc/resolv.conf.tail"
 _cp "/etc/sysctl.conf"                     "etc/sysctl.conf"
 _cp "/etc/systemd/system/network.service"  "systemd-units/network.service"
 _cp "/etc/systemd/system/noip.service"     "systemd-units/noip.service"
+_cp "/etc/systemd/system/leds.service"     "systemd-units/leds.service"
 _cp "/etc/systemd/system/pacmandb.service" "systemd-units/pacmandb.service"
 #lighttpd
 #squid
