@@ -1,0 +1,9 @@
+[Unit]
+Description=Xinit
+
+[Service]
+ExecStart=/bin/su mrk3004 -l -c xinit
+Restart=no
+
+[Install]
+WantedBy=graphical.target

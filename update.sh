@@ -39,6 +39,7 @@ _cp "/etc/sysctl.conf"                     "etc/sysctl.conf"
 _cp "/etc/systemd/system/network.service"  "systemd-units/network.service"
 _cp "/etc/systemd/system/noip.service"     "systemd-units/noip.service"
 _cp "/etc/systemd/system/leds.service"     "systemd-units/leds.service"
+_cp "/etc/systemd/system/xinit-login.service" "systemd-units/xinit-login.service"
 _cp "/etc/systemd/system/pacmandb.service" "systemd-units/pacmandb.service"
 #lighttpd
 #squid
