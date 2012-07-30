@@ -3,11 +3,11 @@ exec >/dev/null 2>&1
 
 #--- papel de parede ---
 #nitrogen --restore
-hsetroot -fill ~/Imagens/papel_de_parede.png &
+#hsetroot -fill ~/Imagens/papel_de_parede.png &
 tilda &
 
 #--- Compositores ---
-~/.compstart
+#~/.compstart
 
 #--- Daemons de notificação ---
 notipy &
@@ -17,9 +17,10 @@ notipy &
 #--- Paineis ---
 #tint2 &
 #bmpanel2 &
-pypanel &
+#pypanel &
 #xfce4-panel &
-(sleep 3 && conky) &
+adeskbar viny &
+(sleep 2 && conky) &
 
 #--- Docks ---
 #cairo-dock &
@@ -35,7 +36,7 @@ pypanel &
 #pidgin &
 
 #--- Controle de volume
-volwheel &
+#volwheel &
 #volti &
 #pyvol &
 
@@ -44,9 +45,12 @@ volwheel &
 
 #--- Torrent ---
 # deluge &
-deluged &
+#deluged &
 
 #--- IRC ---
 #qirssi &
+
+#--- NumLock Maldito ---
+numlockx on
 
 exit 0

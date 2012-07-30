@@ -1,11 +1,11 @@
 double_buffer yes
 
 own_window yes
-own_window_transparent no
+own_window_transparent yes
 own_window_type desktop
 own_window_class conky-semi
 own_window_hints undecorate,sticky,skip_taskbar,skip_pager
-own_window_argb_visual yes
+own_window_argb_visual no
 own_window_argb_value 100
 
 draw_borders no
@@ -23,7 +23,7 @@ default_color 8f8f8f
 own_window_colour 1A0025
 
 use_xft yes
-xftfont sans:size=11
+xftfont Sans:size=11
 
 # override_utf8_locale yes
 
@@ -31,4 +31,14 @@ use_spacer none
 minimum_size 1024 0
 
 TEXT
-${alignc}Kernel: ${color e0e0e0}$kernel${color}  |  Cpu: ${color e0e0e0}${cpu cpu0}% ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${color}  Ram: ${color e0e0e0}${memperc}%${color}  Swap: ${color e0e0e0}${swapperc}%${color}  Home: ${color e0e0e0}${fs_used_perc /home/mrk3004}% ${color} Root: ${color e0e0e0}${fs_used_perc /}%${color}  |  Cpu: ${color e0e0e0}${execi 20 /usr/bin/sysinfo --cputemp ;}${color}  Gpu: ${color e0e0e0}${execi 20 /usr/bin/sysinfo --gputemp ;}${color}  |  Eth0: ${color e0e0e0}${upspeed eth0}${color} ${color e0e0e0}${downspeed eth0}${color}  Eth1: ${color e0e0e0}${upspeed eth1}${color} ${color e0e0e0}${downspeed eth1}
+${image /home/mrk3004/Imagens/conkybg.png -p 0,-1 -s 1024x21} ${alignc}\
+Kernel: ${color e0e0e0}$kernel${color}  |  \
+Cpu: ${color e0e0e0}${cpu cpu0}% ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${color}  \
+Ram: ${color e0e0e0}${memperc}%${color}  \
+Swap: ${color e0e0e0}${swapperc}%${color}  \
+Home: ${color e0e0e0}${fs_used_perc /home/mrk3004}% ${color} \
+Root: ${color e0e0e0}${fs_used_perc /}%${color}  |  \
+Cpu: ${color e0e0e0}${execi 20 /usr/bin/sysinfo --cputemp ;}${color}  \
+Gpu: ${color e0e0e0}${execi 20 /usr/bin/sysinfo --gputemp ;}${color}  |  \
+Eth0: ${color e0e0e0}U: ${upspeed eth0}${color} ${color e0e0e0}D: ${downspeed eth0}${color}  \
+Eth1: ${color e0e0e0}U: ${upspeed eth1}${color} ${color e0e0e0}D: ${downspeed eth1}${color}

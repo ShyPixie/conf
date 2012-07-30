@@ -4,6 +4,11 @@
     <separator label="Aplicativos" />
     <menu id="root-menu-arquivos" label="Arquivos">
       <separator label="Arquivos" />
+      <item label="SpaceFM">
+        <action name="Execute">
+          <execute>spacefm</execute>
+        </action>
+      </item>
       <item label="PcmanFM">
         <action name="Execute">
           <execute>pcmanfm</execute>
@@ -199,12 +204,12 @@
     <separator label="Operações" />
     <item label="Desligar">
       <action name="Execute">
-        <execute>/bin/sh -c 'zenity --question --text &quot;Você tem certeza que deseja desligar o computador?&quot; &amp;&amp; sudo systemctl poweroff'</execute>
+        <execute>powerdialogs desligar</execute>
       </action>
     </item>
     <item label="Reiniciar">
       <action name="Execute">
-        <execute>/bin/sh -c 'zenity --question --text &quot;Você tem certeza que deseja reiniciar o computador?&quot; &amp;&amp; sudo systemctl reboot'</execute>
+        <execute>powerdialogs reiniciar</execute>
       </action>
     </item>
     <item label="Logoff">
@@ -212,7 +217,7 @@
     </item>
     <item label="Modo de espera">
       <action name="Execute">
-        <execute>/bin/sh -c 'zenity --question --text &quot;Você tem certeza que deseja colocar o computador em modo de espera?&quot; &amp;&amp; sudo systemctl suspend'</execute>
+        <execute>powerdialogs espera</execute>
       </action>
     </item>
   </menu>

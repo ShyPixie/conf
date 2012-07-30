@@ -1,3 +1,4 @@
+#-*- encoding: utf-8 -*-
 #------------------------------------------------------------------------------
 #
 #                         PyPanel v2.4 Configuration
@@ -202,15 +203,15 @@ def desktopButtonEvent(pp, button):
     """ Button event handler for the panel's desktop object """
         
     if button == 1:
-        pp.changeDesktop(-1)
+        pass
     elif button == 2:
-        pp.changeDesktop(2)
+        pass
     elif button == 3:
-        pp.changeDesktop(1)
+        pass
     elif button == 4:
-        pp.changeDesktop(1)
+        pass
     elif button == 5:
-        pp.changeDesktop(-1)
+        pass
         
 #--------------------------------
 def clockButtonEvent(pp, button):
@@ -218,7 +219,7 @@ def clockButtonEvent(pp, button):
     """ Button event handler for the panel's clock object """
     
     if button == 1:
-        os.system("xclock &")
+        os.system("yad --calendar --title=Calendário &")
     elif button == 2:
         pass
     elif button == 3:
@@ -256,13 +257,7 @@ def taskButtonEvent(pp, button, task):
         # Destroy the application
         task.obj.destroy()
     elif button == 3:
-        # Ex. - XMMS doesn't shade, so we want to minimize it instead and
-        #       still use button 3 to shade other applications
-        #       task.tclass is the tasks class name (WM_CLASS)
-        if "xmms" in task.tclass:
-            pp.toggleMinimize(task)
-        else:
-            pp.toggleShade(task)
+        pass
     elif button == 4:
         pp.taskRaise(task, focus=1)
     elif button == 5:

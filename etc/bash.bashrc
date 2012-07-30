@@ -23,15 +23,20 @@
 
 # Aliases
 alias sudo='sudo '
-#alias yaourt='yaourt-mktmp'
-alias ls='ls --color=auto'
+alias yaourt='yaourt --needed'
+alias ls='ls --group-directories-first -h --color=auto'
+alias la='ls -lha --group-directories-first -h --color=auto'
+alias lo='ls -a --group-directories-first -h --color=auto'
+alias grep='grep color=auto'
 alias pacman='pacman-color'
-alias mv='mv -v'
-alias cp='cp -v'
-#alias geany='geany_subprocess'
+alias rm='rm -vi'
+alias mv='mv -vi'
+alias cp='cp -vi'
+alias geany='geany_checkpath'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 alias psd='systemd-cgls'
 
+# Normal Colors
 Black="\[\033[0;30m\]"  
 Red="\[\033[0;31m\]"    
 Green="\[\033[0;32m\]"  
@@ -41,6 +46,7 @@ Purple="\[\033[0;35m\]"
 Cyan="\[\033[0;36m\]"   
 White="\[\033[0;37m\]"  
 
+# Intense Colors
 IBlack="\[\033[0;90m\]" 
 IRed="\[\033[0;91m\]"   
 IGreen="\[\033[0;92m\]" 
@@ -59,38 +65,19 @@ if [ `id -u` == 0 ]; then
   _linecolor=$IRed
   _seta=$IRed
   _hostname=$ICyan
-	_ps1_nl_tg="└─${_seta}⊳"
+  _ps1_nl_tg="└─${_seta}>>"
+  _separator="[]"
 else
   _linecolor=$Red
   _seta=$White
   _hostname=$IBlue
-	_ps1_nl_tg="└─${_seta}⊳"
+  _ps1_nl_tg="└─${_seta}>>"
+  _separator="<>"
 fi
 
-function __git_ps1() {
-local b="$(git symbolic-ref HEAD 2>/dev/null)"
-if [ -n "$b" ]; then
-	if [ -n "$1" ]; then
-		printf "$1" "${b##refs/heads/}"
-	else
-		printf " (%s)" "${b##refs/heads/}"
-	fi
-fi
-}
-
-export PS1=$_linecolor┌─[$IPurple\\u$_linecolor]─[$_hostname\\h$_linecolor]─[$IGreen$Time12h$_linecolor]$Color_Off'$(git branch &>/dev/null;\
-if [ $? -eq 0 ]; then \
-  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
-  if [ "$?" -eq "0" ]; then \
-    # Repositorio limpo (nada para commitar)
-    echo "'$Green'"$(__git_ps1 " (%s)"); \
-  else \
-    # Mudanças no tree atual
-    echo "'$IRed'"$(__git_ps1 " {%s}"); \
-  fi) '$Yellow$PathShort${_linecolor}\\n${_ps1_nl_tg}\ ${IBlue}#$Color_Off' "; \
-else \
-  # Não é repositório git
-  echo " '$Yellow$PathShort${_linecolor}\\n${_ps1_nl_tg}${IBlue}$Color_Off' "; \
-fi)'
-
-
+export PS1="$_linecolor┌─\
+${_separator:0:1}$IPurple\\u$_linecolor${_separator:1:1}\
+-${_separator:0:1}$_hostname\\h$_linecolor${_separator:1:1}\
+-${_separator:0:1}$IGreen$Time12h$_linecolor${_separator:1:1}\
+ $Yellow$PathShort${_linecolor}
+${_ps1_nl_tg} ${IBlue}$Color_Off"

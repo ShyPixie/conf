@@ -11,7 +11,7 @@
 EDITOR="nano"
 #FORCEENGLISH=0
 #FORCE=0
-#TMPDIR="/tmp"
+TMPDIR="/tmp"
 
 # SUDO
 #SUDONOVERIF=0      # Avoid multiple sudo checks when timestamp_timeout=0
@@ -24,7 +24,7 @@ REPOS=(core extra community multilib !testing !community-testing !multilib-testi
 SYNCSERVER="rsync.archlinux.org"
 
 # AUR
-#AURURL="http://aur.archlinux.org"
+AURURL="http://aur.archlinux.org"
 AURCOMMENT=5
 #AURDEVELONLY=0
 AURSEARCH=1
@@ -38,9 +38,9 @@ AURVOTE=0
 #EXPORTDIR=""       # If empty, use makepkg's connfiguration (see makepkg.conf)
 
 # Prompt
-#NOCONFIRM=0
-#UP_NOCONFIRM=0     # No prompt while build upgrades (including -Sbu)
-#BUILD_NOCONFIRM=0  # Only prompt for editing files
+NOCONFIRM=0
+UP_NOCONFIRM=0     # No prompt while build upgrades (including -Sbu)
+BUILD_NOCONFIRM=0  # Only prompt for editing files
 EDITFILES=0
 NOENTER=1
 
