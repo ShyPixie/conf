@@ -4,8 +4,8 @@ Description=Keyboard leds configuration
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/tleds -d 100 -c -q eth0
-ExecStart=/usr/bin/cpuled tty1 -c nfn -f
+ExecStart=/usr/bin/tleds -d 20 -c -q eth0
+ExecStart=/usr/bin/cpuled console -c nfn -f
 KillMode=process
 Restart=no
 
