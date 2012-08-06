@@ -53,4 +53,14 @@ adeskbar viny &
 #--- NumLock Maldito ---
 numlockx on
 
+#--- ... ---
+(sleep 3
+oneko -neko -bg pink -speed 10 -idle 200 -name neko &
+sleep 1
+oneko -tomoyo -toname neko -name tomoyo -speed 5 &
+sleep 1
+oneko -dog -bg brown -toname neko -speed 7 &
+sleep 1
+xsetroot -cursor_name left_ptr) &
+
 exit 0

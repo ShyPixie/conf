@@ -27,8 +27,8 @@ URxvt*multiScroll:        true
 URxvt*toolBar:            true
 
 ! Mouse -------
-Xcursor.theme: PlyWood
-Xcursor.size: 64
+Xcursor.theme: tuxcursor
+Xcursor.size: 32
 
 ! xclock ------
 xclock*update:            1
