@@ -1,0 +1,10 @@
+[Unit]
+Description=Preload
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/ionice -c 3 /usr/sbin/preload --verbose 4
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
