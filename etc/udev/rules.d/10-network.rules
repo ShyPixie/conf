@@ -1,2 +1,2 @@
-SUBSYSTEM=="net", ATTR{address}=="c8:3a:35:db:55:d3", NAME="eth0"
-SUBSYSTEM=="net", ATTR{address}=="00:25:11:1c:05:e0", NAME="eth1"
+SUBSYSTEM=="net", ATTR{address}=="c8:3a:35:db:55:d3", NAME="web"
+SUBSYSTEM=="net", ATTR{address}=="00:25:11:1c:05:e0", NAME="lan"
