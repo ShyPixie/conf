@@ -1,32 +1,32 @@
 # Script de configuração inicial do iptables
 # Autor: Lara Maia <lara@craft.net.br>
-# Versão: 0.2
+# Versão: 0.3
 
 *filter
 
 # Proteção contra ataques, scanners, tracerouts, etc..."
 -A INPUT -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
--A INPUT -p udp -s 0/0 -i eth1 --dport 33435:33525 -j DROP
+#-A INPUT -p udp -s 0/0 -i lan --dport 33435:33525 -j DROP
 -A INPUT -m state --state INVALID -j DROP
 -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
 
 # Bloqueia acesso externo ao squid
-#-A INPUT -p tcp --dport 3128 -i eth0 -j DROP
+#-A INPUT -p tcp --dport 3128 -i web -j DROP
 
 COMMIT
 
 *nat
 
 # Compartilha internet
--A POSTROUTING -o eth0 -j MASQUERADE
+-A POSTROUTING -o web -j MASQUERADE
 
 # Libera acesso ao cache do squid
 #-A OUTPUT -m multiport -p tcp --dports 80,3128 -m owner --uid-owner proxy -j ACCEPT
 
 # Configuração mínima do Viny Server CP para a rede
 #-N regras_rede
-#-A regras_rede -i eth1 -p tcp --dport 80 -j REDIRECT --to-port 2424
-#-A regras_rede -i eth1 -p tcp --dport 443 -j REDIRECT --to-port 2424
+#-A regras_rede -i lan -p tcp --dport 80 -j REDIRECT --to-port 2424
+#-A regras_rede -i lan -p tcp --dport 443 -j REDIRECT --to-port 2424
 #-A PREROUTING -j regras_rede
 
 # Configuração mínima do Viny Server CP para o servidor
