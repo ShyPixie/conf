@@ -7,16 +7,30 @@ function _cp() {
 	fi
 }
 
+# HOME
 _cp "${HOME}/.Xresources"                  "Xresources"
 _cp "${HOME}/.xinitrc"                     "xinitrc"
 _cp "${HOME}/.asoundrc"                    "asoundrc"
 _cp "${HOME}/.conkyrc"                     "conkyrc"
 _cp "${HOME}/.pypanelrc"                   "pypanelrc"
 #_cp "${HOME}/.config/geany/geany.conf"     "geany.conf"
+
+# Openbox
 _cp "${HOME}/.config/adeskbar/viny.cfg"    "adeskbar.cfg"
 _cp "${HOME}/.config/openbox/autostart.sh" "openbox/autostart.sh"
 _cp "${HOME}/.config/openbox/menu.xml"     "openbox/menu.xml"
 _cp "${HOME}/.config/openbox/rc.xml"       "openbox/rc.xml"
+
+# kde
+_cp "${HOME}/.kde4/env/firefox-pango.sh"     "kde/env/firefox-pango.sh"
+_cp "${HOME}/.kde4/env/gpu-overclock.sh"     "kde/env/gpu-overclock.sh"
+_cp "${HOME}/.kde4/env/gtk2-env.sh"          "kde/env/gtk2-env.sh"
+_cp "${HOME}/.kde4/env/opengl-vsync.sh"      "kde/env/opengl-vsync.sh"
+_cp "${HOME}/.kde4/env/qt-graphicssystem.sh" "kde/env/qt-graphicssystem.sh"
+_cp "${HOME}/.kde4/share/config/kwinrc"      "kde/kwinrc"
+_cp "/usr/share/config/kdm/Xsession"         "kde/Xsession"
+
+# /etc
 _cp "/etc/modprobe.d/k10temp.conf"         "modprobe.d/k10temp.conf"
 _cp "/etc/modprobe.d/r8169_blacklist.conf" "modprobe.d/r8169_blacklist.conf"
 _cp "/etc/iptables/iptables.rules"         "iptables.rules"
@@ -37,16 +51,22 @@ _cp "/etc/mkinitcpio.conf"                 "etc/mkinitcpio.conf"
 _cp "/etc/resolv.conf.head"                "etc/resolv.conf.head"
 _cp "/etc/resolv.conf.tail"                "etc/resolv.conf.tail"
 _cp "/etc/sysctl.conf"                     "etc/sysctl.conf"
-_cp "/etc/udev/rules.d/10-network.rules"   "etc/udev/rules.d/10-network.rules"
-_cp "/etc/systemd/system/network.service"  "systemd-units/network.service"
-_cp "/etc/systemd/system/dhcpcd@.service"  "systemd-units/dhcpcd@.service"
-_cp "/etc/systemd/system/noip.service"     "systemd-units/noip.service"
-_cp "/etc/systemd/system/leds.service"     "systemd-units/leds.service"
-_cp "/etc/systemd/system/xinit-login.service" "systemd-units/xinit-login.service"
-_cp "/etc/systemd/system/pacmandb.service" "systemd-units/pacmandb.service"
 #lighttpd
 #squid
 #sudoers
+
+# udev
+_cp "/etc/udev/rules.d/10-network.rules"   "etc/udev/rules.d/10-network.rules"
+
+# systemd
+_cp "/etc/systemd/system/network.service"     "systemd-units/network.service"
+_cp "/etc/systemd/system/dhcpcd@.service"     "systemd-units/dhcpcd@.service"
+_cp "/etc/systemd/system/noip.service"        "systemd-units/noip.service"
+_cp "/etc/systemd/system/leds.service"        "systemd-units/leds.service"
+_cp "/etc/systemd/system/xinit-login.service" "systemd-units/xinit-login.service"
+_cp "/etc/systemd/system/pacmandb.service"    "systemd-units/pacmandb.service"
+
+
 
 echo "Tarefa completada com sucesso!"
 exit 0
