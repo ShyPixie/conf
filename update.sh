@@ -29,6 +29,7 @@ _cp "${HOME}/.kde4/env/opengl-vsync.sh"      "kde/env/opengl-vsync.sh"
 _cp "${HOME}/.kde4/env/qt-graphicssystem.sh" "kde/env/qt-graphicssystem.sh"
 _cp "${HOME}/.kde4/share/config/kwinrc"      "kde/kwinrc"
 _cp "/usr/share/config/kdm/Xsession"         "kde/Xsession"
+_cp "/usr/share/apps/kdm/sessions/kde-plasma.desktop" "kde/kde-plasma.desktop"
 
 # /etc
 _cp "/etc/modprobe.d/k10temp.conf"         "modprobe.d/k10temp.conf"
