@@ -3,8 +3,7 @@ Description=Keyboard leds configuration
 
 [Service]
 Type=oneshot
-RemainAfterExit=yes
-ExecStart=/usr/bin/tleds -d 20 -c -q eth0
+ExecStart=/usr/bin/tleds -d 20 -c -q web
 ExecStart=/usr/bin/cpuled console -c nfn -f
 KillMode=process
 Restart=no
