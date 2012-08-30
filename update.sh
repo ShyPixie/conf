@@ -47,7 +47,6 @@ _cp "/etc/yaourtrc"                        "etc/yaourtrc"
 _cp "/etc/hostname"                        "etc/hostname"
 _cp "/etc/vconsole.conf"                   "etc/vconsole.conf"
 _cp "/etc/locale.conf"                     "etc/locale.conf"
-_cp "/etc/environment"                     "etc/environment" # FIXME
 _cp "/etc/mkinitcpio.conf"                 "etc/mkinitcpio.conf"
 _cp "/etc/resolv.conf.head"                "etc/resolv.conf.head"
 _cp "/etc/resolv.conf.tail"                "etc/resolv.conf.tail"
