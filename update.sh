@@ -59,7 +59,7 @@ _cp "/etc/sysctl.conf"                     "etc/sysctl.conf"
 # udev
 _cp "/etc/udev/rules.d/10-network.rules"   "etc/udev/rules.d/10-network.rules"
 
-# systemd
+# systemd-units
 _cp "/etc/systemd/system/network.service"     "systemd-units/network.service"
 _cp "/etc/systemd/system/dhcpcd@.service"     "systemd-units/dhcpcd@.service"
 _cp "/etc/systemd/system/noip.service"        "systemd-units/noip.service"
@@ -67,7 +67,10 @@ _cp "/etc/systemd/system/leds.service"        "systemd-units/leds.service"
 _cp "/etc/systemd/system/xinit-login.service" "systemd-units/xinit-login.service"
 _cp "/etc/systemd/system/pacmandb.service"    "systemd-units/pacmandb.service"
 
-
+# systemd-sleep
+_cp "/usr/lib/systemd/system-sleep/alsa.sh"    "systemd-sleep/alsa.sh"
+_cp "/usr/lib/systemd/system-sleep/network.sh" "systemd-sleep/network.sh"
+_cp "/usr/lib/systemd/system-sleep/dhcpcd.sh"  "systemd-sleep/dhcpcd.sh"
 
 echo "Tarefa completada com sucesso!"
 exit 0
