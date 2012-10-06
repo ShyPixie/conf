@@ -1,35 +1,35 @@
 #!/bin/bash
 
-yaourt --needed --noconfirm aewan agedu akonadi-kde-light
-yaourt --needed --noconfirm alsaequal asciiquarium bash-game-manager
-yaourt --needed --noconfirm caps cdspeed colibri
-yaourt --needed --noconfirm compton-git cpuled e4rat-lite-git
-yaourt --needed --noconfirm eterm firefox-extension-greasemonkey fltk11
-yaourt --needed --noconfirm freerapid freetype2-lcd geany-git
-yaourt --needed --noconfirm geany-plugins-git geany-themes-git glc-pulseaudio-git
-yaourt --needed --noconfirm glew1.5 gnome-colors-icon-theme gnome-colors-icon-theme-extras
-yaourt --needed --noconfirm grub gtk-rezlooks-engine indigo
-yaourt --needed --noconfirm kcm-gtk kcm-qt-graphicssystem kde-gtk-config
-yaourt --needed --noconfirm kde-light kdebase-workspace-systemd kdepim-runtime-kde-light
-yaourt --needed --noconfirm kdeplasma-applet-keyleds kdeplasma-applets-simpleclock kdeplasma-applets-surtime
-yaourt --needed --noconfirm kdesudo ksh ksplash-theme-generator
-yaourt --needed --noconfirm lib32-alsaequal lib32-caps lib32-curl
-yaourt --needed --noconfirm lib32-glc-pulseaudio-git lib32-glew1.5 lib32-gtk-engine-murrine
-yaourt --needed --noconfirm lib32-ladspa lib32-libxxf86dga lib32-nvidia-utils-beta
-yaourt --needed --noconfirm lib32-sdl_mixer lib32-smpeg libast
-yaourt --needed --noconfirm libgksu-no-remember-pass libjpeg6 libkeybinder
-yaourt --needed --noconfirm libsoprano-kde-light libstreamanalyzer-kde-light libstreams-kde-light
-yaourt --needed --noconfirm libtiff4 loic mint-translations
-yaourt --needed --noconfirm mintmenu mkinitcpio-numlock ncmatrix
-yaourt --needed --noconfirm nepomuk-core-kde-light nvidia-beta-ck nvidia-utils-beta
-yaourt --needed --noconfirm oneko openssl098 package-query
-yaourt --needed --noconfirm pacman-color pasteall perl-weather-underground
-yaourt --needed --noconfirm plymouth-git pulseaudio-equalizer pydefrag-bzr
-yaourt --needed --noconfirm python-keybinder python-pyalsaaudio python-pygame
-yaourt --needed --noconfirm qjoypad r8168-ck rakarrack
-yaourt --needed --noconfirm retext screengrab sendmail
-yaourt --needed --noconfirm sfxr t50 tleds
-yaourt --needed --noconfirm tomate ttf-ms-fonts verynice
-yaourt --needed --noconfirm volwheel-svn weatherspect wine-mono
-yaourt --needed --noconfirm winetricks-svn xvidcap xxd
-yaourt --needed --noconfirm yad yafaray yaourt
+yaourt --needed --noconfirm -S aewan agedu akonadi-kde-light
+yaourt --needed --noconfirm -S alsaequal asciiquarium bash-game-manager
+yaourt --needed --noconfirm -S caps cdspeed colibri
+yaourt --needed --noconfirm -S compton-git cpuled e4rat-lite-git
+yaourt --needed --noconfirm -S eterm firefox-extension-greasemonkey fltk11
+yaourt --needed --noconfirm -S freerapid freetype2-lcd geany-git
+yaourt --needed --noconfirm -S geany-plugins-git geany-themes-git glc-pulseaudio-git
+yaourt --needed --noconfirm -S glew1.5 gnome-colors-icon-theme gnome-colors-icon-theme-extras
+yaourt --needed --noconfirm -S grub gtk-rezlooks-engine indigo
+yaourt --needed --noconfirm -S kcm-gtk kcm-qt-graphicssystem kde-gtk-config
+yaourt --needed --noconfirm -S kde-light kdebase-workspace-systemd kdepim-runtime-kde-light
+yaourt --needed --noconfirm -S kdeplasma-applet-keyleds kdeplasma-applets-simpleclock kdeplasma-applets-surtime
+yaourt --needed --noconfirm -S kdesudo ksh ksplash-theme-generator
+yaourt --needed --noconfirm -S lib32-alsaequal lib32-caps lib32-curl
+yaourt --needed --noconfirm -S lib32-glc-pulseaudio-git lib32-glew1.5 lib32-gtk-engine-murrine
+yaourt --needed --noconfirm -S lib32-ladspa lib32-libxxf86dga lib32-nvidia-utils-beta
+yaourt --needed --noconfirm -S lib32-sdl_mixer lib32-smpeg libast
+yaourt --needed --noconfirm -S libgksu-no-remember-pass libjpeg6 libkeybinder
+yaourt --needed --noconfirm -S libsoprano-kde-light libstreamanalyzer-kde-light libstreams-kde-light
+yaourt --needed --noconfirm -S libtiff4 loic mint-translations
+yaourt --needed --noconfirm -S mintmenu mkinitcpio-numlock ncmatrix
+yaourt --needed --noconfirm -S nepomuk-core-kde-light nvidia-beta-ck nvidia-utils-beta
+yaourt --needed --noconfirm -S oneko openssl098 package-query
+yaourt --needed --noconfirm -S pacman-color pasteall perl-weather-underground
+yaourt --needed --noconfirm -S plymouth-git pulseaudio-equalizer pydefrag-bzr
+yaourt --needed --noconfirm -S python-keybinder python-pyalsaaudio python-pygame
+yaourt --needed --noconfirm -S qjoypad r8168-ck rakarrack
+yaourt --needed --noconfirm -S retext screengrab sendmail
+yaourt --needed --noconfirm -S sfxr t50 tleds
+yaourt --needed --noconfirm -S tomate ttf-ms-fonts verynice
+yaourt --needed --noconfirm -S volwheel-svn weatherspect wine-mono
+yaourt --needed --noconfirm -S winetricks-svn xvidcap xxd
+yaourt --needed --noconfirm -S yad yafaray yaourt

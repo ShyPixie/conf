@@ -2,8 +2,8 @@
 # Autor: Lara Maia
 # Versão: 0.1
 
-aur_command="yaourt --needed --noconfirm"
-repo_command="pacman --needed --noconfirm"
+aur_command="yaourt --needed --noconfirm -S"
+repo_command="pacman --needed --noconfirm -S"
 heap=3
 
 function showbar() {
