@@ -1,0 +1,11 @@
+[Unit]
+Description=Home
+
+[Mount]
+What=/dev/disk/by-label/ext4home
+Where=/home
+Type=ext4
+Options=noatime,nodiratime,commit=60,data=writeback,barrier=0
+
+[Install]
+WantedBy=local-fs.target

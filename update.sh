@@ -66,6 +66,13 @@ _cp "/etc/systemd/system/leds.service"        "systemd-units/leds.service"
 _cp "/etc/systemd/system/xinit-login.service" "systemd-units/xinit-login.service"
 _cp "/etc/systemd/system/pacmandb.service"    "systemd-units/pacmandb.service"
 
+# systemd-mounts
+_cp "/etc/systemd/system/dev-sda2.swap"     "systemd-mounts/dev-sda2.swap"
+_cp "/etc/systemd/system/boot.mount"        "systemd-mounts/boot.mount"
+_cp "/etc/systemd/system/boot.automount"    "systemd-mounts/boot.automount"
+_cp "/etc/systemd/system/system.mount"      "systemd-mounts/system.mount"
+_cp "/etc/systemd/system/home.mount"        "systemd-mounts/home.mount"
+
 # systemd-sleep
 _cp "/usr/lib/systemd/system-sleep/alsa.sh"    "systemd-sleep/alsa.sh"
 _cp "/usr/lib/systemd/system-sleep/network.sh" "systemd-sleep/network.sh"

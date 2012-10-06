@@ -1,0 +1,11 @@
+[Unit]
+Description=Root
+
+[Mount]
+What=/dev/disk/by-label/ext4root
+Where=/system
+Type=ext4
+Options=remount,rw,noatime,nodiratime,commit=60,data=writeback,barrier=0
+
+[Install]
+WantedBy=local-fs.target

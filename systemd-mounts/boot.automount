@@ -1,0 +1,8 @@
+[Unit]
+Description=Boot
+
+[Mount]
+Where=/boot
+
+[Install]
+WantedBy=local-fs.target

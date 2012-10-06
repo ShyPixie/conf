@@ -1,0 +1,8 @@
+[Unit]
+Description=Swap
+
+[Mount]
+What=/dev/disk/by-label/swap2gb
+
+[Install]
+WantedBy=swap.target
