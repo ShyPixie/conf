@@ -8,6 +8,10 @@ export __GL_SYNC_TO_VBLANK=0
 
 export MOZ_DISABLE_PANGO=1
 
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd \
+                      -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+export JAVA_FONTS=/usr/share/fonts/TTF
+
 source /etc/profile
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
@@ -16,5 +20,13 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	done
 fi
 
-#openbox-session
-mate-session
+default=mate-session
+
+case $1 in
+	openbox) openbox-session ;;
+	mate)    mate-session ;;
+	kde)     faststartkde ;;
+	razor)   razor-session ;;
+	xfce)    xfce4-session ;;
+	*) exec "$default" "$@" ;;
+esac

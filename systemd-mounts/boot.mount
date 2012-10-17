@@ -2,7 +2,10 @@
 Description=Boot
 
 [Mount]
-What=/dec/disk/by-label/ext2boot
+What=/dev/disk/by-label/ext2boot
 Where=/boot
 Type=ext2
 Options=noatime,nodiratime,commit=60,data=writeback,barrier=0
+
+[Install]
+WantedBy=local-fs.target

@@ -18,9 +18,6 @@
 # Transparência do terminal
 #transset-df -a 0.7 >/dev/null
 
-# Correção de vídeos azuis
-#export VDPAU_NVIDIA_NO_OVERLAY=1
-
 # Aliases
 alias sudo='sudo '
 alias yaourt='yaourt --needed'
@@ -35,6 +32,9 @@ alias cp='cp -vi'
 alias geany='geany_checkpath'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 alias psd='systemd-cgls'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Normal Colors
 Black="\[\033[0;30m\]"  
