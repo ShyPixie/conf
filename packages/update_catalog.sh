@@ -4,7 +4,7 @@
 
 aur_command="yaourt --needed --noconfirm -S"
 repo_command="pacman --needed --noconfirm -S"
-heap=3
+heap=1
 
 function showbar() {
 	local i=$(echo "($1 / $2) * 100" | bc -l)
@@ -72,5 +72,9 @@ c=0; i=0; for package in "${packages_array_all[@]}"; do
 	((c+=1))
 	showbar $c $count_packages_all
 done; echo
+
+# fix newlines
+echo -ne '\n' >> repo_packages.sh
+echo -ne '\n' >> aur_packages.sh
 
 echo -e "Operação Completa\n"
