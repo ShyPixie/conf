@@ -38,12 +38,12 @@ pacman --needed --noconfirm -S device-mapper
 pacman --needed --noconfirm -S devil
 pacman --needed --noconfirm -S dhcpcd
 pacman --needed --noconfirm -S diffutils
+pacman --needed --noconfirm -S dillo
 pacman --needed --noconfirm -S dmidecode
 pacman --needed --noconfirm -S dnsutils
 pacman --needed --noconfirm -S dosfstools
 pacman --needed --noconfirm -S dzen2
 pacman --needed --noconfirm -S e2fsprogs
-pacman --needed --noconfirm -S emesene
 pacman --needed --noconfirm -S epdfview
 pacman --needed --noconfirm -S expect
 pacman --needed --noconfirm -S fakeroot
@@ -83,6 +83,7 @@ pacman --needed --noconfirm -S gstreamer0.10-base-plugins
 pacman --needed --noconfirm -S gstreamer0.10-ffmpeg
 pacman --needed --noconfirm -S gstreamer0.10-good
 pacman --needed --noconfirm -S gstreamer0.10-good-plugins
+pacman --needed --noconfirm -S gstreamer0.10-python
 pacman --needed --noconfirm -S gstreamer0.10-ugly
 pacman --needed --noconfirm -S gstreamer0.10-ugly-plugins
 pacman --needed --noconfirm -S gthumb
@@ -91,6 +92,7 @@ pacman --needed --noconfirm -S gtk-engine-murrine
 pacman --needed --noconfirm -S gtk-engine-unico
 pacman --needed --noconfirm -S gtk-engines
 pacman --needed --noconfirm -S gtk2
+pacman --needed --noconfirm -S gucharmap
 pacman --needed --noconfirm -S gzip
 pacman --needed --noconfirm -S hardinfo
 pacman --needed --noconfirm -S hdparm
@@ -98,16 +100,13 @@ pacman --needed --noconfirm -S heirloom-mailx
 pacman --needed --noconfirm -S hping
 pacman --needed --noconfirm -S htop
 pacman --needed --noconfirm -S hydrogen
-pacman --needed --noconfirm -S icedtea-web-java7
 pacman --needed --noconfirm -S inetutils
 pacman --needed --noconfirm -S iproute2
 pacman --needed --noconfirm -S iptables
 pacman --needed --noconfirm -S iptraf-ng
 pacman --needed --noconfirm -S iputils
 pacman --needed --noconfirm -S jack
-pacman --needed --noconfirm -S jdk7-openjdk
 pacman --needed --noconfirm -S jfsutils
-pacman --needed --noconfirm -S jre7-openjdk
 pacman --needed --noconfirm -S kde-l10n-pt_br
 pacman --needed --noconfirm -S kde-wallpapers
 pacman --needed --noconfirm -S kdebase-dolphin
@@ -127,6 +126,7 @@ pacman --needed --noconfirm -S lib32-alsa-lib
 pacman --needed --noconfirm -S lib32-alsa-plugins
 pacman --needed --noconfirm -S lib32-freetype2
 pacman --needed --noconfirm -S lib32-glew
+pacman --needed --noconfirm -S lib32-lcms
 pacman --needed --noconfirm -S lib32-libcanberra-pulse
 pacman --needed --noconfirm -S lib32-libpng
 pacman --needed --noconfirm -S lib32-libpulse
@@ -183,12 +183,12 @@ pacman --needed --noconfirm -S mate-media
 pacman --needed --noconfirm -S mate-menu-editor
 pacman --needed --noconfirm -S mate-menus
 pacman --needed --noconfirm -S mate-mime-data
-pacman --needed --noconfirm -S mate-notification-daemon
 pacman --needed --noconfirm -S mate-panel
 pacman --needed --noconfirm -S mate-polkit
 pacman --needed --noconfirm -S mate-session-manager
 pacman --needed --noconfirm -S mate-settings-daemon
 pacman --needed --noconfirm -S mate-themes
+pacman --needed --noconfirm -S mate-utils
 pacman --needed --noconfirm -S mate-vfs
 pacman --needed --noconfirm -S mate-window-manager
 pacman --needed --noconfirm -S mdadm
@@ -207,7 +207,9 @@ pacman --needed --noconfirm -S nawk
 pacman --needed --noconfirm -S nmap
 pacman --needed --noconfirm -S ntfsprogs
 pacman --needed --noconfirm -S numlockx
+pacman --needed --noconfirm -S obconf
 pacman --needed --noconfirm -S openal
+pacman --needed --noconfirm -S openbox
 pacman --needed --noconfirm -S openssh
 pacman --needed --noconfirm -S p7zip
 pacman --needed --noconfirm -S pacman
@@ -244,7 +246,9 @@ pacman --needed --noconfirm -S python2-numpy
 pacman --needed --noconfirm -S python2-pyinotify
 pacman --needed --noconfirm -S python2-pyqt
 pacman --needed --noconfirm -S python2-xdg
+pacman --needed --noconfirm -S pywebkitgtk
 pacman --needed --noconfirm -S qjackctl
+pacman --needed --noconfirm -S rdesktop
 pacman --needed --noconfirm -S reiserfsprogs
 pacman --needed --noconfirm -S ristretto
 pacman --needed --noconfirm -S samba
@@ -293,6 +297,7 @@ pacman --needed --noconfirm -S wine
 pacman --needed --noconfirm -S wine_gecko
 pacman --needed --noconfirm -S wmctrl
 pacman --needed --noconfirm -S wpa_supplicant
+pacman --needed --noconfirm -S x11vnc
 pacman --needed --noconfirm -S xfburn
 pacman --needed --noconfirm -S xfsprogs
 pacman --needed --noconfirm -S xnee
@@ -346,5 +351,4 @@ pacman --needed --noconfirm -S xorg-xvinfo
 pacman --needed --noconfirm -S xorg-xwd
 pacman --needed --noconfirm -S xorg-xwininfo
 pacman --needed --noconfirm -S xorg-xwud
-pacman --needed --noconfirm -S xulrunner
 pacman --needed --noconfirm -S zip

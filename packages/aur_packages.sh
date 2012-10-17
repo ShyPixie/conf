@@ -5,13 +5,14 @@ yaourt --needed --noconfirm -S agedu
 yaourt --needed --noconfirm -S akonadi-kde-light
 yaourt --needed --noconfirm -S alsaequal
 yaourt --needed --noconfirm -S asciiquarium
+yaourt --needed --noconfirm -S audio-recorder
 yaourt --needed --noconfirm -S bash-game-manager
 yaourt --needed --noconfirm -S caps
 yaourt --needed --noconfirm -S cdspeed
-yaourt --needed --noconfirm -S colibri
 yaourt --needed --noconfirm -S compton-git
 yaourt --needed --noconfirm -S cpuled
 yaourt --needed --noconfirm -S e4rat-lite-git
+yaourt --needed --noconfirm -S emesene2-git
 yaourt --needed --noconfirm -S eterm
 yaourt --needed --noconfirm -S firefox-extension-greasemonkey
 yaourt --needed --noconfirm -S fltk11
@@ -27,6 +28,8 @@ yaourt --needed --noconfirm -S gnome-colors-icon-theme-extras
 yaourt --needed --noconfirm -S grub
 yaourt --needed --noconfirm -S gtk-rezlooks-engine
 yaourt --needed --noconfirm -S indigo
+yaourt --needed --noconfirm -S jd-gui
+yaourt --needed --noconfirm -S jre
 yaourt --needed --noconfirm -S kcm-gtk
 yaourt --needed --noconfirm -S kcm-qt-graphicssystem
 yaourt --needed --noconfirm -S kde-gtk-config
@@ -42,11 +45,14 @@ yaourt --needed --noconfirm -S ksplash-theme-generator
 yaourt --needed --noconfirm -S lib32-alsaequal
 yaourt --needed --noconfirm -S lib32-caps
 yaourt --needed --noconfirm -S lib32-curl
+yaourt --needed --noconfirm -S lib32-fuse
 yaourt --needed --noconfirm -S lib32-glc-pulseaudio-git
 yaourt --needed --noconfirm -S lib32-glew1.5
 yaourt --needed --noconfirm -S lib32-gtk-engine-murrine
 yaourt --needed --noconfirm -S lib32-ladspa
 yaourt --needed --noconfirm -S lib32-libxxf86dga
+yaourt --needed --noconfirm -S lib32-nspr
+yaourt --needed --noconfirm -S lib32-nss
 yaourt --needed --noconfirm -S lib32-nvidia-utils-beta
 yaourt --needed --noconfirm -S lib32-sdl_mixer
 yaourt --needed --noconfirm -S lib32-smpeg
@@ -64,6 +70,7 @@ yaourt --needed --noconfirm -S mintmenu
 yaourt --needed --noconfirm -S mkinitcpio-numlock
 yaourt --needed --noconfirm -S ncmatrix
 yaourt --needed --noconfirm -S nepomuk-core-kde-light
+yaourt --needed --noconfirm -S notipy-fork
 yaourt --needed --noconfirm -S nvidia-beta-ck
 yaourt --needed --noconfirm -S nvidia-utils-beta
 yaourt --needed --noconfirm -S oneko
@@ -81,6 +88,7 @@ yaourt --needed --noconfirm -S python-pygame
 yaourt --needed --noconfirm -S qjoypad
 yaourt --needed --noconfirm -S r8168-ck
 yaourt --needed --noconfirm -S rakarrack
+yaourt --needed --noconfirm -S razor-qt
 yaourt --needed --noconfirm -S retext
 yaourt --needed --noconfirm -S screengrab
 yaourt --needed --noconfirm -S sendmail
@@ -94,6 +102,7 @@ yaourt --needed --noconfirm -S volwheel-svn
 yaourt --needed --noconfirm -S weatherspect
 yaourt --needed --noconfirm -S wine-mono
 yaourt --needed --noconfirm -S winetricks-svn
+yaourt --needed --noconfirm -S xrdp
 yaourt --needed --noconfirm -S xvidcap
 yaourt --needed --noconfirm -S xxd
 yaourt --needed --noconfirm -S yad
