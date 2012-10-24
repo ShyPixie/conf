@@ -1,0 +1,14 @@
+build ()
+{
+  _version=$(pacman -Q r8168-dkms|sed 's/^[^ ]* \|-[0-9]*$//g;2d')
+  echo "Building r8168 modules for ${KERNELVERSION} kernel..."
+  dkms install r8168-dkms/${_version} -k ${KERNELVERSION}/_arch
+  echo "Ok."
+}
+
+help ()
+{
+cat<<HELPEOF
+  This hook rebuilds r8168 modules. It does nothing to the initrd image.
+HELPEOF
+}
