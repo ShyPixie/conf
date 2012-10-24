@@ -24,9 +24,9 @@ default=mate-session
 
 case $1 in
 	openbox) openbox-session ;;
-	mate)    mate-session ;;
-	kde)     faststartkde ;;
-	razor)   razor-session ;;
-	xfce)    xfce4-session ;;
-	*) exec "$default" "$@" ;;
+	mate)    mate-session    ;;
+	kde)     faststartkde    ;;
+	razor)   razor-session   ;;
+	xfce)    xfce4-session   ;;
+	*) exec "$default" "$@"  ;;
 esac

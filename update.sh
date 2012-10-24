@@ -31,9 +31,17 @@ _cp "${HOME}/.kde4/share/config/kwinrc"      "kde/kwinrc"
 _cp "/usr/share/config/kdm/Xsession"         "kde/Xsession"
 #_cp "/usr/share/apps/kdm/sessions/kde-plasma.desktop" "kde/kde-plasma.desktop"
 
+# modprobe.d
+_cp "/etc/modprobe.d/k10temp.conf"           "modprobe.d/k10temp.conf"
+_cp "/etc/modprobe.d/alsa.conf"              "modprobe.d/alsa.conf"
+_cp "/etc/modprobe.d/r8169_blacklist.conf"   "modprobe.d/r8169_blacklist.conf"
+_cp "/etc/modprobe.d/nouveau_blacklist.conf" "modprobe.d/nouveau_blacklist.conf"
+
+# initcpio hooks
+_cp "/usr/lib/initcpio/install/nvidia"    "initcpio-hooks/nvidia"
+_cp "/usr/lib/initcpio/install/r8168"     "initcpio-hooks/r8168"
+
 # /etc
-_cp "/etc/modprobe.d/k10temp.conf"         "modprobe.d/k10temp.conf"
-_cp "/etc/modprobe.d/r8169_blacklist.conf" "modprobe.d/r8169_blacklist.conf"
 _cp "/etc/iptables/iptables.rules"         "iptables.rules"
 _cp "/etc/X11/xorg.conf"                   "xorg.conf"
 _cp "/etc/bash.bashrc"                     "etc/bash.bashrc"
@@ -51,9 +59,10 @@ _cp "/etc/mkinitcpio.conf"                 "etc/mkinitcpio.conf"
 _cp "/etc/resolv.conf.head"                "etc/resolv.conf.head"
 _cp "/etc/resolv.conf.tail"                "etc/resolv.conf.tail"
 _cp "/etc/sysctl.conf"                     "etc/sysctl.conf"
-#lighttpd
-#squid
-#sudoers
+# /srv/lighttpd
+# /srv/squid
+# /etc/sudoers
+# ~/.Skype/config.xml
 
 # udev
 _cp "/etc/udev/rules.d/10-network.rules"   "etc/udev/rules.d/10-network.rules"

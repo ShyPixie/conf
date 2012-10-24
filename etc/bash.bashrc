@@ -18,6 +18,9 @@
 # Transparência do terminal
 #transset-df -a 0.7 >/dev/null
 
+# Fortunes
+echo&&fortune /usr/share/fortune/brasil&&echo
+
 # Aliases
 alias sudo='sudo '
 alias yaourt='yaourt --needed'

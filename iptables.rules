@@ -1,17 +1,73 @@
 # Script de configuração inicial do iptables
 # Autor: Lara Maia <lara@craft.net.br>
-# Versão: 0.3
+# Versão: 0.4
 
 *filter
 
-# Proteção contra ataques, scanners, tracerouts, etc..."
+-A INPUT -i lo -j ACCEPT
+-A INPUT  -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+-A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+-A INPUT -i web -j ACCEPT
+-A INPUT -p tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp --dport 21 -j ACCEPT
+
+# Bloqueia Ping da Morte
+-A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
+-A INPUT -p icmp -j DROP
+
+# Bloqueia DoS
+-A INPUT -m conntrack --ctstate INVALID -j DROP
+-A OUTPUT -p tcp ! --tcp-flags SYN,RST,ACK SYN -m conntrack --ctstate NEW -j DROP
+
+# Bloqueia Fraggle
+-A INPUT -p udp -m pkttype --pkt-type broadcast -j DROP
+-A INPUT -p udp -m limit --limit 3/s -j ACCEPT
+
+# Bloqueia UDP Flood
+-A INPUT -p udp --dport 7 -j DROP
+-A INPUT -p udp --dport 19 -j DROP
+
+# Bloqueia Smurf
+-A INPUT -m pkttype --pkt-type broadcast -j DROP
+-A INPUT -p icmp --icmp-type echo-request -m pkttype --pkt-type broadcast -j DROP
+-A INPUT -p icmp --icmp-type echo-request -m limit --limit 3/s -j ACCEPT
+
+# Bloqueia SMBnuke
+-A INPUT -p udp --dport 135:139 -j DROP
+-A INPUT -p tcp --dport 135:139 -j DROP
+
+# Scanners
 -A INPUT -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
-#-A INPUT -p udp -s 0/0 -i lan --dport 33435:33525 -j DROP
--A INPUT -m state --state INVALID -j DROP
--A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
+-A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
+
+# Bloqueia NetBus
+-A INPUT -p tcp --dport 12345:12346 -j DROP
+-A INPUT -p udp --dport 12345:12346 -j DROP
+
+# Bloqueia traceroutes
+-A INPUT -p udp --dport 33435:33525 -j DROP
+-A INPUT -p tcp --dport 113 -j REJECT
+-A INPUT -p igmp -j REJECT
+-A INPUT -p tcp --dport 80 -j REJECT
+-A INPUT -p tcp --dport 443 -j REJECT
+
+# Descarta fragmentados
+-N VALID_CHECK
+-A VALID_CHECK -p tcp --tcp-flags ALL FIN,URG,PSH -j DROP
+-A VALID_CHECK -p tcp --tcp-flags ALL SYN,RST,ACK,FIN,URG -j DROP
+-A VALID_CHECK -p tcp --tcp-flags ALL ALL -j DROP
+-A VALID_CHECK -p tcp --tcp-flags ALL FIN -j DROP
+-A VALID_CHECK -p tcp --tcp-flags SYN,RST SYN,RST -j DROP
+-A VALID_CHECK -p tcp --tcp-flags SYN,FIN SYN,FIN -j DROP
+-A VALID_CHECK -p tcp --tcp-flags ALL NONE -j DROP
 
 # Bloqueia acesso externo ao squid
 #-A INPUT -p tcp --dport 3128 -i web -j DROP
+
+# Bloqueia o resto
+-A INPUT -p tcp --syn -j DROP
 
 COMMIT
 
