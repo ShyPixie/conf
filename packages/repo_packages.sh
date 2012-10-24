@@ -17,6 +17,8 @@ pacman --needed --noconfirm -S bash
 pacman --needed --noconfirm -S bash-completion
 pacman --needed --noconfirm -S bc
 pacman --needed --noconfirm -S binutils-multilib
+pacman --needed --noconfirm -S bitcoin-daemon
+pacman --needed --noconfirm -S bitcoin-qt
 pacman --needed --noconfirm -S blender
 pacman --needed --noconfirm -S boost
 pacman --needed --noconfirm -S boost-libs
@@ -39,9 +41,11 @@ pacman --needed --noconfirm -S devil
 pacman --needed --noconfirm -S dhcpcd
 pacman --needed --noconfirm -S diffutils
 pacman --needed --noconfirm -S dillo
+pacman --needed --noconfirm -S dkms
 pacman --needed --noconfirm -S dmidecode
 pacman --needed --noconfirm -S dnsutils
 pacman --needed --noconfirm -S dosfstools
+pacman --needed --noconfirm -S dvdrtools
 pacman --needed --noconfirm -S dzen2
 pacman --needed --noconfirm -S e2fsprogs
 pacman --needed --noconfirm -S epdfview
@@ -55,11 +59,11 @@ pacman --needed --noconfirm -S findutils
 pacman --needed --noconfirm -S firefox
 pacman --needed --noconfirm -S firefox-i18n-pt-br
 pacman --needed --noconfirm -S flashplugin
+pacman --needed --noconfirm -S fortune-mod
 pacman --needed --noconfirm -S fping
 pacman --needed --noconfirm -S freealut
 pacman --needed --noconfirm -S gawk
 pacman --needed --noconfirm -S gcc-multilib
-pacman --needed --noconfirm -S gconf-editor
 pacman --needed --noconfirm -S gdb
 pacman --needed --noconfirm -S geoip
 pacman --needed --noconfirm -S gettext
@@ -152,15 +156,12 @@ pacman --needed --noconfirm -S libmatewnck
 pacman --needed --noconfirm -S libnet
 pacman --needed --noconfirm -S libtool-multilib
 pacman --needed --noconfirm -S libvdpau
-pacman --needed --noconfirm -S libwebkit
-pacman --needed --noconfirm -S libwebkit3
 pacman --needed --noconfirm -S libx11
 pacman --needed --noconfirm -S licenses
 pacman --needed --noconfirm -S links
 pacman --needed --noconfirm -S linux-ck-kx
 pacman --needed --noconfirm -S linux-ck-kx-headers
 pacman --needed --noconfirm -S lm_sensors
-pacman --needed --noconfirm -S luxblend25
 pacman --needed --noconfirm -S lvm2
 pacman --needed --noconfirm -S lxappearance
 pacman --needed --noconfirm -S make
@@ -171,6 +172,7 @@ pacman --needed --noconfirm -S mate-applets
 pacman --needed --noconfirm -S mate-backgrounds
 pacman --needed --noconfirm -S mate-common
 pacman --needed --noconfirm -S mate-conf
+pacman --needed --noconfirm -S mate-conf-editor
 pacman --needed --noconfirm -S mate-control-center
 pacman --needed --noconfirm -S mate-corba
 pacman --needed --noconfirm -S mate-desktop
@@ -187,6 +189,7 @@ pacman --needed --noconfirm -S mate-panel
 pacman --needed --noconfirm -S mate-polkit
 pacman --needed --noconfirm -S mate-session-manager
 pacman --needed --noconfirm -S mate-settings-daemon
+pacman --needed --noconfirm -S mate-terminal
 pacman --needed --noconfirm -S mate-themes
 pacman --needed --noconfirm -S mate-utils
 pacman --needed --noconfirm -S mate-vfs
@@ -201,10 +204,12 @@ pacman --needed --noconfirm -S mkinitcpio
 pacman --needed --noconfirm -S mlocate
 pacman --needed --noconfirm -S mpg123
 pacman --needed --noconfirm -S mplayer
+pacman --needed --noconfirm -S mtools
 pacman --needed --noconfirm -S namcap
 pacman --needed --noconfirm -S nano
 pacman --needed --noconfirm -S nawk
 pacman --needed --noconfirm -S nmap
+pacman --needed --noconfirm -S noip
 pacman --needed --noconfirm -S ntfsprogs
 pacman --needed --noconfirm -S numlockx
 pacman --needed --noconfirm -S obconf
@@ -213,6 +218,7 @@ pacman --needed --noconfirm -S openbox
 pacman --needed --noconfirm -S openssh
 pacman --needed --noconfirm -S p7zip
 pacman --needed --noconfirm -S pacman
+pacman --needed --noconfirm -S pangox-compat
 pacman --needed --noconfirm -S paprefs
 pacman --needed --noconfirm -S patch
 pacman --needed --noconfirm -S pavucontrol
@@ -242,6 +248,7 @@ pacman --needed --noconfirm -S python-mate
 pacman --needed --noconfirm -S python-mate-desktop
 pacman --needed --noconfirm -S python2
 pacman --needed --noconfirm -S python2-gconf
+pacman --needed --noconfirm -S python2-notify
 pacman --needed --noconfirm -S python2-numpy
 pacman --needed --noconfirm -S python2-pyinotify
 pacman --needed --noconfirm -S python2-pyqt
@@ -273,7 +280,6 @@ pacman --needed --noconfirm -S syslog-ng
 pacman --needed --noconfirm -S systemd
 pacman --needed --noconfirm -S tar
 pacman --needed --noconfirm -S tcpdump
-pacman --needed --noconfirm -S terminal
 pacman --needed --noconfirm -S terminus-font
 pacman --needed --noconfirm -S texinfo
 pacman --needed --noconfirm -S traceroute
@@ -281,6 +287,7 @@ pacman --needed --noconfirm -S transcode
 pacman --needed --noconfirm -S tumbler
 pacman --needed --noconfirm -S tzdata
 pacman --needed --noconfirm -S udisks
+pacman --needed --noconfirm -S unetbootin
 pacman --needed --noconfirm -S unrar
 pacman --needed --noconfirm -S upower
 pacman --needed --noconfirm -S upx
@@ -290,6 +297,8 @@ pacman --needed --noconfirm -S vi
 pacman --needed --noconfirm -S vidalia
 pacman --needed --noconfirm -S vlc
 pacman --needed --noconfirm -S vorbis-tools
+pacman --needed --noconfirm -S webkitgtk2
+pacman --needed --noconfirm -S webkitgtk3
 pacman --needed --noconfirm -S wget
 pacman --needed --noconfirm -S which
 pacman --needed --noconfirm -S whois

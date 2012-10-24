@@ -16,6 +16,7 @@ yaourt --needed --noconfirm -S emesene2-git
 yaourt --needed --noconfirm -S eterm
 yaourt --needed --noconfirm -S firefox-extension-greasemonkey
 yaourt --needed --noconfirm -S fltk11
+yaourt --needed --noconfirm -S fortune-mod-br
 yaourt --needed --noconfirm -S freerapid
 yaourt --needed --noconfirm -S freetype2-lcd
 yaourt --needed --noconfirm -S geany-git
@@ -27,6 +28,7 @@ yaourt --needed --noconfirm -S gnome-colors-icon-theme
 yaourt --needed --noconfirm -S gnome-colors-icon-theme-extras
 yaourt --needed --noconfirm -S grub
 yaourt --needed --noconfirm -S gtk-rezlooks-engine
+yaourt --needed --noconfirm -S gtkglarea
 yaourt --needed --noconfirm -S indigo
 yaourt --needed --noconfirm -S jd-gui
 yaourt --needed --noconfirm -S jre
@@ -64,6 +66,7 @@ yaourt --needed --noconfirm -S libsoprano-kde-light
 yaourt --needed --noconfirm -S libstreamanalyzer-kde-light
 yaourt --needed --noconfirm -S libstreams-kde-light
 yaourt --needed --noconfirm -S libtiff4
+yaourt --needed --noconfirm -S liferea-unstable
 yaourt --needed --noconfirm -S loic
 yaourt --needed --noconfirm -S mint-translations
 yaourt --needed --noconfirm -S mintmenu
@@ -71,7 +74,7 @@ yaourt --needed --noconfirm -S mkinitcpio-numlock
 yaourt --needed --noconfirm -S ncmatrix
 yaourt --needed --noconfirm -S nepomuk-core-kde-light
 yaourt --needed --noconfirm -S notipy-fork
-yaourt --needed --noconfirm -S nvidia-beta-ck
+yaourt --needed --noconfirm -S nvidia-source-beta
 yaourt --needed --noconfirm -S nvidia-utils-beta
 yaourt --needed --noconfirm -S oneko
 yaourt --needed --noconfirm -S openssl098
@@ -86,9 +89,9 @@ yaourt --needed --noconfirm -S python-keybinder
 yaourt --needed --noconfirm -S python-pyalsaaudio
 yaourt --needed --noconfirm -S python-pygame
 yaourt --needed --noconfirm -S qjoypad
-yaourt --needed --noconfirm -S r8168-ck
+yaourt --needed --noconfirm -S r8168-dkms
 yaourt --needed --noconfirm -S rakarrack
-yaourt --needed --noconfirm -S razor-qt
+yaourt --needed --noconfirm -S read-edid
 yaourt --needed --noconfirm -S retext
 yaourt --needed --noconfirm -S screengrab
 yaourt --needed --noconfirm -S sendmail
@@ -100,7 +103,7 @@ yaourt --needed --noconfirm -S ttf-ms-fonts
 yaourt --needed --noconfirm -S verynice
 yaourt --needed --noconfirm -S volwheel-svn
 yaourt --needed --noconfirm -S weatherspect
-yaourt --needed --noconfirm -S wine-mono
+yaourt --needed --noconfirm -S wine-mono-bin
 yaourt --needed --noconfirm -S winetricks-svn
 yaourt --needed --noconfirm -S xrdp
 yaourt --needed --noconfirm -S xvidcap
