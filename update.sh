@@ -1,5 +1,6 @@
 #!/bin/sh
-if [ `id -u` == 0 ]; then echo "EPA!"; fi
+test $(id -u) == 0 && echo "EPA" && exit 1
+
 function _cp() {
 	if [ -f "$1" ]; then
 		echo "Copiando arquivo '$1' para '$2'"
@@ -52,6 +53,7 @@ _cp "/etc/dhcpcd.conf"                     "etc/dhcpcd.conf"
 _cp "/etc/lilo.conf"                       "etc/lilo.conf"
 _cp "/etc/makepkg.conf"                    "etc/makepkg.conf"
 _cp "/etc/yaourtrc"                        "etc/yaourtrc"
+_cp "/etc/pacman.conf"                     "etc/pacman.conf"
 _cp "/etc/hostname"                        "etc/hostname"
 _cp "/etc/vconsole.conf"                   "etc/vconsole.conf"
 _cp "/etc/locale.conf"                     "etc/locale.conf"
