@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<config version="1.0" serial="3271" timestamp="1341564413.9">
+<config version="1.0" serial="3279" timestamp="1351794131.17">
   <Lib>
     <Account>
       <IdleTimeForAway>180</IdleTimeForAway>
@@ -11,28 +11,26 @@
       <ApplyCF>0</ApplyCF>
       <DPC>4100</DPC>
       <IncomingPolicy>everyone</IncomingPolicy>
+      <MissedCallsRegistrarAnchor>0</MissedCallsRegistrarAnchor>
       <VideoEndPoints>F6E4DFCE</VideoEndPoints>
     </Call>
     <CentralStorage>
       <LastBackoff>0</LastBackoff>
       <LastFailure>0</LastFailure>
-      <LastSync>1341340607</LastSync>
+      <LastSync>1351794010</LastSync>
       <NeedSync>0</NeedSync>
       <SyncSet>
         <p>
-          <avatar>8f74de27:0</avatar>
-          <email>a05506e6:0</email>
-          <mood>c60bc237:0</mood>
-          <profile>3c45db86:0</profile>
+          <avatar>b6ce4aba:2</avatar>
+          <email>1b33e1e6:2</email>
+          <mood>41991475:2</mood>
+          <profile>db6075b:2</profile>
         </p>
         <u>
-          <echo123>4c17eb23:0</echo123>
-          <mlosch>45afd083:2</mlosch>
-          <nayslipk>cd46871c:2</nayslipk>
-          <o.2Emelhor.2Edo.2Ebairro>1c845471:2</o.2Emelhor.2Edo.2Ebairro>
-          <onlineskype>da87718f:2</onlineskype>
-          <rumaia1>6c63e477:2</rumaia1>
-          <serhgioh>fa42e13c:0</serhgioh>
+          <blackice.2Ex>72901e1e:2</blackice.2Ex>
+          <echo123>4c17eb23:2</echo123>
+          <serhgioh>4c761366:2</serhgioh>
+          <thiago_mobil>f2c651a9:2</thiago_mobil>
         </u>
       </SyncSet>
     </CentralStorage>
@@ -47,18 +45,19 @@
       <DupeLegacyDeleted>1</DupeLegacyDeleted>
       <GivenDisplaynameFixed>1</GivenDisplaynameFixed>
       <PermanenceFixed>1</PermanenceFixed>
-      <PruningHorizon>1341564393</PruningHorizon>
+      <PruningHorizon>1351794008</PruningHorizon>
       <RecentlyLiveTimeout>0</RecentlyLiveTimeout>
     </Conversation>
     <DynContent>
       <LastIpCountry>br</LastIpCountry>
       <S>
-        <LastTime>1341564105</LastTime>
+        <LastTime>1351794010</LastTime>
       </S>
       <UILang>pt-br</UILang>
     </DynContent>
     <FileTransfer>
-      <SavePath>/home/lara/Downloads</SavePath>
+      <AutoAccept>1</AutoAccept>
+      <SavePath>/home/mrk3004/Downloads</SavePath>
     </FileTransfer>
     <Message>
       <DisableHistory>1</DisableHistory>
@@ -66,11 +65,11 @@
     </Message>
     <Notification>
       <LastID>1000000156</LastID>
-      <LastPoll>1341564103</LastPoll>
-      <LastSearch>1341564393</LastSearch>
+      <LastPoll>1351794010</LastPoll>
+      <LastSearch>1351794010</LastSearch>
     </Notification>
     <PM>
-      <pslut>1341564105</pslut>
+      <pslut>1351794010</pslut>
     </PM>
     <ProfilePopulated>1</ProfilePopulated>
     <PropsManager>
@@ -82,19 +81,19 @@
       <CliOptionsVersion>2</CliOptionsVersion>
     </Sms>
     <StatsSender>
-      <CollectorLastSent>1341564105</CollectorLastSent>
-      <CollectorSeq>14</CollectorSeq>
+      <CollectorLastSent>1351794010</CollectorLastSent>
+      <CollectorSeq>15</CollectorSeq>
       <Phase2>
         <ProposedDelivery>1341429082</ProposedDelivery>
       </Phase2>
-      <Saved>41030001C9C9DAFF040502410A00F801B60100FA010000FC01A31900AC020000AD020000AE020000FD010000FE010000FF010000800200000300</Saved>
-      <SubmitID>57</SubmitID>
+      <Saved>41030001DAFACA84050502410A00F801B60100FA010000FC01A31900AC020000AD020000AE020000FD010000FE010000FF010000800201000300</Saved>
+      <SubmitID>59</SubmitID>
       <Type2SubmitID>
-        <_1>44</_1>
+        <_1>45</_1>
       </Type2SubmitID>
     </StatsSender>
     <table_insert_history>
-      <a9c28318d30430b9728cd43094b315faa67d8a11f9192fd0e734d1536d63af9b>1341650811 44457:21600:1341564411 21041:17280:1341564411 52233:28800:1341564411 28901:21600:1341564411 2147484210:86400:1341564411</a9c28318d30430b9728cd43094b315faa67d8a11f9192fd0e734d1536d63af9b>
+      <_549e9fb0918ab7106bce1fcff7203a5865ccb755c8ac2715744e837102b9c188>1351880426 40721:21600:1351794026 44457:21600:1351794026 21041:17280:1351794026 52762:28800:1351794026 2147484162:86400:1351794026</_549e9fb0918ab7106bce1fcff7203a5865ccb755c8ac2715744e837102b9c188>
     </table_insert_history>
   </Lib>
   <UI>
@@ -141,6 +140,7 @@
     <Sound>
       <IncomingChat>0</IncomingChat>
     </Sound>
+    <TechCallInf>1</TechCallInf>
     <TransferWindow>
       <Height>196</Height>
       <NoCancelConfirmation>0</NoCancelConfirmation>
