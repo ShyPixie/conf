@@ -8,10 +8,10 @@ Enabled=true
 GLLegacy=false
 GLTextureFilter=2
 GLVSync=false
-GraphicsSystem=native
+GraphicsSystem=raster
 HiddenPreviews=4
 OpenGLIsUnsafe=false
-UnredirectFullscreen=true
+UnredirectFullscreen=false
 XRenderSmoothScale=false
 
 [Desktops]
@@ -28,6 +28,9 @@ CacheTexture=true
 TabBox=false
 TabBoxAlternative=false
 
+[Effect-CoverSwitch]
+TabBox=false
+
 [Effect-CubeSlide]
 DontSlidePanels=true
 DontSlideStickyWindows=false
@@ -35,9 +38,16 @@ RotationDuration=0
 UsePagerLayout=true
 UseWindowMoving=true
 
+[Effect-FlipSwitch]
+TabBox=false
+
 [Effect-Glide]
 GlideAngle=1
 GlideEffect=0
+
+[Effect-PresentWindows]
+LayoutMode=1
+TabBox=true
 
 [Effect-Wobbly]
 AdvancedMode=false
@@ -125,8 +135,8 @@ TextOnly=false
 [Style]
 BorderSize=1
 ButtonsOnLeft=MS
-ButtonsOnRight=HIAX
-CustomButtonPositions=false
+ButtonsOnRight=H__AX
+CustomButtonPositions=true
 PluginLib=kwin3_aurorae
 ShowToolTips=true
 
@@ -141,6 +151,7 @@ AutoRaiseInterval=750
 AutogroupInForeground=true
 AutogroupSimilarWindows=false
 BorderSnapZone=10
+BorderlessMaximizedWindows=true
 CenterSnapZone=0
 ClickRaise=true
 DelayFocusInterval=750
@@ -154,7 +165,7 @@ MaximizeButtonMiddleClickCommand=Maximize (vertical only)
 MaximizeButtonRightClickCommand=Maximize (horizontal only)
 MoveResizeMaximizedWindows=false
 NextFocusPrefersMouse=false
-Placement=Centered
+Placement=Maximizing
 RollOverDesktops=true
 SeparateScreenFocus=false
 ShadeHover=false

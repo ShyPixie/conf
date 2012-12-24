@@ -23,12 +23,14 @@ echo&&fortune /usr/share/fortune/brasil&&echo
 
 # Aliases
 alias sudo='sudo '
-alias yaourt='yaourt --needed'
+alias yaourt='yaourt_wrapper'
 alias ls='ls --group-directories-first -h --color=auto'
 alias la='ls -lha --group-directories-first -h --color=auto'
 alias lo='ls -a --group-directories-first -h --color=auto'
 alias grep='grep --color=auto'
 alias pacman='pacman-color'
+alias k='killall'
+alias kf='killall -9'
 alias rm='rm -vi'
 alias mv='mv -vi'
 alias cp='cp -vi'

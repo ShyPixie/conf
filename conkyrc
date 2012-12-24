@@ -14,7 +14,7 @@ border_margin 0
 draw_shades yes
 
 gap_x 0
-gap_y 5
+gap_y 720
 alignment top_left
 
 update_interval 1
@@ -23,7 +23,7 @@ default_color 8f8f8f
 own_window_colour 1A0025
 
 use_xft yes
-xftfont Sans:size=11
+xftfont Arial:size=11
 
 # override_utf8_locale yes
 
@@ -40,5 +40,5 @@ Home: ${color e0e0e0}${fs_used_perc /home/mrk3004}% ${color} \
 Root: ${color e0e0e0}${fs_used_perc /}%${color}  |  \
 Cpu: ${color e0e0e0}${execi 20 /usr/bin/sysinfo --cputemp ;}${color}  \
 Gpu: ${color e0e0e0}${execi 20 /usr/bin/sysinfo --gputemp ;}${color}  |  \
-Eth0: ${color e0e0e0}U: ${upspeed eth0}${color} ${color e0e0e0}D: ${downspeed eth0}${color}  \
-Eth1: ${color e0e0e0}U: ${upspeed eth1}${color} ${color e0e0e0}D: ${downspeed eth1}${color}
+Web: ${color e0e0e0}U: ${upspeed web}${color} ${color e0e0e0}D: ${downspeed web}${color}  \
+#Lan: ${color e0e0e0}U: ${upspeed lan}${color} ${color e0e0e0}D: ${downspeed lan}${color}

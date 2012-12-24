@@ -3,11 +3,15 @@ exec >/dev/null 2>&1
 
 #--- papel de parede ---
 #nitrogen --restore
-#hsetroot -fill ~/Imagens/papel_de_parede.png &
-tilda &
+if [ -f ~/Imagens/papel_de_parede.jpg ]; then
+	hsetroot -fill ~/Imagens/papel-de-parede.jpg &
+else
+	hsetroot -fill ~/Imagens/papel-de-parede.png &
+fi
+#tilda &
 
 #--- Compositores ---
-#~/.compstart
+~/.compstart
 
 #--- Daemons de notificação ---
 notipy &
@@ -16,10 +20,10 @@ notipy &
 
 #--- Paineis ---
 #tint2 &
-#bmpanel2 &
+bmpanel2 &
 #pypanel &
 #xfce4-panel &
-adeskbar viny &
+#adeskbar viny &
 (sleep 2 && conky) &
 
 #--- Docks ---
@@ -54,13 +58,13 @@ adeskbar viny &
 numlockx on
 
 #--- ... ---
-(sleep 3
-oneko -neko -bg pink -speed 10 -idle 200 -name neko &
-sleep 1
-oneko -tomoyo -toname neko -name tomoyo -speed 5 &
-sleep 1
-oneko -dog -bg brown -toname neko -speed 7 &
-sleep 1
-xsetroot -cursor_name left_ptr) &
+#(sleep 3
+#oneko -neko -bg pink -speed 10 -idle 200 -name neko &
+#sleep 1
+#oneko -tomoyo -toname neko -name tomoyo -speed 5 &
+#sleep 1
+#oneko -dog -bg brown -toname neko -speed 7 &
+#sleep 1
+#xsetroot -cursor_name left_ptr) &
 
 exit 0

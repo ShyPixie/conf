@@ -83,6 +83,11 @@
           <execute>emesene</execute>
         </action>
       </item>
+      <item label="Google Chrome">
+        <action name="Execute">
+          <execute>google-chrome</execute>
+        </action>
+      </item>
       <item label="Firefox">
         <action name="Execute">
           <execute>firefox</execute>
