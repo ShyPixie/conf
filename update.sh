@@ -88,5 +88,8 @@ _cp "/usr/lib/systemd/system-sleep/alsa.sh"    "systemd-sleep/alsa.sh"
 _cp "/usr/lib/systemd/system-sleep/network.sh" "systemd-sleep/network.sh"
 _cp "/usr/lib/systemd/system-sleep/dhcpcd.sh"  "systemd-sleep/dhcpcd.sh"
 
+# boot
+_cp "/boot/syslinux/syslinux.cfg"       "syslinux.cfg"
+
 echo "Tarefa completada com sucesso!"
 exit 0

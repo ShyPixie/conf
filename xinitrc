@@ -30,6 +30,8 @@ case $1 in
 	kde)     if [ -f /usr/bin/faststartkde ]; then faststartkde; else startkde; fi ;;
 	razor)   razor-session   ;;
 	xfce)    xfce4-session   ;;
-	cinnamon) gnome-session-cinnamon ;;
+	gnome)   gnome-shell     ;;
+	cinnamon)   gnome-session-cinnamon   ;;
+	cinnamon2d) gnome-session-cinnamon2d ;;
 	*) exec "$default" "$@"  ;;
 esac
