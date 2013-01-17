@@ -11,7 +11,6 @@ function _cp() {
 # HOME
 _cp "${HOME}/.Xresources"                  "Xresources"
 _cp "${HOME}/.xinitrc"                     "xinitrc"
-_cp "${HOME}/.asoundrc"                    "asoundrc"
 _cp "${HOME}/.conkyrc"                     "conkyrc"
 _cp "${HOME}/.pypanelrc"                   "pypanelrc"
 #_cp "${HOME}/.config/geany/geany.conf"     "geany.conf"
@@ -60,6 +59,7 @@ _cp "/etc/locale.conf"                     "etc/locale.conf"
 _cp "/etc/mkinitcpio.conf"                 "etc/mkinitcpio.conf"
 _cp "/etc/resolv.conf"                     "etc/resolv.conf"
 _cp "/etc/sysctl.conf"                     "etc/sysctl.conf"
+_cp "/etc/asound.conf"                     "etc/asound.conf"
 # /srv/lighttpd
 # /srv/squid
 # /etc/sudoers
