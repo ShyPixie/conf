@@ -26,12 +26,11 @@ pacman --needed --noconfirm -S bzip2
 pacman --needed --noconfirm -S bzr
 pacman --needed --noconfirm -S calligra-l10n-pt_br
 pacman --needed --noconfirm -S celt
-pacman --needed --noconfirm -S chromium
 pacman --needed --noconfirm -S cmake
 pacman --needed --noconfirm -S coreutils
+pacman --needed --noconfirm -S cpio
 pacman --needed --noconfirm -S cpupower
 pacman --needed --noconfirm -S cryptsetup
-pacman --needed --noconfirm -S cuda
 pacman --needed --noconfirm -S curl
 pacman --needed --noconfirm -S curlftpfs
 pacman --needed --noconfirm -S dbus
@@ -50,6 +49,7 @@ pacman --needed --noconfirm -S dzen2
 pacman --needed --noconfirm -S e2fsprogs
 pacman --needed --noconfirm -S epdfview
 pacman --needed --noconfirm -S ethtool
+pacman --needed --noconfirm -S exo
 pacman --needed --noconfirm -S expect
 pacman --needed --noconfirm -S fakeroot
 pacman --needed --noconfirm -S fbpanel
@@ -63,8 +63,10 @@ pacman --needed --noconfirm -S flashplugin
 pacman --needed --noconfirm -S fortune-mod
 pacman --needed --noconfirm -S fping
 pacman --needed --noconfirm -S freealut
+pacman --needed --noconfirm -S fuseiso
 pacman --needed --noconfirm -S gawk
 pacman --needed --noconfirm -S gcc-multilib
+pacman --needed --noconfirm -S gconf-editor
 pacman --needed --noconfirm -S gdb
 pacman --needed --noconfirm -S geoip
 pacman --needed --noconfirm -S gettext
@@ -76,6 +78,8 @@ pacman --needed --noconfirm -S glade
 pacman --needed --noconfirm -S glib
 pacman --needed --noconfirm -S glib2
 pacman --needed --noconfirm -S glibc
+pacman --needed --noconfirm -S gnome-screenshot
+pacman --needed --noconfirm -S gnome-terminal
 pacman --needed --noconfirm -S gnu-netcat
 pacman --needed --noconfirm -S gparted
 pacman --needed --noconfirm -S grep
@@ -113,10 +117,11 @@ pacman --needed --noconfirm -S lib32-alsa-lib
 pacman --needed --noconfirm -S lib32-alsa-plugins
 pacman --needed --noconfirm -S lib32-freetype2
 pacman --needed --noconfirm -S lib32-glew
+pacman --needed --noconfirm -S lib32-gtk
 pacman --needed --noconfirm -S lib32-lcms
 pacman --needed --noconfirm -S lib32-libcanberra
+pacman --needed --noconfirm -S lib32-libmikmod
 pacman --needed --noconfirm -S lib32-libpng
-pacman --needed --noconfirm -S lib32-libpulse
 pacman --needed --noconfirm -S lib32-libstdc++5
 pacman --needed --noconfirm -S lib32-libxml2
 pacman --needed --noconfirm -S lib32-mpg123
@@ -131,6 +136,7 @@ pacman --needed --noconfirm -S libffado
 pacman --needed --noconfirm -S libgdata
 pacman --needed --noconfirm -S libgnome-keyring
 pacman --needed --noconfirm -S libnet
+pacman --needed --noconfirm -S libopenraw
 pacman --needed --noconfirm -S libtool-multilib
 pacman --needed --noconfirm -S libvdpau
 pacman --needed --noconfirm -S libvncserver
@@ -139,7 +145,7 @@ pacman --needed --noconfirm -S licenses
 pacman --needed --noconfirm -S links
 pacman --needed --noconfirm -S linux-ck-kx
 pacman --needed --noconfirm -S linux-ck-kx-headers
-pacman --needed --noconfirm -S lm_sensors
+pacman --needed --noconfirm -S lsof
 pacman --needed --noconfirm -S lxappearance
 pacman --needed --noconfirm -S make
 pacman --needed --noconfirm -S man-db
@@ -148,6 +154,7 @@ pacman --needed --noconfirm -S mdadm
 pacman --needed --noconfirm -S meld
 pacman --needed --noconfirm -S mencoder
 pacman --needed --noconfirm -S mingetty
+pacman --needed --noconfirm -S mingw32-gcc
 pacman --needed --noconfirm -S mixxx
 pacman --needed --noconfirm -S mkinitcpio
 pacman --needed --noconfirm -S mlocate
@@ -163,6 +170,7 @@ pacman --needed --noconfirm -S ntfsprogs
 pacman --needed --noconfirm -S ntp
 pacman --needed --noconfirm -S numlockx
 pacman --needed --noconfirm -S openal
+pacman --needed --noconfirm -S openbox
 pacman --needed --noconfirm -S openssh
 pacman --needed --noconfirm -S p7zip
 pacman --needed --noconfirm -S pacman
@@ -175,7 +183,6 @@ pacman --needed --noconfirm -S pkg-config
 pacman --needed --noconfirm -S pkgfile
 pacman --needed --noconfirm -S ppp
 pacman --needed --noconfirm -S prelink
-pacman --needed --noconfirm -S preload
 pacman --needed --noconfirm -S procps-ng
 pacman --needed --noconfirm -S psmisc
 pacman --needed --noconfirm -S pygtksourceview2
@@ -210,6 +217,7 @@ pacman --needed --noconfirm -S sound-theme-freedesktop
 pacman --needed --noconfirm -S steghide
 pacman --needed --noconfirm -S strace
 pacman --needed --noconfirm -S sudo
+pacman --needed --noconfirm -S swh-plugins
 pacman --needed --noconfirm -S swig
 pacman --needed --noconfirm -S swt
 pacman --needed --noconfirm -S sysfsutils
@@ -221,9 +229,9 @@ pacman --needed --noconfirm -S terminus-font
 pacman --needed --noconfirm -S texinfo
 pacman --needed --noconfirm -S traceroute
 pacman --needed --noconfirm -S transcode
+pacman --needed --noconfirm -S tree
 pacman --needed --noconfirm -S tumbler
 pacman --needed --noconfirm -S tzdata
-pacman --needed --noconfirm -S udisks
 pacman --needed --noconfirm -S unetbootin
 pacman --needed --noconfirm -S unrar
 pacman --needed --noconfirm -S upower
@@ -231,9 +239,9 @@ pacman --needed --noconfirm -S upx
 pacman --needed --noconfirm -S usbutils
 pacman --needed --noconfirm -S util-linux
 pacman --needed --noconfirm -S vi
+pacman --needed --noconfirm -S vinagre
 pacman --needed --noconfirm -S virtualbox
 pacman --needed --noconfirm -S virtualbox-ck-host-modules-kx
-pacman --needed --noconfirm -S vlc
 pacman --needed --noconfirm -S vorbis-tools
 pacman --needed --noconfirm -S webkitgtk2
 pacman --needed --noconfirm -S webkitgtk3
