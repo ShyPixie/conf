@@ -5,8 +5,6 @@ yaourt --needed --noconfirm -S alsaequal
 yaourt --needed --noconfirm -S alsamixergui
 yaourt --needed --noconfirm -S android-ndk
 yaourt --needed --noconfirm -S android-sdk
-yaourt --needed --noconfirm -S android-sdk-platform-tools
-yaourt --needed --noconfirm -S arm-linux-gnueabi-binutils
 yaourt --needed --noconfirm -S asciiquarium
 yaourt --needed --noconfirm -S bash-game-manager
 yaourt --needed --noconfirm -S cdspeed
@@ -24,6 +22,8 @@ yaourt --needed --noconfirm -S fretscpp
 yaourt --needed --noconfirm -S geany-git
 yaourt --needed --noconfirm -S geany-plugins-git
 yaourt --needed --noconfirm -S geany-themes-git
+yaourt --needed --noconfirm -S gedit-pkgbuild-highlight
+yaourt --needed --noconfirm -S gedit-solarized-git
 yaourt --needed --noconfirm -S glew1.5
 yaourt --needed --noconfirm -S gmtp
 yaourt --needed --noconfirm -S gnome-colors-icon-theme
@@ -35,6 +35,7 @@ yaourt --needed --noconfirm -S gvolwheel
 yaourt --needed --noconfirm -S iocane
 yaourt --needed --noconfirm -S jd-gui
 yaourt --needed --noconfirm -S jdk
+yaourt --needed --noconfirm -S key-mon
 yaourt --needed --noconfirm -S ksh
 yaourt --needed --noconfirm -S lib32-alsaequal
 yaourt --needed --noconfirm -S lib32-caps
@@ -52,9 +53,7 @@ yaourt --needed --noconfirm -S lib32-smpeg
 yaourt --needed --noconfirm -S libgksu-no-remember-pass
 yaourt --needed --noconfirm -S libjpeg6
 yaourt --needed --noconfirm -S libtiff3
-yaourt --needed --noconfirm -S mingw-w64-binutils
-yaourt --needed --noconfirm -S mingw-w64-headers
-yaourt --needed --noconfirm -S mingw-w64-headers-bootstrap
+yaourt --needed --noconfirm -S mingw32-zlib
 yaourt --needed --noconfirm -S mkinitcpio-numlock
 yaourt --needed --noconfirm -S muffin-git
 yaourt --needed --noconfirm -S nemo-fm
@@ -72,6 +71,7 @@ yaourt --needed --noconfirm -S python-pygame
 yaourt --needed --noconfirm -S qjoypad
 yaourt --needed --noconfirm -S r8168-dkms
 yaourt --needed --noconfirm -S rakarrack
+yaourt --needed --noconfirm -S rar
 yaourt --needed --noconfirm -S read-edid
 yaourt --needed --noconfirm -S repo-git
 yaourt --needed --noconfirm -S retext

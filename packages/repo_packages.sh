@@ -7,6 +7,7 @@ pacman --needed --noconfirm -S alsa-oss
 pacman --needed --noconfirm -S alsa-plugins
 pacman --needed --noconfirm -S alsa-utils
 pacman --needed --noconfirm -S amd-ucode
+pacman --needed --noconfirm -S arch-install-scripts
 pacman --needed --noconfirm -S armagetronad
 pacman --needed --noconfirm -S audit
 pacman --needed --noconfirm -S autoconf
@@ -15,6 +16,7 @@ pacman --needed --noconfirm -S axel
 pacman --needed --noconfirm -S bash
 pacman --needed --noconfirm -S bash-completion
 pacman --needed --noconfirm -S bc
+pacman --needed --noconfirm -S bftpd
 pacman --needed --noconfirm -S binutils-multilib
 pacman --needed --noconfirm -S bitcoin-daemon
 pacman --needed --noconfirm -S bitcoin-qt
@@ -24,7 +26,6 @@ pacman --needed --noconfirm -S boost-libs
 pacman --needed --noconfirm -S bsdiff
 pacman --needed --noconfirm -S bzip2
 pacman --needed --noconfirm -S bzr
-pacman --needed --noconfirm -S calligra-l10n-pt_br
 pacman --needed --noconfirm -S celt
 pacman --needed --noconfirm -S cmake
 pacman --needed --noconfirm -S coreutils
@@ -68,9 +69,12 @@ pacman --needed --noconfirm -S gawk
 pacman --needed --noconfirm -S gcc-multilib
 pacman --needed --noconfirm -S gconf-editor
 pacman --needed --noconfirm -S gdb
+pacman --needed --noconfirm -S gedit
+pacman --needed --noconfirm -S gedit-plugins
 pacman --needed --noconfirm -S geoip
 pacman --needed --noconfirm -S gettext
 pacman --needed --noconfirm -S gftp
+pacman --needed --noconfirm -S ghostscript
 pacman --needed --noconfirm -S gimp
 pacman --needed --noconfirm -S git
 pacman --needed --noconfirm -S gksu
@@ -103,6 +107,7 @@ pacman --needed --noconfirm -S gtk2
 pacman --needed --noconfirm -S gucharmap
 pacman --needed --noconfirm -S gzip
 pacman --needed --noconfirm -S hdparm
+pacman --needed --noconfirm -S hexedit
 pacman --needed --noconfirm -S htop
 pacman --needed --noconfirm -S hydrogen
 pacman --needed --noconfirm -S inetutils
@@ -172,6 +177,7 @@ pacman --needed --noconfirm -S numlockx
 pacman --needed --noconfirm -S openal
 pacman --needed --noconfirm -S openbox
 pacman --needed --noconfirm -S openssh
+pacman --needed --noconfirm -S optipng
 pacman --needed --noconfirm -S p7zip
 pacman --needed --noconfirm -S pacman
 pacman --needed --noconfirm -S pangox-compat
