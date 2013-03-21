@@ -1,4 +1,6 @@
 #!/bin/sh
+# Lara Maia © 2012
+
 test $(id -u) == 0 && echo "EPA" && exit 1
 
 function _cp() {
@@ -17,7 +19,6 @@ _cp "${HOME}/.pypanelrc"                   "pypanelrc"
 _cp "${HOME}/.config/pacaur/config"        "pacaur_config"
 
 # Openbox
-_cp "${HOME}/.config/adeskbar/viny.cfg"    "adeskbar.cfg"
 _cp "${HOME}/.config/openbox/autostart.sh" "openbox/autostart.sh"
 _cp "${HOME}/.config/openbox/menu.xml"     "openbox/menu.xml"
 _cp "${HOME}/.config/openbox/rc.xml"       "openbox/rc.xml"

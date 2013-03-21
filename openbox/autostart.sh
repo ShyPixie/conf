@@ -23,7 +23,6 @@ notipy &
 bmpanel2 &
 #pypanel &
 #xfce4-panel &
-#adeskbar viny &
 (sleep 2 && conky) &
 
 #--- Docks ---
