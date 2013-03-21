@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-# Autor: Lara Maia - Lara Maia <lara@craft.net.br>
+# Autor: Lara Maia <lara@craft.net.br>
 
 # Iniciar o X ao logar no tty1
 #if [ $(tty) == "/dev/tty1" ]; then
@@ -18,17 +18,21 @@
 # Transparência do terminal
 #transset-df -a 0.7 >/dev/null
 
+# XDG
+export XDG_CONFIG_HOME="$HOME"/.config
+
 # Fortunes
 echo&&fortune /usr/share/fortune/brasil&&echo
 
 # Aliases
 alias sudo='sudo '
 alias yaourt='yaourt_wrapper'
+alias pacaur='pacaur_wrapper'
+alias pacman='pacman-color'
 alias ls='ls --group-directories-first -h --color=auto'
 alias la='ls -lha --group-directories-first -h --color=auto'
 alias lo='ls -a --group-directories-first -h --color=auto'
 alias grep='grep --color=auto'
-alias pacman='pacman-color'
 alias k='killall'
 alias kf='killall -9'
 alias k9='killall -9'
@@ -41,6 +45,7 @@ alias psd='systemd-cgls'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # Normal Colors
 Black="\[\033[0;30m\]"  

@@ -22,7 +22,7 @@ fi
 
 echo enabled > /sys/class/net/web/device/power/wakeup
 
-default=gnome-session-cinnamon
+default=enlightenment_start
 
 case $1 in
 	openbox) openbox-session ;;
@@ -33,5 +33,6 @@ case $1 in
 	gnome)   gnome-shell     ;;
 	cinnamon)   gnome-session-cinnamon   ;;
 	cinnamon2d) gnome-session-cinnamon2d ;;
+	enlightenment) enlightenment_start ;;
 	*) exec "$default" "$@"  ;;
 esac

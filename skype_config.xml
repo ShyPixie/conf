@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<config version="1.0" serial="3279" timestamp="1351794131.17">
+<config version="1.0" serial="3282" timestamp="1361483502.21">
   <Lib>
     <Account>
       <IdleTimeForAway>180</IdleTimeForAway>
@@ -17,18 +17,24 @@
     <CentralStorage>
       <LastBackoff>0</LastBackoff>
       <LastFailure>0</LastFailure>
-      <LastSync>1351794010</LastSync>
+      <LastSync>1361482916</LastSync>
       <NeedSync>0</NeedSync>
       <SyncSet>
+        <g>
+          <_23B1FA27>19350cf1:2</_23B1FA27>
+        </g>
         <p>
-          <avatar>b6ce4aba:2</avatar>
-          <email>1b33e1e6:2</email>
+          <avatar>5ea8b41a:2</avatar>
+          <email>eb5bfca8:2</email>
           <mood>41991475:2</mood>
-          <profile>db6075b:2</profile>
+          <phones>181fff6:2</phones>
+          <profile>7261f6c5:2</profile>
         </p>
         <u>
-          <blackice.2Ex>72901e1e:2</blackice.2Ex>
+          <aliase86>a08631b:2</aliase86>
+          <blackice.2Ex>d116dc2c:2</blackice.2Ex>
           <echo123>4c17eb23:2</echo123>
+          <kemalbaba038>5aef6483:2</kemalbaba038>
           <serhgioh>4c761366:2</serhgioh>
           <thiago_mobil>f2c651a9:2</thiago_mobil>
         </u>
@@ -45,13 +51,13 @@
       <DupeLegacyDeleted>1</DupeLegacyDeleted>
       <GivenDisplaynameFixed>1</GivenDisplaynameFixed>
       <PermanenceFixed>1</PermanenceFixed>
-      <PruningHorizon>1351794008</PruningHorizon>
+      <PruningHorizon>1361482910</PruningHorizon>
       <RecentlyLiveTimeout>0</RecentlyLiveTimeout>
     </Conversation>
     <DynContent>
       <LastIpCountry>br</LastIpCountry>
       <S>
-        <LastTime>1351794010</LastTime>
+        <LastTime>1361482913</LastTime>
       </S>
       <UILang>pt-br</UILang>
     </DynContent>
@@ -64,16 +70,16 @@
       <IncomingPolicy>everyone</IncomingPolicy>
     </Message>
     <Notification>
-      <LastID>1000000156</LastID>
-      <LastPoll>1351794010</LastPoll>
-      <LastSearch>1351794010</LastSearch>
+      <LastID>1000000214</LastID>
+      <LastPoll>1361482916</LastPoll>
+      <LastSearch>1361482916</LastSearch>
     </Notification>
     <PM>
-      <pslut>1351794010</pslut>
+      <pslut>1361482914</pslut>
     </PM>
     <ProfilePopulated>1</ProfilePopulated>
     <PropsManager>
-      <PermaProps>410F00AE200000AB20000087200005B9204101030039355F310000FA01000093200400802001008420A99D93FF0400F801B60100A90101008B20AFA296FF0400F50104008220D0F4C6FF04008920C9A4D1FF0400FC01A319</PermaProps>
+      <PermaProps>410F00AE200000AB20000087200005B9204101030039355F310000FA01000093200400802001008420A99D93FF0400F801B60100A90101008B20AFA296FF0400F50104008220D0F4C6FF04008920C9A4D1FF0400FC01AB19</PermaProps>
     </PropsManager>
     <Sms>
       <CliOptions>4105002313032D434C49204F4B000134000000000000000001350000000000000000003600</CliOptions>
@@ -81,19 +87,20 @@
       <CliOptionsVersion>2</CliOptionsVersion>
     </Sms>
     <StatsSender>
-      <CollectorLastSent>1351794010</CollectorLastSent>
-      <CollectorSeq>15</CollectorSeq>
+      <CollectorLastSent>1361482913</CollectorLastSent>
+      <CollectorSeq>16</CollectorSeq>
       <Phase2>
-        <ProposedDelivery>1341429082</ProposedDelivery>
+        <ProposedDelivery>1361563914</ProposedDelivery>
       </Phase2>
-      <Saved>41030001DAFACA84050502410A00F801B60100FA010000FC01A31900AC020000AD020000AE020000FD010000FE010000FF010000800201000300</Saved>
-      <SubmitID>59</SubmitID>
+      <Saved>41030001A1A99A89050502410A00F801B60100FA010000FC01A31900AC020000AD020000AE020000FD010000FE010000FF010000800201000300</Saved>
+      <SubmitID>62</SubmitID>
       <Type2SubmitID>
-        <_1>45</_1>
+        <_1>47</_1>
       </Type2SubmitID>
     </StatsSender>
     <table_insert_history>
       <_549e9fb0918ab7106bce1fcff7203a5865ccb755c8ac2715744e837102b9c188>1351880426 40721:21600:1351794026 44457:21600:1351794026 21041:17280:1351794026 52762:28800:1351794026 2147484162:86400:1351794026</_549e9fb0918ab7106bce1fcff7203a5865ccb755c8ac2715744e837102b9c188>
+      <fa1e24253eeffee3b92a2044e46823ccc90e787e1e915e0156f088104652695f>1361569314 16016:21600:1361482914 53361:21600:1361482914 21041:17280:1361482914 52762:28800:1361482914 2147484162:86400:1361482914</fa1e24253eeffee3b92a2044e46823ccc90e787e1e915e0156f088104652695f>
     </table_insert_history>
   </Lib>
   <UI>
@@ -138,9 +145,9 @@
       <Chat>0</Chat>
     </Notify>
     <Sound>
-      <IncomingChat>0</IncomingChat>
+      <IncomingChat>1</IncomingChat>
     </Sound>
-    <TechCallInf>1</TechCallInf>
+    <TechCallInf>0</TechCallInf>
     <TransferWindow>
       <Height>196</Height>
       <NoCancelConfirmation>0</NoCancelConfirmation>
