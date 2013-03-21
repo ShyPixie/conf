@@ -1,5 +1,5 @@
 #!/bin/bash
-# Autor: Lara Maia
+# Lara Maia © 2012
 # Versão: 0.1
 
 aur_command="yaourt --needed --noconfirm -S"
