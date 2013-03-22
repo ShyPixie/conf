@@ -31,12 +31,12 @@ use_spacer none
 minimum_size 1024 0
 
 TEXT
-${image /home/mrk3004/Imagens/conkybg.png -p 0,-1 -s 1024x21} ${alignc}\
+${image /home/laracraft304/Imagens/conkybg.png -p 0,-1 -s 1024x21} ${alignc}\
 Kernel: ${color e0e0e0}$kernel${color}  |  \
 Cpu: ${color e0e0e0}${cpu cpu0}% ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${color}  \
 Ram: ${color e0e0e0}${memperc}%${color}  \
 Swap: ${color e0e0e0}${swapperc}%${color}  \
-Home: ${color e0e0e0}${fs_used_perc /home/mrk3004}% ${color} \
+Home: ${color e0e0e0}${fs_used_perc /home/laracraft304}% ${color} \
 Root: ${color e0e0e0}${fs_used_perc /}%${color}  |  \
 Cpu: ${color e0e0e0}${execi 20 /usr/bin/sysinfo --cputemp ;}${color}  \
 Gpu: ${color e0e0e0}${execi 20 /usr/bin/sysinfo --gputemp ;}${color}  |  \
