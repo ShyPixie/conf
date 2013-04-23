@@ -20,9 +20,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	done
 fi
 
-echo enabled > /sys/class/net/web/device/power/wakeup
-
-default=enlightenment_start
+default=xfce4-session
 
 case $1 in
 	openbox) openbox-session ;;

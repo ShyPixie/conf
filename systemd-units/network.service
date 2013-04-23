@@ -6,12 +6,12 @@ Before=network.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStartPre=/sbin/ip addr flush web
-ExecStartPre=/sbin/ip link set web up
-ExecStart=/sbin/ip addr add 192.168.1.100/24 brd + dev web
+ExecStartPre=/sbin/ip addr flush lan
+ExecStartPre=/sbin/ip link set lan up
+ExecStart=/sbin/ip addr add 192.168.1.100/24 brd + dev lan
 ExecStart=/sbin/ip route add default via 192.168.1.1
-ExecStop=/sbin/ip addr flush web
-ExecStop=/sbin/ip link set web down
+ExecStop=/sbin/ip addr flush lan
+ExecStop=/sbin/ip link set lan down
 
 [Install]
 WantedBy=multi-user.target

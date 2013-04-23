@@ -28,7 +28,6 @@ echo&&fortune /usr/share/fortune/brasil&&echo
 alias sudo='sudo '
 alias yaourt='yaourt_wrapper'
 alias pacaur='pacaur_wrapper'
-alias pacman='pacman-color'
 alias ls='ls --group-directories-first -h --color=auto'
 alias la='ls -lha --group-directories-first -h --color=auto'
 alias lo='ls -a --group-directories-first -h --color=auto'
@@ -46,6 +45,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias reboot='systemctl reboot'
+alias restart='systemctl restart'
+alias shutdown='systemctl poweroff'
 
 # Normal Colors
 Black="\[\033[0;30m\]"  
