@@ -20,6 +20,7 @@
 
 # XDG
 export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_MENU_PREFIX="xfce-"
 
 # Fortunes
 echo&&fortune /usr/share/fortune/brasil&&echo
