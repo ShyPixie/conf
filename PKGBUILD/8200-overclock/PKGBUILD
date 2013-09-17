@@ -1,0 +1,25 @@
+# Lara Maia © 2013 :c)
+
+pkgname=8200-overclock
+pkgver=1
+pkgrel=1
+arch=(any)
+license=(None)
+depends=('nvidia-utils')
+
+build() {
+	cd "$srcdir"
+	
+	gpuclock=631
+	memclock=912
+	
+	echo "nvidia-settings -a GPUOverclockingState=1" > $pkgname
+	echo "nvidia-settings -a GPU3DClockFreqs=$gpuclock,$memclock" >> $pkgname
+	echo "export __GL_SYNC_TO_VBLANK=0" >> $pkgname
+}
+
+package() {
+	cd "$pkgdir"
+	mkdir -p etc/profile.d
+	install -Dm 755 "$srcdir"/$pkgname etc/profile.d/
+}

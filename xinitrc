@@ -1,16 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
 setxkbmap -model abnt2 br -option compose:rwin
-
-nvidia-settings -a GPUOverclockingState=1
-nvidia-settings -a GPU3DClockFreqs=631,912
-export __GL_SYNC_TO_VBLANK=0
-
-export MOZ_DISABLE_PANGO=1
-
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd \
-                      -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-export JAVA_FONTS=/usr/share/fonts/TTF
 
 source /etc/profile
 
