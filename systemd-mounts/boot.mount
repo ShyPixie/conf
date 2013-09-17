@@ -5,7 +5,7 @@ Description=Boot
 What=/dev/disk/by-label/ext2boot
 Where=/boot
 Type=ext2
-Options=noatime,nodiratime,commit=60,barrier=0
+Options=noatime,nodiratime,user_xattr,barrier=0
 
 [Install]
 WantedBy=local-fs.target
