@@ -34,7 +34,7 @@ function checkpackage() {
 	echo "$param"
 }
 
-echo -n > $aur_file
+echo -n > ${aur_file[0]}; echo -n > ${aur_file[1]}
 c=0; d=0; e=0; for package in "${packages_array_aur[@]}"; do
 	type=$(checkpackage $package)
 	if [ $type == "dependency" ]; then
@@ -48,7 +48,7 @@ c=0; d=0; e=0; for package in "${packages_array_aur[@]}"; do
 done
 echo -e "Pacotes do aur: $e instalados explicitamente, $d dependências\n"
 
-echo -n > $repo_file
+echo -n > ${repo_file[0]}; echo -n > ${repo_file[1]}
 c=0; d=0; e=0; for package in "${packages_array_all[@]}"; do
 	type=$(checkpackage $package)
 	if [ $type == "dependency" ]; then
