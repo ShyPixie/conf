@@ -1,13 +1,10 @@
 #!/bin/bash
 # Lara Maia © 2012
-# Versão: 0.1
+# Versão: 1.1
 
-aur_command="yaourt --needed --noconfirm -S"
-repo_command="pacman --needed --noconfirm -S"
-heap=1
 echo
 
-packages_array_all=($(pacman -Qqe))
+packages_array_all=($(pacman -Qq))
 packages_array_aur=($(pacman -Qqm))
 count_packages_all=${#packages_array_all[@]}
 
@@ -23,41 +20,40 @@ done; echo -e '\n'
 
 count_packages_all=${#packages_array_all[@]}
 count_packages_aur=${#packages_array_aur[@]}
+repo_file=("repo_packages_dep.cat" "repo_packages_exp.cat")
+aur_file=("aur_packages_dep.cat" "aur_packages_exp.cat")
 
-echo '#!/bin/bash' > aur_packages.sh
-c=0; i=0; for package in "${packages_array_aur[@]}"; do
-	if [ $i == 0 ]; then
-		echo -en "\n${aur_command} $package" >> aur_packages.sh
-		((i+=1))
-	elif [ $i -lt ${heap} ]; then
-		echo -n " $package" >> aur_packages.sh
-		((i+=1))
-	else
-		echo -ne "\n${aur_command} $package" >> aur_packages.sh
-		i=1
+function checkpackage() {
+	local param=$(LANG=en_US pacman -Qi $1 | \
+	            grep Reason | awk '{print tolower($4)}')
+	            
+	if [ "$param" == "installed" ]; then
+		param='dependency'
 	fi
-	((c+=1))
-	echo -ne "Gravando catalogo do aur: $c de $count_packages_aur\r"
+	
+	echo "$param"
+}
+
+echo -n > $aur_file
+c=0; for package in "${packages_array_aur[@]}"; do
+	type=$(checkpackage $package)
+	if [ $type == "dependency" ]; then
+		echo "$package" >> ${aur_file[0]}
+	else
+		echo "$package" >> ${aur_file[1]}
+	fi
+	((c+=1)); echo -ne "Gravando catalogo do aur: $c de $count_packages_aur\r"
 done; echo -e '\n'
 
-echo '#!/bin/bash' > repo_packages.sh
-c=0; i=0; for package in "${packages_array_all[@]}"; do
-	if [ $i == 0 ]; then
-		echo -en "\n${repo_command} $package" >> repo_packages.sh
-		((i+=1))
-	elif [ $i -lt ${heap} ]; then
-		echo -n " $package" >> repo_packages.sh
-		((i+=1))
+echo -n > $repo_file
+c=0; for package in "${packages_array_all[@]}"; do
+	type=$(checkpackage $package)
+	if [ $type == "dependency" ]; then
+		echo "$package" >> ${repo_file[0]}
 	else
-		echo -ne "\n${repo_command} $package" >> repo_packages.sh
-		i=1
+		echo "$package" >> ${repo_file[1]}
 	fi
-	((c+=1))
-	echo -ne "Gravando catalogo dos repositórios: $c de $count_packages_all\r"
+	((c+=1)); echo -ne "Gravando catalogo dos repositórios: $c de $count_packages_all\r"
 done; echo -e '\n'
-
-# fix newlines
-echo -ne '\n' >> repo_packages.sh
-echo -ne '\n' >> aur_packages.sh
 
 echo -e "Operação Completa\n"
