@@ -46,6 +46,11 @@ _cp "${HOME}/.pypanelrc"                      "pypanelrc"
 #_cp "${HOME}/.config/geany/geany.conf"        "geany.conf"
 _cp "${HOME}/.config/pacaur/config"           "pacaur_config"
 
+# Fluxbox
+_cp "${HOME}/.fluxbox/startup"    "fluxbox/startup"
+_cp "${HOME}/.fluxbox/keys"       "fluxbox/keys"
+_cp "${HOME}/.fluxbox/overlay"    "fluxbox/overlay"
+
 # Openbox
 _cp "${HOME}/.config/openbox/autostart.sh"    "openbox/autostart.sh"
 _cp "${HOME}/.config/openbox/menu.xml"        "openbox/menu.xml"
