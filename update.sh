@@ -61,7 +61,7 @@ _cp "/etc/locale.conf"                     "etc/locale.conf"
 _cp "/etc/localtime"                       "etc/localtime"
 _cp "/etc/mkinitcpio.conf"                 "etc/mkinitcpio.conf"
 _cp "/etc/resolv.conf"                     "etc/resolv.conf"
-_cp "/etc/sysctl.conf"                     "etc/sysctl.conf"
+_cp "/etc/sysctl.d/99-sysctl.conf"         "etc/sysctl.d/99-sysctl.conf"
 _cp "/etc/asound.conf"                     "etc/asound.conf"
 # /srv/lighttpd
 # /srv/squid
