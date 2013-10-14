@@ -2,16 +2,19 @@
 Description=Network Connectivity
 Wants=network.target
 Before=network.target
+BindsTo=sys-subsystem-net-device-lan.device
+After=sys-subsystem-net-devices-lan.device
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStartPre=/sbin/ip addr flush lan
-ExecStartPre=/sbin/ip link set lan up
-ExecStart=/sbin/ip addr add 192.168.1.100/24 brd + dev lan
-ExecStart=/sbin/ip route add default via 192.168.1.1
-ExecStop=/sbin/ip addr flush lan
-ExecStop=/sbin/ip link set lan down
+
+ExecStart=/usr/bin/ip link set lan up
+ExecStart=/usr/bin/ip addr add 192.168.1.100/24 brd + dev lan
+ExecStart=/usr/bin/ip route add default via 192.168.1.1
+
+ExecStop=/usr/bin/ip addr flush dev lan
+ExecStop=/usr/bin/ip link set dev lan down
 
 [Install]
 WantedBy=multi-user.target
