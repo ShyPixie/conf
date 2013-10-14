@@ -17,9 +17,9 @@ compositeproto
 cracklib
 damageproto
 db
+dbus
 dbus-c++
 dbus-glib
-dconf
 desktop-file-utils
 dialog
 dirmngr
@@ -32,8 +32,9 @@ expat
 faac
 faad2
 farstream-0.1
-ffmpeg-compat
 fftw
+file
+filesystem
 fixesproto
 flac
 fontconfig
@@ -48,11 +49,8 @@ gconf
 gdbm
 gdk-pixbuf2
 gegl
-geoclue
-geoip-database
 giflib
 glew
-glib-networking
 glibmm
 glu
 gmp
@@ -86,7 +84,8 @@ ilmbase
 imagemagick
 imlib2
 inputproto
-intltool
+iproute2
+iptables
 isl
 jasper
 js
@@ -102,6 +101,7 @@ lame
 lcms
 lcms2
 ldns
+less
 lib32-acl
 lib32-attr
 lib32-bzip2
@@ -113,6 +113,7 @@ lib32-gcc-libs
 lib32-gettext
 lib32-glib2
 lib32-glibc
+lib32-glu
 lib32-libdrm
 lib32-libffi
 lib32-libgcrypt
@@ -147,7 +148,6 @@ lib32-nspr
 lib32-nvidia-utils
 lib32-openssl
 lib32-pcre
-lib32-pixman
 lib32-readline
 lib32-sqlite
 lib32-systemd
@@ -163,7 +163,6 @@ libasyncns
 libavc1394
 libbluray
 libcap
-libcap-ng
 libcdaudio
 libcl
 libconfig
@@ -198,8 +197,6 @@ libldap
 liblqr
 liblrdf
 libltdl
-libmad
-libmcrypt
 libmikmod
 libmms
 libmng
@@ -218,7 +215,6 @@ libpcap
 libpciaccess
 libpipeline
 libpng
-libproxy
 libpulse
 libpurple
 libraw1394
@@ -228,7 +224,6 @@ libsasl
 libsigc++
 libsm
 libsndfile
-libsoup
 libssh2
 libtasn1
 libthai
@@ -268,8 +263,8 @@ libxss
 libxt
 libxtst
 libxv
-libxxf86dga
 libxxf86vm
+libyaml
 linux-api-headers
 linux-firmware
 llvm-libs
@@ -277,7 +272,6 @@ lzo2
 m4
 mcpp
 mesa
-mhash
 mime-types
 mjpegtools
 mkinitcpio-busybox
@@ -303,14 +297,12 @@ pacman-mirrorlist
 pam
 pambase
 pango
-parallel
 pcre
+perl
 perl-curses
 perl-data-dump
-perl-digest-sha1
 perl-error
 perl-term-animation
-perl-xml-parser
 pinentry
 pixman
 polkit
@@ -326,7 +318,6 @@ python2-dbus
 python2-gconf
 python2-gobject2
 python2-notify
-python2-setuptools
 python2-xdg
 qt4
 randrproto
@@ -337,15 +328,15 @@ recordproto
 renderproto
 rsync
 rtmpdump
+ruby
 run-parts
 schroedinger
 scrnsaverproto
 sdl
 sdl_image
-sdl_net
-sdl_sound
 sdl_ttf
 serf
+shadow
 shared-mime-info
 smpeg
 soundtouch
@@ -354,6 +345,7 @@ sqlite
 startup-notification
 tcl
 tdb
+texinfo
 unixodbc
 unzip
 v4l-utils
@@ -361,7 +353,6 @@ videoproto
 vte
 vte-common
 wayland
-webkitgtk2
 wildmidi
 x264
 xcb-proto
@@ -369,12 +360,10 @@ xcb-util
 xdg-utils
 xextproto
 xf86-input-evdev
-xf86dgaproto
 xf86vidmodeproto
 xfconf
 xineramaproto
 xkeyboard-config
-xmms2
 xorg-font-utils
 xorg-fonts-alias
 xorg-fonts-misc
