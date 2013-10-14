@@ -29,6 +29,15 @@ function _cp() { # (source, destination)
 	fi
 }
 
+checkemptyfiles() {
+	scan=($(find * -type f -not -path ".git/*"))
+	for file in ${scan[@]}; do
+		if [ $(du -h $file | awk '{print $1}') == "0" ]; then
+			rm -f $file
+		fi
+	done
+}
+
 # HOME
 _cp "${HOME}/.Xresources"                     "Xresources"
 _cp "${HOME}/.xinitrc"                        "xinitrc"
@@ -112,6 +121,9 @@ _cp "/usr/lib/systemd/system-sleep/dhcpcd.sh"  "systemd-sleep/dhcpcd.sh"
 
 # boot
 _cp "/boot/syslinux/syslinux.cfg" "syslinux.cfg"
+
+echo -n "Checando arquivos... "
+checkemptyfiles
 
 echo "Tarefa completada com sucesso!"
 exit 0
