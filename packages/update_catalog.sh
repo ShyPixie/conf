@@ -1,8 +1,9 @@
 #!/bin/bash
-# Lara Maia © 2012
-# Versão: 1.2
+# Lara Maia © 2012 ~ 2013 <lara@craft.net.br>
+# Contributor: BlackICE <manfredi@gmail.com>
+# Versão: 1.3
 
-echo
+echo -e "\nAguarde enquanto seu sistema é escaneado..."
 
 packages_array_all=($(pacman -Qq))
 packages_array_aur=($(pacman -Qqm))
@@ -15,8 +16,10 @@ c=0; for package_local in ${packages_array_all[@]}; do
 		fi
 	done
 	((c+=1))
-	echo -ne "Escaneando: $c de $count_packages_all\r"
-done; echo -e '\n'
+	
+	echo -ne "\e[1;32m==>\e[0m Analisando pacotes: "
+	echo -ne "\e[1;32m$c\e[0m de \e[1;32m$count_packages_all\e[0m \r"
+done; echo -e "\n"
 
 count_packages_all=${#packages_array_all[@]}
 count_packages_aur=${#packages_array_aur[@]}
@@ -44,9 +47,15 @@ c=0; d=0; e=0; for package in "${packages_array_aur[@]}"; do
 		echo "$package" >> ${aur_file[1]}
 		((e+=1))
 	fi
-	((c+=1)); echo -ne "Gravando catalogo do aur: $c de $count_packages_aur\r"
+	((c+=1))
+	
+	echo -ne "\e[1;32m==>\e[0m Gravando catálogo do aur: "
+	echo -ne "\e[1;32m$c\e[0m de \e[1;32m$count_packages_aur\e[0m\r"
 done
-echo -e "Pacotes do aur: $e instalados explicitamente, $d dependências\n"
+
+echo -ne "\n - \e[4;37mPacotes do aur\e[0m: "
+echo -ne "\e[1;33m$e\e[0m instalados explicitamente, "
+echo -e  "\e[1;33m$d\e[0m dependências\n"
 
 echo -n > ${repo_file[0]}; echo -n > ${repo_file[1]}
 c=0; d=0; e=0; for package in "${packages_array_all[@]}"; do
@@ -58,8 +67,14 @@ c=0; d=0; e=0; for package in "${packages_array_all[@]}"; do
 		echo "$package" >> ${repo_file[1]}
 		((e+=1))
 	fi
-	((c+=1)); echo -ne "Gravando catalogo dos repositórios: $c de $count_packages_all\r"
+	((c+=1))
+	
+	echo -ne "\e[1;32m==>\e[0m Gravando catálogo dos repositórios: "
+	echo -ne "\e[1;32m$c\e[0m de \e[1;32m$count_packages_all\e[0m\r"
 done
-echo -e "Pacotes oficiais: $e instalados explicitamente, $d dependências\n"
 
-echo -e "Operação Completa\n"
+echo -ne "\n - \e[4;37mPacotes oficiais\e[0m: "
+echo -ne "\e[1;33m$e\e[0m instalados explicitamente, "
+echo -e  "\e[1;33m$d\e[0m dependências\n"
+
+echo -e "\e[1;32m==>\e[0m Operação concluída\n"
