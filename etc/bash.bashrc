@@ -11,7 +11,7 @@ export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_MENU_PREFIX="xfce-"
 
 # Fortunes
-cowsay $(fortune /usr/share/fortune/brasil)&&echo
+cowthink -$(shuf -n 1 -e b d p s w y) -f small $(fortune /usr/share/fortune/brasil)
 
 # Bash setup
 shopt -s autocd
@@ -72,7 +72,7 @@ alias geany='geany_checkpath'
 
 # Tools
 alias diff='colordiff'
-alias mount='mount | column -t'
+alias allmounts='mount | column -t'
 alias ping='ping -c 5'
 alias grep='grep --color=auto'
 
