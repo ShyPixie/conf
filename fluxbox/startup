@@ -2,6 +2,9 @@
 # Desabilitar output
 exec >/dev/null 2>&1
 
+#--- Papel de Parede ---
+nitrogen --restore &
+
 #--- Terminais ---#
 #tilda &
 guake &
