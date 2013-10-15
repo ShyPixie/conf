@@ -1,6 +1,6 @@
 #!/bin/sh
 # Lara Maia © 2012 ~ 2013 <lara@craft.net.br>
-# version: 2.0
+# version: 2.1
 
 test $(id -u) == 0 && echo "EPA" && exit 1
 
@@ -14,11 +14,12 @@ function _cp() { # (source, destination)
 			echo -e "     * Arquivos iguais, ignorando\n"
 		else
 			while true; do
-				echo -ne "==> [C]opiar, [Ignorar], [S]air: "
+				echo -ne "==> [C]opiar, [R]estaurar, [Ignorar], [S]air: "
 				read -n 1 opc
 				
 				case $opc in
 					C|c) cp -f "$1" "$2" && echo -e "\n" && break || exit 1 ;;
+					R|r) sudo cp -f "$2" "$1" && echo -e "\n" && break || exit 1 ;;
 					I|i) echo -e "\n" && break ;;
 					S|s|E|e) exit 0 ;;
 					*) echo -ne " < Opção incorreta\r\n" && continue ;;
