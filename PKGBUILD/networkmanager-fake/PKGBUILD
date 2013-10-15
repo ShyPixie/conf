@@ -1,0 +1,15 @@
+# Maintainer: Lara Maia <lara@craft.net.br>
+
+pkgname=networkmanager-fake
+pkgver=1
+pkgrel=1
+pkgdesc="Network Management daemon fake"
+arch=('any')
+license=('GPL')
+provides=('networkmanager=fake' 'wpa_supplicant=fake' 'modemmanager=fake')
+optdepends=('pulseaudio-fake: kill pulseaudio, please!')
+
+
+package() {
+	true
+}

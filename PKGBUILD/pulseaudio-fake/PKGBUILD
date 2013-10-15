@@ -1,0 +1,10 @@
+pkgname=pulseaudio-fake
+provides=('pulseaudio=fake' 'pulseaudio-alsa=fake')
+conflicts=(pulseaudio pulseaudio-alsa)
+arch=(any)
+pkgrel=3
+pkgver=1
+
+package(){
+	true
+}
