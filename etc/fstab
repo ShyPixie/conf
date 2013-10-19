@@ -1,9 +1,0 @@
-# <file system> <dir>         <type>    <options>         <dump> <pass>
-/dev/cdrom      /media/cdrom  auto       noauto,user,ro     0      0
-tmpfs		    /tmp          tmpfs      nodev,nosuid	    0      0
-
-# <LABEL>          <dir>       <type>       <options>           <dump> <pass>
-LABEL=ext4home     /home       ext4         noatime,nodiratime    0      1
-LABEL=ext2boot     /boot       ext2         noatime,nodiratime    0      1
-LABEL=swap2gb      none        swap         defaults              0      0
-LABEL=ext4root     /           ext4         noatime,nodiratime    0      1

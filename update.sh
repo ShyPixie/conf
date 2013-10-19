@@ -1,135 +1,126 @@
 #!/bin/sh
 # Lara Maia © 2012 ~ 2013 <lara@craft.net.br>
-# version: 2.1
+# version: 3.0
 
 test $(id -u) == 0 && echo "EPA" && exit 1
 
-function _cp() { # (source, destination)
-	# Verify if destination exists, if not, create.
-	touch "$2"
-	
-	if [ -f "$1" ]; then
-		echo "==> Copiando arquivo '$1' para '$2'"
-		if colordiff -u "$2" "$1"; then
-			echo -e "     * Arquivos iguais, ignorando\n"
-		else
-			while true; do
-				echo -ne "==> [C]opiar, [R]estaurar, [Ignorar], [S]air: "
-				read -n 1 opc
-				
-				case $opc in
-					C|c) cp -f "$1" "$2" && echo -e "\n" && break || exit 1 ;;
-					R|r) sudo cp -f "$2" "$1" && echo -e "\n" && break || exit 1 ;;
-					I|i) echo -e "\n" && break ;;
-					S|s|E|e) exit 0 ;;
-					*) echo -ne " < Opção incorreta\r\n" && continue ;;
-				esac
-			done
+function checkfiles() {
+	for file in ${FILES[@]}; do
+		
+		# if is $home
+		if [ ${file:0:${#HOME}} == "$HOME" ]; then
+			dest=HOME${file:${#HOME}}
+		elif [ ${file:0:1} == "/" ]; then
+			dest=${file:1}
 		fi
 		
-	fi
-}
-
-checkemptyfiles() {
-	scan=($(find * -type f -not -path ".git/*"))
-	for file in ${scan[@]}; do
-		if [ $(du -h $file | awk '{print $1}') == "0" ]; then
-			rm -f $file
+		if [ -f "$file" ]; then
+		
+			# Prevent destination not found
+			test ! -f "$dest" && mkdir -p ${dest%/*} && touch $dest
+			
+			if ! colordiff -u "$dest" "$file"; then
+				while true; do
+					echo -ne "==> [C]opiar, [R]estaurar, [I]gnorar, [S]air: "
+					read -n 1 opc
+					
+					case $opc in
+						C|c) echo "==> Fazendo backup de '$file'"
+						     cp -f "$file" "$dest" && echo -e "\n" && break || exit 1 ;;
+						R|r) sudo cp -f "$dest" "$file" && echo -e "\n" && break || exit 1 ;;
+						I|i) test -f $dest && rm $dest; echo -e "\n" && break ;;
+						S|s|E|e) exit 1 ;;
+						*) echo -ne " < Opção incorreta\r\n" && continue ;;
+					esac
+				done
+			fi
+		else
+			echo -e "\n * O arquivo $file não existe no sistema de arquivos, ignorando."
 		fi
 	done
 }
 
+echo -n "Criando lista de arquivos arquivos... "
+
+declare -x FILES=(
+
 # HOME
-_cp "${HOME}/.Xresources"                     "Xresources"
-_cp "${HOME}/.xinitrc"                        "xinitrc"
-_cp "${HOME}/.conkyrc"                        "conkyrc"
-_cp "${HOME}/.pypanelrc"                      "pypanelrc"
-#_cp "${HOME}/.config/geany/geany.conf"        "geany.conf"
-_cp "${HOME}/.config/pacaur/config"           "pacaur_config"
+${HOME}/.Xresources
+${HOME}/.xinitrc
+${HOME}/.conkyrc
+${HOME}/.pypanelrc
+${HOME}/.config/geany/geany.conf
+${HOME}/.config/pacaur/config
 
 # Fluxbox
-_cp "${HOME}/.fluxbox/startup"    "fluxbox/startup"
-_cp "${HOME}/.fluxbox/keys"       "fluxbox/keys"
-_cp "${HOME}/.fluxbox/overlay"    "fluxbox/overlay"
+${HOME}/.fluxbox/startup
+${HOME}/.fluxbox/keys
+${HOME}/.fluxbox/overlay
 
 # Openbox
-_cp "${HOME}/.config/openbox/autostart.sh"    "openbox/autostart.sh"
-_cp "${HOME}/.config/openbox/menu.xml"        "openbox/menu.xml"
-_cp "${HOME}/.config/openbox/rc.xml"          "openbox/rc.xml"
-
-# kde
-_cp "${HOME}/.kde4/env/firefox-pango.sh"              "kde/env/firefox-pango.sh"
-_cp "${HOME}/.kde4/env/gpu-overclock.sh"              "kde/env/gpu-overclock.sh"
-_cp "${HOME}/.kde4/env/gtk2-env.sh"                   "kde/env/gtk2-env.sh"
-_cp "${HOME}/.kde4/env/opengl-vsync.sh"               "kde/env/opengl-vsync.sh"
-_cp "${HOME}/.kde4/env/qt-graphicssystem.sh"          "kde/env/qt-graphicssystem.sh"
-_cp "${HOME}/.kde4/share/config/kwinrc"               "kde/kwinrc"
-_cp "/usr/share/config/kdm/Xsession"                  "kde/Xsession"
-#_cp "/usr/share/apps/kdm/sessions/kde-plasma.desktop" "kde/kde-plasma.desktop"
+${HOME}/.config/openbox/autostart.sh
+${HOME}/.config/openbox/menu.xml
+${HOME}/.config/openbox/rc.xml
 
 # modprobe.d
-_cp "/etc/modprobe.d/k10temp.conf"           "modprobe.d/k10temp.conf"
-_cp "/etc/modprobe.d/alsa.conf"              "modprobe.d/alsa.conf"
-_cp "/etc/modprobe.d/r8169_blacklist.conf"   "modprobe.d/r8169_blacklist.conf"
-_cp "/etc/modprobe.d/nouveau_blacklist.conf" "modprobe.d/nouveau_blacklist.conf"
+/etc/modprobe.d/k10temp.conf
+/etc/modprobe.d/alsa.conf
+/etc/modprobe.d/r8169_blacklist.conf
+/etc/modprobe.d/nouveau_blacklist.conf
 
 # initcpio hooks
-_cp "/usr/lib/initcpio/install/nvidia"  "initcpio-hooks/nvidia"
-_cp "/usr/lib/initcpio/install/r8168"   "initcpio-hooks/r8168"
+/usr/lib/initcpio/install/nvidia
+/usr/lib/initcpio/install/r8168
 
 # /etc
-_cp "/etc/iptables/iptables.rules"    "iptables.rules"
-_cp "/etc/X11/xorg.conf"              "xorg.conf"
-_cp "/etc/bash.bashrc"                "etc/bash.bashrc"
-_cp "/etc/gamemanager.conf"           "etc/gamemanager.conf"
-_cp "/etc/dhcpcd.conf"                "etc/dhcpcd.conf"
-#_cp "/etc/fstab"                      "etc/fstab"
-#_cp "/etc/inittab"                    "etc/inittab"
-_cp "/etc/lilo.conf"                  "etc/lilo.conf"
-_cp "/etc/makepkg.conf"               "etc/makepkg.conf"
-_cp "/etc/yaourtrc"                   "etc/yaourtrc"
-_cp "/etc/pacman.conf"                "etc/pacman.conf"
-_cp "/etc/hostname"                   "etc/hostname"
-_cp "/etc/vconsole.conf"              "etc/vconsole.conf"
-_cp "/etc/locale.conf"                "etc/locale.conf"
-_cp "/etc/localtime"                  "etc/localtime"
-_cp "/etc/mkinitcpio.conf"            "etc/mkinitcpio.conf"
-_cp "/etc/resolv.conf"                "etc/resolv.conf"
-_cp "/etc/sysctl.d/99-sysctl.conf"    "etc/sysctl.d/99-sysctl.conf"
-_cp "/etc/asound.conf"                "etc/asound.conf"
-# /srv/lighttpd
+/etc/iptables/iptables.rules
+/etc/X11/xorg.conf          
+/etc/bash.bashrc   
+/etc/dhcpcd.conf          
+/etc/makepkg.conf           
+/etc/yaourtrc               
+/etc/pacman.conf            
+/etc/hostname               
+/etc/vconsole.conf          
+/etc/locale.conf            
+/etc/localtime              
+/etc/mkinitcpio.conf        
+/etc/resolv.conf            
+/etc/sysctl.d/99-sysctl.conf
+/etc/asound.conf
 # /srv/squid
 # /etc/sudoers
-# ~/.Skype/config.xml
 
 # udev
-_cp "/etc/udev/rules.d/10-network.rules"   "etc/udev/rules.d/10-network.rules"
+/etc/udev/rules.d/10-network.rules
 
 # systemd-units
-_cp "/etc/systemd/system/network.service"     "systemd-units/network.service"
-_cp "/etc/systemd/system/dhcpcd@.service"     "systemd-units/dhcpcd@.service"
-_cp "/etc/systemd/system/noip.service"        "systemd-units/noip.service"
-_cp "/etc/systemd/system/leds.service"        "systemd-units/leds.service"
-_cp "/etc/systemd/system/xinit-login.service" "systemd-units/xinit-login.service"
-_cp "/etc/systemd/system/pacmandb.service"    "systemd-units/pacmandb.service"
+/etc/systemd/system/network.service    
+/etc/systemd/system/dhcpcd@.service    
+/etc/systemd/system/noip.service       
+/etc/systemd/system/leds.service       
+/etc/systemd/system/xinit-login.service
 
 # systemd-mounts
-_cp "/etc/systemd/system/dev-sda2.swap"    "systemd-mounts/dev-sda2.swap"
-_cp "/etc/systemd/system/boot.mount"       "systemd-mounts/boot.mount"
-_cp "/etc/systemd/system/boot.automount"   "systemd-mounts/boot.automount"
-_cp "/etc/systemd/system/system.mount"     "systemd-mounts/system.mount"
-_cp "/etc/systemd/system/home.mount"       "systemd-mounts/home.mount"
+/etc/systemd/system/dev-sda2.swap 
+/etc/systemd/system/boot.mount    
+/etc/systemd/system/boot.automount
+/etc/systemd/system/system.mount  
+/etc/systemd/system/home.mount    
 
 # systemd-sleep
-_cp "/usr/lib/systemd/system-sleep/alsa.sh"    "systemd-sleep/alsa.sh"
-_cp "/usr/lib/systemd/system-sleep/network.sh" "systemd-sleep/network.sh"
-_cp "/usr/lib/systemd/system-sleep/dhcpcd.sh"  "systemd-sleep/dhcpcd.sh"
+/usr/lib/systemd/system-sleep/alsa.sh   
+/usr/lib/systemd/system-sleep/network.sh
+/usr/lib/systemd/system-sleep/dhcpcd.sh 
 
 # boot
-_cp "/boot/syslinux/syslinux.cfg" "syslinux.cfg"
+/boot/syslinux/syslinux.cfg
 
-echo -n "Checando arquivos... "
-checkemptyfiles
+`find $HOME/.config/xfce4/panel -iname '*' -type f`
+
+); echo -e "Concluído.\n"
+
+echo -n "Verificando arquivos... "; checkfiles; echo -e "Concluído.\n"
 
 echo "Tarefa completada com sucesso!"
 exit 0

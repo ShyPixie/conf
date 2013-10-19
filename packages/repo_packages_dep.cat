@@ -5,6 +5,7 @@ apr-util
 archlinux-keyring
 aspell
 atk
+atkmm
 attr
 avahi
 babl
@@ -12,6 +13,7 @@ c-ares
 ca-certificates
 cabextract
 cairo
+cairomm
 cloog
 compositeproto
 cracklib
@@ -70,6 +72,7 @@ gstreamer0.10-ffmpeg
 gstreamer0.10-good
 gtk-update-icon-cache
 gtk2
+gtkmm
 gtkspell
 guile
 harfbuzz
@@ -82,8 +85,10 @@ icu
 idnkit
 ilmbase
 imagemagick
+imake
 imlib2
 inputproto
+intltool
 iproute2
 iptables
 isl
@@ -268,6 +273,7 @@ libyaml
 linux-api-headers
 linux-firmware
 llvm-libs
+lm_sensors
 lzo2
 m4
 mcpp
@@ -297,21 +303,25 @@ pacman-mirrorlist
 pam
 pambase
 pango
+pangomm
 pcre
 perl
 perl-curses
 perl-data-dump
 perl-error
 perl-term-animation
+perl-xml-parser
 pinentry
 pixman
 polkit
 popt
 pth
+pyalpm
 pygobject2-devel
 pygtk
 python
 python-dbus-common
+python-pyelftools
 python2
 python2-cairo
 python2-dbus
@@ -325,6 +335,7 @@ raptor
 readline
 recode
 recordproto
+reflector
 renderproto
 rsync
 rtmpdump
