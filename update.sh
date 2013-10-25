@@ -95,8 +95,6 @@ ${HOME}/.config/openbox/rc.xml
 /etc/udev/rules.d/10-network.rules
 
 # systemd-units
-/etc/systemd/system/network.service    
-/etc/systemd/system/dhcpcd@.service    
 /etc/systemd/system/noip.service       
 /etc/systemd/system/leds.service       
 /etc/systemd/system/xinit-login.service
