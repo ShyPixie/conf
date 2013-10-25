@@ -85,7 +85,7 @@ ${HOME}/.config/openbox/rc.xml
 /etc/locale.conf            
 /etc/localtime              
 /etc/mkinitcpio.conf        
-/etc/resolv.conf            
+/etc/resolvconf.conf            
 /etc/sysctl.d/99-sysctl.conf
 /etc/asound.conf
 # /srv/squid
@@ -113,8 +113,6 @@ ${HOME}/.config/openbox/rc.xml
 
 # boot
 /boot/syslinux/syslinux.cfg
-
-`find $HOME/.config/xfce4/panel -iname '*' -type f`
 
 ); echo -e "Concluído.\n"
 
