@@ -2,7 +2,7 @@
 
 pkgname=gtk2-rc-files
 pkgver=1
-pkgrel=1
+pkgrel=2
 arch=(any)
 license=(None)
 depends=('gtk2')
@@ -10,11 +10,11 @@ depends=('gtk2')
 build() {
 	cd "$srcdir"
 	
-	echo $'export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0' > $pkgname
+	echo $'export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"' > $pkgname.sh
 }
 
 package() {
 	cd "$pkgdir"
 	mkdir -p etc/profile.d
-	install -Dm 755 "$srcdir"/$pkgname etc/profile.d/
+	install -Dm 755 "$srcdir"/$pkgname.sh etc/profile.d/
 }
