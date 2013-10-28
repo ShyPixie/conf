@@ -54,6 +54,7 @@ ${HOME}/.config/pacaur/config
 ${HOME}/.config/alsi/alsi.logo
 ${HOME}/.config/alsi/alsi.output
 ${HOME}/.config/alsi/alsi.conf
+${HOME}/.config/fish/config.fish
 
 # Fluxbox
 ${HOME}/.fluxbox/startup
