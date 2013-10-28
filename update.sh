@@ -1,10 +1,13 @@
 #!/bin/sh
 # Lara Maia © 2012 ~ 2013 <lara@craft.net.br>
-# version: 3.0
+# version: 3.1
 
 test $(id -u) == 0 && echo "EPA" && exit 1
 
 function checkfiles() {
+	# Accept single update
+	test "$1" != "" && FILES=("$1")
+	
 	for file in ${FILES[@]}; do
 		
 		# if is $home
@@ -120,7 +123,7 @@ ${HOME}/.config/openbox/rc.xml
 
 ); echo -e "Concluído.\n"
 
-echo -n "Verificando arquivos... "; checkfiles; echo -e "Concluído.\n"
+echo -n "Verificando arquivos... "; checkfiles "$1"; echo -e "Concluído.\n"
 
 echo "Tarefa completada com sucesso!"
 exit 0
