@@ -51,6 +51,9 @@ ${HOME}/.conkyrc
 ${HOME}/.pypanelrc
 ${HOME}/.config/geany/geany.conf
 ${HOME}/.config/pacaur/config
+${HOME}/.config/alsi/alsi.logo
+${HOME}/.config/alsi/alsi.output
+${HOME}/.config/alsi/alsi.conf
 
 # Fluxbox
 ${HOME}/.fluxbox/startup
