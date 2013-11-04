@@ -28,7 +28,7 @@ pidgin &
 #pyvol &
 
 #--- Gerenciadores de clipboard ---
-(sleep 3 && pasteall) &
+loliclip &
 
 #--- Torrent ---
 # deluge &

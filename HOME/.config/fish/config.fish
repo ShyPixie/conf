@@ -74,7 +74,6 @@ function psd; systemd-cgls; end
 
 # Power
 function reboot; systemctl reboot; end
-function restart; systemctl restart; end
 function shutdown; systemctl poweroff; end
 
 # Cores com grc

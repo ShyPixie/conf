@@ -12,12 +12,15 @@ source /usr/share/bash-completion/bash_completion
 # Command not found
 source /usr/share/doc/pkgfile/command-not-found.bash
 
+# Alsi, ASCII logo.
+alsi -ub -f
+
 # XDG
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_MENU_PREFIX="xfce-"
 
 # Fortunes
-cowthink -$(shuf -n 1 -e b d p s w y) -f small $(fortune /usr/share/fortune/brasil)
+# cowthink -$(shuf -n 1 -e b d p s w y) -f small $(fortune /usr/share/fortune/brasil)
 
 # Bash setup
 shopt -s autocd
