@@ -1,6 +1,8 @@
 8200-overclock
 alsaequal
 alsaequal-mgr
+alsi
+android-tools
 anycoloryoulike-icon-theme
 ascii-invaders
 asciiquarium
@@ -26,7 +28,6 @@ geany-theme-retro
 geany-theme-slushpoppies
 java-options
 jre
-jwbfs
 lib32-alsaequal
 lib32-caps
 lib32-freetype2-infinality
@@ -41,16 +42,14 @@ man-pages-pt_br
 mineshafter
 mingetty
 networkmanager-fake
-pacfoster
+ntpdate
 package-query
 pkgtools
-powerpill
 read-edid
 ssx
+systemd-cron
 ttf-ms-fonts
 verynice
 xcolorsel
 xcursor-comix
-xxd
-yad
 yaourt

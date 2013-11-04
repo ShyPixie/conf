@@ -59,6 +59,7 @@ gmp
 gnupg
 gnutls
 gpgme
+gpm
 graphite
 groff
 gsettings-desktop-schemas
@@ -85,17 +86,14 @@ icu
 idnkit
 ilmbase
 imagemagick
-imake
 imlib2
 inputproto
-intltool
 iproute2
 iptables
 isl
 jasper
 js
 json-c
-judy
 kbd
 kbproto
 keyutils
@@ -229,6 +227,7 @@ libsasl
 libsigc++
 libsm
 libsndfile
+libspiro
 libssh2
 libtasn1
 libthai
@@ -269,7 +268,6 @@ libxt
 libxtst
 libxv
 libxxf86vm
-libyaml
 linux-api-headers
 linux-firmware
 llvm-libs
@@ -295,6 +293,7 @@ nvidia-utils
 opencore-amr
 openexr
 openjpeg
+openresolv
 openssl
 opus
 orc
@@ -310,7 +309,6 @@ perl-curses
 perl-data-dump
 perl-error
 perl-term-animation
-perl-xml-parser
 pinentry
 pixman
 polkit
@@ -335,11 +333,9 @@ raptor
 readline
 recode
 recordproto
-reflector
 renderproto
 rsync
 rtmpdump
-ruby
 run-parts
 schroedinger
 scrnsaverproto
@@ -354,13 +350,13 @@ soundtouch
 speex
 sqlite
 startup-notification
-tcl
 tdb
 texinfo
 unixodbc
 unzip
 v4l-utils
 videoproto
+vim-runtime
 vte
 vte-common
 wayland

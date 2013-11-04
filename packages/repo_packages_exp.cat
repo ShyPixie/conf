@@ -22,7 +22,7 @@ cowsay
 cpupower
 curl
 devil
-dhcpcd
+diffuse
 diffutils
 dnsutils
 dosfstools
@@ -32,11 +32,11 @@ ffmpeg
 findutils
 firefox
 firefox-i18n-pt-br
+fish
 flashplugin
 fluxbox
 fortune-mod
 freealut
-fuseiso
 gamin
 gawk
 gcc-multilib
@@ -47,7 +47,6 @@ gimp
 git
 glib2
 glibc
-gnu-netcat
 gpart
 gperf
 gpicview
@@ -85,7 +84,6 @@ libnet
 libopenraw
 libtool-multilib
 libvdpau
-libwacom
 libx11
 licenses
 linux-ck-k10
@@ -98,9 +96,7 @@ make
 man-db
 man-pages
 mdadm
-meld
 mesa-demos
-miredo
 mkinitcpio
 mksyslinux
 mlocate
@@ -108,13 +104,13 @@ mpg123
 mtools
 namcap
 nano
+netctl
 nitrogen
 ntfs-3g
 nvidia-ck-k10
 openal
 opencl-nvidia
 openssh
-optipng
 p7zip
 pacman
 pangox-compat
@@ -128,8 +124,6 @@ pkgfile
 procps-ng
 psmisc
 qiv
-reiserfsprogs
-rpmextract
 schedtool
 sdl_mixer
 sed
@@ -141,11 +135,11 @@ sysfsutils
 syslinux
 sysstat
 systemd
+tamsyn-font
 tar
 tcpdump
 terminus-font
 thunar
-tk
 traceroute
 transcode
 tree
@@ -154,7 +148,7 @@ unrar
 upx
 usbutils
 util-linux
-vi
+vim
 vorbis-tools
 wget
 which
