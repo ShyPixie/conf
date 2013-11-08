@@ -81,6 +81,7 @@ ${HOME}/.config/openbox/rc.xml
 
 # /etc
 /etc/iptables/iptables.rules
+/etc/adobe/mms.cfg
 /etc/X11/xorg.conf          
 /etc/bash.bashrc   
 /etc/dhcpcd.conf          
