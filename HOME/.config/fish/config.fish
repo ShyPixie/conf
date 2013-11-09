@@ -42,8 +42,9 @@ function ...; cd ../..; end
 function ....; cd ../../..; end
 function .....; cd ../../../..; end
 
-#function back; cd ${PWD%/*}; end # FIXME
+function back; cd (echo $PWD | rev | cut -d"/" -f2- | rev); end
 function reload; . ~/.config/fish/config.fish; end
+function edit; geany ~/.config/fish/config.fish; end
 
 # Operações de arquivos
 function rm; /usr/bin/rm -vI --preserve-root $argv; end
@@ -51,7 +52,7 @@ function mv; /usr/bin/mv -vi $argv; end
 function cp; /usr/bin/cp -vi $argv; end
 function ln; /usr/bin/ln -i $argv; end
 function du; /usr/bin/du -h $argv; end
-function df; /usr/bin/df -h $argv; end
+function df; cdf -mh $argv | grep -v cgroup; end
 
 function chown; /usr/bin/chown --preserve-root $argv; end
 function chmod; /usr/bin/chmod --preserve-root $argv; end
@@ -59,9 +60,13 @@ function chgrp; /usr/bin/chgrp --preserve-root $argv; end
 
 function geany; geany_checkpath $argv; end
 
+function orphans; yaourt -Rcns (pacman -Qqtd); end
+
 # Ferramentas
 function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
+function time; /usr/bin/time -p /bin/fish -c $argv; end
+function pacmanunlock; sudo rm -f /var/lib/pacman/db.lck; end
 
 # Kill
 function k; killall $argv; end
@@ -116,7 +121,7 @@ function fish_prompt -d "Prompt"
 	set laststatus $status
 	
 	# u+168b/u+169c/u+169b/u+168b
-	printf ' %sᚋ᚜%s%s%s᚛᚜%s%s%s᚛ᚋ %s%s ' \
+	printf '%sᚋ᚜%s%s%s᚛᚜%s%s%s᚛ᚋ %s%s ' \
 	       $__prompt_color_separator \
 	       $__prompt_color_user      \
 	       $USER                     \

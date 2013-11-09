@@ -3,7 +3,7 @@
 exec >/dev/null 2>&1
 
 #--- Papel de Parede ---
-nitrogen --restore &
+oboinus --restore &
 
 #--- Terminais ---#
 #tilda &
