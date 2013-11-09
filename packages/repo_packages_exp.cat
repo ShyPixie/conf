@@ -4,7 +4,6 @@ alsa-lib
 alsa-plugins
 alsa-utils
 aria2
-armagetronad
 autoconf
 automake
 bash
@@ -21,7 +20,6 @@ coreutils
 cowsay
 cpupower
 curl
-devil
 diffuse
 diffutils
 dnsutils
@@ -53,7 +51,6 @@ gpicview
 grc
 grep
 gtk-engine-murrine
-guake
 gzip
 hdparm
 htop
@@ -76,10 +73,7 @@ lib32-nss
 lib32-nvidia-libgl
 lib32-openal
 lib32-sdl
-lib32-sdl_image
-lib32-sdl_ttf
 libcanberra
-libffado
 libnet
 libopenraw
 libtool-multilib
@@ -105,7 +99,6 @@ mtools
 namcap
 nano
 netctl
-nitrogen
 ntfs-3g
 nvidia-ck-k10
 openal
@@ -117,7 +110,6 @@ pangox-compat
 patch
 pciutils
 pcmciautils
-perl-json
 pidgin
 pkg-config
 pkgfile
@@ -129,7 +121,6 @@ sdl_mixer
 sed
 sound-theme-freedesktop
 sqlitebrowser
-subversion
 sudo
 sysfsutils
 syslinux
@@ -140,6 +131,7 @@ tar
 tcpdump
 terminus-font
 thunar
+time
 traceroute
 transcode
 tree
@@ -158,16 +150,13 @@ wine-mono
 wine_gecko
 winetricks
 wmctrl
-xfsprogs
 xorg-bdftopcf
-xorg-docs
 xorg-font-util
 xorg-fonts-100dpi
 xorg-fonts-75dpi
 xorg-fonts-cyrillic
 xorg-fonts-encodings
 xorg-iceauth
-xorg-luit
 xorg-mkfontdir
 xorg-mkfontscale
 xorg-server
@@ -175,17 +164,10 @@ xorg-server-common
 xorg-server-utils
 xorg-sessreg
 xorg-setxkbmap
-xorg-smproxy
-xorg-x11perf
-xorg-xauth
 xorg-xbacklight
-xorg-xclock
 xorg-xcmsdb
-xorg-xcursorgen
 xorg-xdm
-xorg-xdriinfo
 xorg-xev
-xorg-xeyes
 xorg-xfontsel
 xorg-xgamma
 xorg-xhost
@@ -195,8 +177,6 @@ xorg-xkbcomp
 xorg-xkbevd
 xorg-xkbutils
 xorg-xkill
-xorg-xlsatoms
-xorg-xlsclients
 xorg-xmessage
 xorg-xmodmap
 xorg-xpr
@@ -206,7 +186,3 @@ xorg-xrdb
 xorg-xrefresh
 xorg-xset
 xorg-xsetroot
-xorg-xvinfo
-xorg-xwd
-xorg-xwininfo
-xorg-xwud
