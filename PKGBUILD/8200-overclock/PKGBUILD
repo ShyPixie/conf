@@ -2,7 +2,7 @@
 
 pkgname=8200-overclock
 pkgver=1
-pkgrel=1
+pkgrel=2
 arch=(any)
 license=(None)
 depends=('nvidia-utils')
@@ -15,6 +15,7 @@ build() {
 	
 	echo "nvidia-settings -a GPUOverclockingState=1" > $pkgname
 	echo "nvidia-settings -a GPU3DClockFreqs=$gpuclock,$memclock" >> $pkgname
+	echo "nvidia-settings -a InitialPixmapPlacement=2" >> $pkgname
 	echo "export __GL_SYNC_TO_VBLANK=0" >> $pkgname
 }
 

@@ -52,7 +52,7 @@ function mv; /usr/bin/mv -vi $argv; end
 function cp; /usr/bin/cp -vi $argv; end
 function ln; /usr/bin/ln -i $argv; end
 function du; /usr/bin/du -h $argv; end
-function df; cdf -mh $argv | grep -v -e '0 /' -e tmpfs; end
+function df; cdf -mh $argv | grep -v -e '0 /' -e tmpfs -e rootfs; end
 
 function chown; /usr/bin/chown --preserve-root $argv; end
 function chmod; /usr/bin/chmod --preserve-root $argv; end

@@ -1,7 +1,21 @@
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-setxkbmap -model abnt2 br -option compose:rwin
+# Lara Maia <lara@craft.net.br> © 2013
 
-# Temp fix sudo
-xhost local:root
+#  O xdm já faz o merge...
+# xrdb -merge "$HOME/.Xresources" 
 
-startfluxbox
+# Definir corretamente as variáveis do dbus (address, pid)
+eval $(dbus-launch --sh-syntax --exit-with-session)
+
+# Carregar módulos do gtk
+  if [[ -z $GTK_MODULES ]]; then
+	GTK_MODULES="canberra-gtk-module"
+  else
+	GTK_MODULES="$GTK_MODULES:canberra-gtk-module"
+  fi
+export GTK_MODULES
+
+# Carregar configurações da nvidia
+nvidia-settings --load-config-only
+
+# Iniciar sessão
+openbox-session

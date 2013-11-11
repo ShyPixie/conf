@@ -7,7 +7,7 @@ oboinus --restore &
 
 #--- Terminais ---#
 #tilda &
-guake &
+altyo &
 
 #--- Compositores ---
 #~/.compstart
