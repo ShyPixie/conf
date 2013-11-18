@@ -1,0 +1,49 @@
+# Desabilitar output
+exec >/dev/null 2>&1
+
+#--- Papel de Parede ---
+oboinus --restore &
+
+#--- Terminais ---#
+#tilda &
+altyo &
+
+#--- Compositores ---
+#~/.compstart
+
+#--- Daemons de notificação ---
+notipy &
+#xfce4-notifyd &
+#notification-daemon &
+
+#--- Mensageiros ---
+#skype &
+pidgin &
+
+#--- Controle de volume
+#volwheel &
+#volumeicon
+volti &
+#pyvol &
+
+#--- Gerenciadores de clipboard ---
+loliclip &
+
+#--- Torrent ---
+# deluge &
+#deluged &
+
+#--- Paineis ---
+#pypanel
+bmpanel2 &
+
+#--- Launchers ---
+#gmrun &
+#launchy &
+synapse -s &
+
+#--- Tray da NVidia ---
+nvdock &
+
+#--- Descanço para os olhos ---
+redshift-gtk -l -23.54:-46.63 -m randr

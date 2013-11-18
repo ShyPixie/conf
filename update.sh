@@ -65,7 +65,7 @@ ${HOME}/.fluxbox/keys
 ${HOME}/.fluxbox/overlay
 
 # Openbox
-${HOME}/.config/openbox/autostart.sh
+${HOME}/.config/openbox/autostart
 ${HOME}/.config/openbox/menu.xml
 ${HOME}/.config/openbox/rc.xml
 
