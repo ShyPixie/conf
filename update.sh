@@ -1,6 +1,6 @@
 #!/bin/sh
 # Lara Maia © 2012 ~ 2013 <lara@craft.net.br>
-# version: 3.1
+# version: 3.1.1
 
 test $(id -u) == 0 && echo "EPA" && exit 1
 
@@ -31,7 +31,9 @@ function checkfiles() {
 						C|c) echo "==> Fazendo backup de '$file'"
 						     cp -f "$file" "$dest" && echo -e "\n" && break || exit 1 ;;
 						R|r) sudo cp -f "$dest" "$file" && echo -e "\n" && break || exit 1 ;;
-						I|i) test -f $dest && rm $dest; echo -e "\n" && break ;;
+						I|i) test -f $dest && rm $dest; echo -e "\n"
+						     git checkout -- $dest 2>/dev/null
+						     break ;;
 						S|s|E|e) exit 1 ;;
 						*) echo -ne " < Opção incorreta\r\n" && continue ;;
 					esac
