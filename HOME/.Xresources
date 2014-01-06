@@ -1,6 +1,6 @@
 ! Fontes -------
-Xft.dpi: 95
-Xft.rgba: rgb
+Xft.dpi: 86
+Xft.rgba: none
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintfull
