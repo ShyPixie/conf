@@ -2,6 +2,7 @@
 alsamixergui
 alsi
 altyo-git
+android-apktool
 android-tools
 anycoloryoulike-icon-theme
 anything-sync-daemon
@@ -39,6 +40,7 @@ lib32-libpng15
 libjpeg6
 libpng15
 libvorbis-aotuv
+litecoin-bin
 lstree
 man-pages-pt_br
 mineshafter
@@ -49,6 +51,7 @@ ntpdate
 package-query
 pkgtools
 read-edid
+reditr
 repo-git
 systemd-cron
 ttf-ms-fonts

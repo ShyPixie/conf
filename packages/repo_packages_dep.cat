@@ -13,6 +13,7 @@ ca-certificates
 cabextract
 cairo
 cairomm
+cdparanoia
 cloog
 colord
 compositeproto
@@ -44,6 +45,7 @@ fribidi
 fuse
 gc
 gcc-libs-multilib
+gconf
 gd
 gdbm
 gdk-pixbuf2
@@ -68,6 +70,7 @@ gsfonts
 gsm
 gstreamer0.10
 gstreamer0.10-base
+gstreamer0.10-base-plugins
 gtk-engines
 gtk-update-icon-cache
 gtk2
@@ -107,6 +110,7 @@ lib32-attr
 lib32-bzip2
 lib32-dbus
 lib32-expat
+lib32-flac
 lib32-fontconfig
 lib32-freetype2
 lib32-gcc-libs
@@ -114,14 +118,19 @@ lib32-gettext
 lib32-glib2
 lib32-glibc
 lib32-glu
+lib32-json-c
 lib32-lcms2
+lib32-libasyncns
+lib32-libcap
 lib32-libffi
 lib32-libice
 lib32-libjpeg-turbo
 lib32-libltdl
 lib32-libmng
 lib32-libogg
+lib32-libpulse
 lib32-libsm
+lib32-libsndfile
 lib32-libssh2
 lib32-libtiff
 lib32-libvorbis
@@ -139,6 +148,7 @@ lib32-libxrandr
 lib32-libxrender
 lib32-libxss
 lib32-libxt
+lib32-libxtst
 lib32-libxv
 lib32-ncurses
 lib32-nspr
@@ -159,6 +169,7 @@ libass
 libassuan
 libasyncns
 libatasmart
+libatomic_ops
 libbluray
 libcap
 libcap-ng
@@ -244,6 +255,7 @@ libunistring
 libupnp
 libusbx
 libva
+libvisual
 libvpx
 libwmf
 libx86
@@ -269,6 +281,7 @@ libxpm
 libxrandr
 libxrender
 libxres
+libxshmfence
 libxss
 libxt
 libxtst
