@@ -30,7 +30,7 @@ function checkfiles() {
 					case $opc in
 						C|c) echo "==> Fazendo backup de '$file'"
 						     cp -f "$file" "$dest" && echo -e "\n" && break || exit 1 ;;
-						R|r) sudo cp -f "$dest" "$file" && echo -e "\n" && break || exit 1 ;;
+						R|r) echo && sudo cp -f "$dest" "$file" && echo -e "\n" && break || exit 1 ;;
 						I|i) test -f $dest && rm $dest; echo -e "\n"
 						     git checkout -- $dest 2>/dev/null
 						     break ;;
@@ -68,7 +68,7 @@ ${HOME}/.fluxbox/overlay
 
 # Openbox
 ${HOME}/.config/openbox/autostart
-${HOME}/.config/openbox/menu.xml
+#${HOME}/.config/openbox/menu.xml
 ${HOME}/.config/openbox/rc.xml
 
 # modprobe.d
@@ -84,7 +84,8 @@ ${HOME}/.config/openbox/rc.xml
 # /etc
 /etc/iptables/iptables.rules
 /etc/adobe/mms.cfg
-/etc/X11/xorg.conf          
+/etc/ncdm/sys.cfg
+/etc/ncdm/theme.json    
 /etc/bash.bashrc   
 /etc/dhcpcd.conf          
 /etc/makepkg.conf           
@@ -97,9 +98,14 @@ ${HOME}/.config/openbox/rc.xml
 /etc/mkinitcpio.conf        
 /etc/resolvconf.conf            
 /etc/sysctl.d/99-sysctl.conf
-/etc/asound.conf
-# /srv/squid
-# /etc/sudoers
+#/etc/asound.conf
+#/srv/squid
+#/etc/sudoers
+
+# Xorg
+/etc/X11/xorg.conf.d/20-nvidia.conf
+/etc/X11/xorg.conf.d/20-samsung.conf
+/etc/X11/xorg.conf.d/20-screen.conf
 
 # udev
 /etc/udev/rules.d/10-network.rules

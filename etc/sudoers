@@ -1,4 +1,6 @@
+Defaults env_reset,passwd_timeout=0,lecture=never
+Defaults:laracraft304 badpass_message="O sua coisa, tá errado!"
+Defaults:laracraft304 passprompt="Digita a senha, sua anta: "
 root ALL=(ALL) ALL
 laracraft304 ALL=(ALL) ALL
-laracraft304 ALL=NOPASSWD:/usr/sbin/reboot, /usr/sbin/halt, /sbin/halt /sbin/reboot
-laracraft304 ALL=NOPASSWD:/usr/bin/systemctl
+laracraft304 ALL=NOPASSWD:/usr/bin/adb, /usr/bin/fastboot, /usr/bin/systemctl

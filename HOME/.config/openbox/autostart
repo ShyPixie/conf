@@ -1,49 +1,19 @@
-# Desabilitar output
-exec >/dev/null 2>&1
+exec >/home/laracraft304/.openbox.log 2>&1
 
-#--- Papel de Parede ---
-oboinus --restore &
+# Load xorg extras from /etc/X11/xinit/xinitrc.d
+if test -d /etc/X11/xinit/xinitrc.d/; then
+	for f in /etc/X11/xinit/xinitrc.d/*; do
+		test -r "$f" && . "$f"
+	done
+	unset f
+fi
 
-#--- Terminais ---#
-#tilda &
-altyo &
+# Load profiles from /etc/profile.d
+if test -d /etc/profile.d/; then
+	for profile in /etc/profile.d/*.sh; do
+		test -r "$profile" && . "$profile"
+	done
+	unset profile
+fi
 
-#--- Compositores ---
-#~/.compstart
-
-#--- Daemons de notificação ---
-notipy &
-#xfce4-notifyd &
-#notification-daemon &
-
-#--- Mensageiros ---
-#skype &
-pidgin &
-
-#--- Controle de volume
-#volwheel &
-#volumeicon
-volti &
-#pyvol &
-
-#--- Gerenciadores de clipboard ---
-loliclip &
-
-#--- Torrent ---
-# deluge &
-#deluged &
-
-#--- Paineis ---
-#pypanel
-bmpanel2 &
-
-#--- Launchers ---
-#gmrun &
-#launchy &
-synapse -s &
-
-#--- Tray da NVidia ---
-nvdock &
-
-#--- Descanço para os olhos ---
-redshift-gtk -l -23.54:-46.63 -m randr
+ob-autostart -d
