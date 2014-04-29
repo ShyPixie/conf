@@ -1,6 +1,6 @@
 #!/bin/sh
 # Lara Maia © 2012 ~ 2013 <lara@craft.net.br>
-# version: 3.1.1
+# version: 3.1.3
 
 test $(id -u) == 0 && echo "EPA" && exit 1
 
@@ -28,7 +28,7 @@ function checkfiles() {
 					read -n 1 opc
 					
 					case $opc in
-						C|c) echo "==> Fazendo backup de '$file'"
+						C|c) echo -e "\n==> Fazendo backup de '$file'"
 						     cp -f "$file" "$dest" && echo -e "\n" && break || exit 1 ;;
 						R|r) echo && sudo cp -f "$dest" "$file" && echo -e "\n" && break || exit 1 ;;
 						I|i) test -f $dest && rm $dest; echo -e "\n"
@@ -83,6 +83,7 @@ ${HOME}/.config/openbox/rc.xml
 
 # /etc
 /etc/iptables/iptables.rules
+/etc/netctl/eth0
 /etc/adobe/mms.cfg
 /etc/ncdm/sys.cfg
 /etc/ncdm/theme.json    
