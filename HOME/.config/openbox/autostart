@@ -1,19 +1,9 @@
-exec >/home/laracraft304/.openbox.log 2>&1
+exec >/home/lara/.openbox.log 2>&1
 
-# Load xorg extras from /etc/X11/xinit/xinitrc.d
-if test -d /etc/X11/xinit/xinitrc.d/; then
-	for f in /etc/X11/xinit/xinitrc.d/*; do
-		test -r "$f" && . "$f"
-	done
-	unset f
-fi
+#ob-autostart -d
 
-# Load profiles from /etc/profile.d
-if test -d /etc/profile.d/; then
-	for profile in /etc/profile.d/*.sh; do
-		test -r "$profile" && . "$profile"
-	done
-	unset profile
-fi
-
-ob-autostart -d
+guake &
+conky &
+bmpanel2 &
+compton &
+pcmanfm --desktop &

@@ -1,21 +1,26 @@
-# Lara Maia <lara@craft.net.br> © 2013
+# Fix pcmanfm "Open with" dialog with openbox (need install lxmenu-data)
+export XDG_MENU_PREFIX=lxde-
+export XDG_CURRENT_DESKTOP=LXDE
 
-#  O xdm já faz o merge...
-# xrdb -merge "$HOME/.Xresources" 
+# Fix Gtk look
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
-# Definir corretamente as variáveis do dbus (address, pid)
-eval $(dbus-launch --sh-syntax --exit-with-session)
+# Load xorg extras from /etc/X11/xinit/xinitrc.d
+if test -d /etc/X11/xinit/xinitrc.d/; then
+    for f in /etc/X11/xinit/xinitrc.d/*; do
+        test -r "$f" && . "$f"
+    done
+    unset f
+fi
 
-# Carregar módulos do gtk
-  if [[ -z $GTK_MODULES ]]; then
-	GTK_MODULES="canberra-gtk-module"
-  else
-	GTK_MODULES="$GTK_MODULES:canberra-gtk-module"
-  fi
-export GTK_MODULES
+# Load profiles from /etc/profile.d
+if test -d /etc/profile.d/; then
+    for profile in /etc/profile.d/*.sh; do
+        test -r "$profile" && . "$profile"
+    done
+    unset profile
+fi
 
-# Carregar configurações da nvidia
-nvidia-settings --load-config-only
+start-pulseaudio-x11 --start
 
-# Iniciar sessão
 openbox-session
