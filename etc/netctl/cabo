@@ -1,5 +1,5 @@
 Description='Cabo'
-Interface=eth0
+Interface=enp6s0
 Connection=ethernet
 IP=static
 Address=('192.168.1.100/16')
@@ -7,4 +7,4 @@ Address=('192.168.1.100/16')
 Gateway='192.168.1.1'
 DNS=('192.168.1.1')
 SkipNoCarrier=yes
-ExecUpPost='/usr/bin/ethtool -s eth0 speed 100 duplex full autoneg off'
+ExecUpPost='/usr/sbin/ethtool -s enp6s0 speed 100 duplex full autoneg off'

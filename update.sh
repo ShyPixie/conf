@@ -50,7 +50,6 @@ echo -n "Criando lista de arquivos arquivos... "
 declare -x FILES=(
 
 # HOME
-${HOME}/.Xresources
 ${HOME}/.xinitrc
 ${HOME}/.conkyrc
 ${HOME}/.termlogo
@@ -66,20 +65,13 @@ ${HOME}/.config/openbox/rc.xml
 
 # /etc
 /etc/iptables/iptables.rules
-/etc/netctl/eth0
+/etc/netctl/cabo
 /etc/adobe/mms.cfg
-/etc/ncdm/sys.cfg
-/etc/ncdm/theme.json
-/etc/bash.bashrc
+/etc/bash/bashrc
 /etc/dhcpcd.conf
-/etc/makepkg.conf
-/etc/yaourtrc
-/etc/pacman.conf
 /etc/hostname
 /etc/vconsole.conf
 /etc/locale.conf
-/etc/localtime
-/etc/mkinitcpio.conf
 /etc/resolvconf.conf
 /etc/sysctl.d/99-sysctl.conf
 #/etc/asound.conf
