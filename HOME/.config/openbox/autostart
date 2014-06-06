@@ -1,9 +1,3 @@
 exec >/home/lara/.openbox.log 2>&1
 
-#ob-autostart -d
-
-guake &
-conky &
-bmpanel2 &
-compton &
-pcmanfm --desktop &
+simple-autostarter --fork-all

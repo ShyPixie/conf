@@ -1,8 +1,19 @@
 #!/bin/sh
-# Lara Maia © 2012 ~ 2013 <lara@craft.net.br>
-# version: 3.1.3
+# Lara Maia © 2012 ~ 2014 <lara@craft.net.br>
+# version: 3.2
+
+BOOT=/dev/sda2
 
 test $(id -u) == 0 && echo "EPA" && exit 1
+
+ls /boot/extlinux >/dev/null 2>&1
+if [ $? != 0 ]; then
+    echo -n "O /boot não está montado. Montar? [S/n]: "
+    read -n 1 mountboot
+    if [ "$mountboot" != "n" ] && [ "$mountboot" != "N" ]; then
+        sudo mount $BOOT /boot
+    fi
+fi
 
 function checkfiles() {
     # Accept single update
@@ -24,6 +35,7 @@ function checkfiles() {
 
             if ! colordiff -u "$dest" "$file"; then
                 while true; do
+                    echo -e "\n==> Arquivo $file"
                     echo -ne "==> [C]opiar, [R]estaurar, [I]gnorar, [S]air: "
                     read -n 1 opc
 
@@ -45,7 +57,7 @@ function checkfiles() {
     done
 }
 
-echo -n "Criando lista de arquivos arquivos... "
+echo -e "\nCriando lista de arquivos..."
 
 declare -x FILES=(
 
@@ -67,7 +79,7 @@ ${HOME}/.config/openbox/rc.xml
 /etc/iptables/iptables.rules
 /etc/netctl/cabo
 /etc/adobe/mms.cfg
-/etc/bash/bashrc
+#/etc/bash/bashrc
 /etc/dhcpcd.conf
 /etc/hostname
 /etc/vconsole.conf
@@ -89,9 +101,16 @@ ${HOME}/.config/openbox/rc.xml
 # boot
 /boot/extlinux/extlinux.conf
 
-); echo -e "Concluído.\n"
+)
 
-echo -n "Verificando arquivos... "; checkfiles "$1"; echo -e "Concluído.\n"
+echo "Verificando arquivos..."
+checkfiles "$1"
 
-echo "Tarefa completada com sucesso!"
+echo -e "\nTarefa completada com sucesso!"
+
+if [ "$mountboot" != "n" ] && [ "$mountboot" != "N" ]; then
+    echo "Desmontando /boot"
+    sudo umount $BOOT
+fi
+
 exit 0

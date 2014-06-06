@@ -30,7 +30,7 @@ set -x GREP_OPTIONS "--color=auto"
 # =============== Aliases =========================
 
 # Dir list
-function ls; /bin/ls -h --group-directories-first --color='auto' $argv; end
+function ls; command ls -h --group-directories-first --color='auto' $argv; end
 function ll; lp -l $argv; end
 function la; lp -a $argv; end
 function perms; lp -ld $argv; end
@@ -45,22 +45,21 @@ function reload; . ~/.config/fish/config.fish; end
 function edit; geany ~/.config/fish/config.fish; end
 
 # Operações de arquivos
-function rm; /bin/rm -vI --preserve-root $argv; end
-function mv; /bin/mv -vi $argv; end
-function cp; /bin/cp -vi $argv; end
-function ln; /bin/ln -i $argv; end
-function du; /bin/du -h $argv; end
+function rm; command rm -vI --preserve-root $argv; end
+function mv; command mv -vi $argv; end
+function cp; command cp -vi $argv; end
+function ln; command ln -i $argv; end
+function du; command du -h $argv; end
 
-function chown; /bin/chown --preserve-root $argv; end
-function chmod; /bin/chmod --preserve-root $argv; end
-function chgrp; /bin/chgrp --preserve-root $argv; end
+function chown; command chown --preserve-root $argv; end
+function chmod; command chmod --preserve-root $argv; end
+function chgrp; command chgrp --preserve-root $argv; end
 
 function geany; geany_checkpath $argv; end
 
 # Ferramentas
 function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
-function time; /usr/bin/time -p /bin/fish -c $argv; end
 
 # Kill
 function k; killall $argv; end
@@ -75,8 +74,11 @@ function psd; systemd-cgls; end
 function reboot; systemctl reboot; end
 function shutdown; systemctl poweroff; end
 
-# Sudo
+# Fix sudo aliases (without fish default shell)
 function sudo; command sudo -s /bin/fish -c "$argv"; end
+
+# Fix time
+function time; command time -p /bin/fish -c $argv; end
 
 # ============== Funções ==========================
 

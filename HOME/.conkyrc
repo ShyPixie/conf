@@ -3,7 +3,7 @@ font Terminus:size=10
 xftfont Terminus:size=10
 use_xft yes
 xftalpha 0.1
-update_interval 0.500
+update_interval 1
 total_run_times 0
 own_window yes
 own_window_type normal
@@ -29,7 +29,7 @@ cpu_avg_samples 4
 override_utf8_locale yes
 uppercase no
 use_spacer left
- 
+
 TEXT
 ${color pink}${font Radio Space:pixelsize=30}${alignc}${time %I:%M}${font Radio Space:pixelsize=20}${execi 300 LANG=C date +%p}${font Radio Space:size=8}$color
 
@@ -70,16 +70,17 @@ ${color red}${font Pie charts for maps:size=10}7${font}$color ${color #ffac82}CO
 ${color red} ${font Pie charts for maps:size=10}7${font}$color ${color #ffac82}CORE 2: ${color}${cpu cpu2}% $alignr${cpugraph cpu2 10,140 FF0000 00FF00}
 ${color red}  ${font Pie charts for maps:size=10}7${font}$color ${color #ffac82}CORE 3: ${color}${cpu cpu3}% $alignr${cpugraph cpu3 10,130 FF0000 00FF00}
 ${color red}   ${font Pie charts for maps:size=10}7${font}$color ${color #ffac82}CORE 4: ${color}${cpu cpu4}% $alignr${cpugraph cpu4 10,120 FF0000 00FF00}
- 
+
 ${color purple}Sistema de arquivos ${hr 1}$color${font Terminus:size=7}
 
-${color red}${font StyleBats:size=15}j${font}$color ${color #ffac82}TMPFS: $color $alignr ${fs_used /tmp} / ${fs_size /tmp} ($alignr${fs_free_perc /tmp}%) IO: ${ioscheduler tmpfs}
+${color red}${font StyleBats:size=15}j${font}$color ${color #ffac82}TMPFS: $color $alignr ${fs_used /tmp} / ${fs_size /tmp} ($alignr${fs_used_perc /tmp}%) IO: ${ioscheduler tmpfs}
 ${color #0077ff}${fs_bar 4 /tmp}$color
-${color red}${font StyleBats:size=15}j${font}$color ${color #ffac82}HOME: $color $alignr ${fs_used /home/lara} / ${fs_size /home/lara} ($alignr${fs_free_perc /home/lara}%) IO: ${ioscheduler /dev/sda}
+${color red}${font StyleBats:size=15}j${font}$color ${color #ffac82}HOME: $color $alignr ${fs_used /home/lara} / ${fs_size /home/lara} ($alignr${fs_used_perc /home/lara}%) IO: ${ioscheduler /dev/sda}
 ${color #0077ff}${fs_bar 4 /home/lara}$color
-${color red}${font StyleBats:size=15}j${font} ${color #0077ff}HD  I/O
-${diskiograph /dev/md/1 00ff00 ff00ff}
- 
+${color #ffac82}           SDA I/O         SDB I/O
+${color #ffac82}READ:  $color${diskiograph_read /dev/sda 25,120 00ff00 00ff00} ${diskiograph_read /dev/sdb 25,120 00ff00 00ff00}
+${color #ffac82}WRITE: $color${diskiograph_write /dev/sda 25,120 ffff00 ffff00} ${diskiograph_write /dev/sdb 25,120 ffff00 ffff00}
+
 ${color purple}BEETY $gw_ip $gw_iface ${hr 1}$color${font Terminus:size=7}
 
 $font${color #ffac82}Download:$color$alignr${downspeedf enp6s0} KiB/s

@@ -1,8 +1,10 @@
 [Unit]
-After=systemd-user-sessions.service
+Description=Start X Session
 
 [Service]
 ExecStart=/bin/su lara -l -c /usr/bin/xinit -- VT08
+Restart=on-failure
+restartSec=2s
 
 [Install]
-WantedBy=multi-user.target
+Alias=display-manager.service
