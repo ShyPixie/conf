@@ -51,7 +51,6 @@ function cp; /bin/cp -vi $argv; end
 function ln; /bin/ln -i $argv; end
 function du; /bin/du -h $argv; end
 
-
 function chown; /bin/chown --preserve-root $argv; end
 function chmod; /bin/chmod --preserve-root $argv; end
 function chgrp; /bin/chgrp --preserve-root $argv; end
@@ -76,6 +75,9 @@ function psd; systemd-cgls; end
 function reboot; systemctl reboot; end
 function shutdown; systemctl poweroff; end
 
+# Sudo
+function sudo; command sudo -s /bin/fish -c "$argv"; end
+
 # ============== Funções ==========================
 
 # http://unixcoders.wordpress.com/2013/02/12/print-numerical-permissions-of-files/
@@ -98,7 +100,9 @@ end
 # ---- ~ ----
 
 function fish_greeting -d "motd"
-    cat "$HOME"/.termlogo | xargs -0 echo -e
+    if test (id -u) != 0
+       cat "$HOME"/.termlogo | xargs -0 echo -e
+    end
 end
 
 function fish_prompt -d "Prompt"
