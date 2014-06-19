@@ -27,6 +27,9 @@ set -x HISTIGNORE "bg:fg:exit:cd:ls:la:ll:ps:history:historytop:sudo:su:..:...:.
 # Cores para o grep, egrep e zgrep
 set -x GREP_OPTIONS "--color=auto"
 
+# map super to esc
+xmodmap -e "keysym Super_R = Escape"
+
 # =============== Aliases =========================
 
 # Dir list

@@ -2,7 +2,7 @@
 # /home/lara/.nvidia-settings-rc
 #
 # Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
-# Generated on Sun May 18 20:55:02 2014
+# Generated on Mon Jun  9 03:26:52 2014
 #
 
 # ConfigProperties:
@@ -14,9 +14,9 @@ SliderTextEntries = Yes
 IncludeDisplayNameInConfigFile = No
 ShowQuitDialog = No
 UpdateRulesOnProfileNameChange = No
-Timer = Memory_Used_(GPU_0),Yes,3000
-Timer = Thermal_Monitor_(GPU_0),Yes,1000
 Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = Memory_Used_(GPU_0),Yes,3000
 
 # Attributes:
 
@@ -49,6 +49,6 @@ Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
 [DPY:HDMI-0]/DitheringMode=0
 [DPY:HDMI-0]/DitheringDepth=0
 [DPY:HDMI-0]/DigitalVibrance=60
-[DPY:HDMI-0]/ColorSpace=2
-[DPY:HDMI-0]/ColorRange=1
+[DPY:HDMI-0]/ColorSpace=0
+[DPY:HDMI-0]/ColorRange=0
 [DPY:HDMI-0]/SynchronousPaletteUpdates=0
