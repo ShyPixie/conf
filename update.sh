@@ -1,6 +1,6 @@
 #!/bin/sh
 # Lara Maia © 2012 ~ 2014 <lara@craft.net.br>
-# version: 3.2
+# version: 3.2.1
 
 BOOT=/dev/sda2
 
@@ -11,7 +11,7 @@ if [ $? != 0 ]; then
     echo -n "O /boot não está montado. Montar? [S/n]: "
     read -n 1 mountboot
     if [ "$mountboot" != "n" ] && [ "$mountboot" != "N" ]; then
-        sudo mount $BOOT /boot
+        echo && sudo mount $BOOT /boot
     fi
 fi
 
