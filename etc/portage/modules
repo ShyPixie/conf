@@ -1,0 +1,4 @@
+# Lara Maia - 2014 <lara@craft.net.br>
+
+portdbapi.auxdbmodule = cache.sqlite.database
+

@@ -1,0 +1,7 @@
+# Lara Maia - 2014 <lara@craft.net.br>
+
+dev-qt/qtcore
+net-print/cups
+media-sound/paprefs
+x11-libs/gtk+::stuff
+x11-libs/gtk+::elementary

@@ -1,0 +1,34 @@
+# Lara Maia - 2014 <lara@craft.net.br>
+
+app-emulation/wine                 gecko run-exes prelink
+app-emulation/winetricks           -gtk
+
+app-admin/conky                    nvidia -lua-imlib
+app-admin/sudo                     pam -sendmail
+
+app-arch/pcmanfm                   -nautilus
+app-arch/libarchive                e2fsprogs
+
+dev-libs/libxslt                   python
+dev-libs/elfutils                  static-libs
+
+dev-java/oracle-jre-bin            nsplugin
+
+dev-db/sqlite                      secure-delete
+dev-vcs/git                        -gpg
+
+media-sound/pulseaudio             -tcpd -ssl -webrtc-aec realtime
+
+media-libs/mesa                    -classic -llvm -openvg -vdpau
+
+sys-apps/busybox                   mdev
+sys-apps/util-linux                -cramfs
+
+sys-libs/glibc                     nscd
+
+sys-block/gparted                  mdadm -reiser4 -xfs -jfs
+sys-devel/llvm                     -clang -static-analyzer cmake
+
+www-client/firefox                 custom-optimization system-jpeg system-cairo system-icu system-sqlite
+
+x11-libs/vte                       python

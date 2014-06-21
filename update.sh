@@ -101,6 +101,15 @@ ${HOME}/.config/openbox/rc.xml
 # boot
 /boot/extlinux/extlinux.conf
 
+# Portage
+/etc/portage/make.conf
+/etc/portage/modules
+/etc/portage/package.env
+/etc/portage/package.mask
+/etc/portage/package.use
+/etc/portage/env/no-tmpfs.conf
+/etc/portage/env/safe-flags.conf
+
 )
 
 echo "Verificando arquivos..."
