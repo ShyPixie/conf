@@ -59,6 +59,7 @@ function chmod; command chmod --preserve-root $argv; end
 function chgrp; command chgrp --preserve-root $argv; end
 
 function geany; geany_checkpath $argv; end
+function gvim; gvim_checkpath $argv; end
 
 # Ferramentas
 function diff; colordiff $argv; end

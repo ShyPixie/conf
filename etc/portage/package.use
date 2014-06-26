@@ -9,6 +9,8 @@ app-admin/sudo                     pam -sendmail
 app-arch/pcmanfm                   -nautilus
 app-arch/libarchive                e2fsprogs
 
+app-portage/eix                    optimization strong-optimization swap-remote
+
 dev-libs/libxslt                   python
 dev-libs/elfutils                  static-libs
 
@@ -19,7 +21,7 @@ dev-vcs/git                        -gpg
 
 media-sound/pulseaudio             -tcpd -ssl -webrtc-aec realtime
 
-media-libs/mesa                    -classic -llvm -openvg -vdpau
+media-libs/mesa                    -classic -llvm -openvg -vdpau egl
 
 sys-apps/busybox                   mdev
 sys-apps/util-linux                -cramfs

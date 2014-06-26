@@ -89,6 +89,7 @@ ${HOME}/.config/openbox/rc.xml
 #/etc/asound.conf
 #/srv/squid
 #/etc/sudoers
+/etc/openbox-menu.conf
 
 # Xorg
 /etc/X11/xorg.conf.d/20-nvidia.conf
@@ -109,6 +110,11 @@ ${HOME}/.config/openbox/rc.xml
 /etc/portage/package.use
 /etc/portage/env/no-tmpfs.conf
 /etc/portage/env/safe-flags.conf
+
+# EIX
+/etc/eix-sync.conf
+/etc/eixrc/01-cache
+/etc/eixrc/02-limit
 
 )
 
