@@ -1,0 +1,2 @@
+export PATH="/usr/lib/colorgcc/bin:$PATH"
+export CCACHE_PATH="/usr/bin"

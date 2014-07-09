@@ -105,11 +105,14 @@ ${HOME}/.config/openbox/rc.xml
 # Portage
 /etc/portage/make.conf
 /etc/portage/modules
+/etc/portage/bashrc
 /etc/portage/package.env
 /etc/portage/package.mask
 /etc/portage/package.use
 /etc/portage/env/no-tmpfs.conf
 /etc/portage/env/safe-flags.conf
+/etc/portage/env/single-thread.conf
+/etc/portage/profile/package.provided
 
 # EIX
 /etc/eix-sync.conf

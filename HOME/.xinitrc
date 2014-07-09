@@ -21,6 +21,4 @@ if test -d /etc/profile.d/; then
     unset profile
 fi
 
-start-pulseaudio-x11
-
-openbox-session
+cinnamon-session

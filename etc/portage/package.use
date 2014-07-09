@@ -8,6 +8,7 @@ app-admin/sudo                     pam -sendmail
 
 app-arch/pcmanfm                   -nautilus
 app-arch/libarchive                e2fsprogs
+app-arch/tar                       minimal
 
 app-portage/eix                    optimization strong-optimization swap-remote
 
@@ -18,10 +19,21 @@ dev-java/oracle-jre-bin            nsplugin
 
 dev-db/sqlite                      secure-delete
 dev-vcs/git                        -gpg
+dev-lang/spidermonkey              system-icu
+dev-libs/folks                     eds
 
 media-sound/pulseaudio             -tcpd -ssl -webrtc-aec realtime
+media-sound/alsa-utils             -libsamplerate
 
 media-libs/mesa                    -classic -llvm -openvg -vdpau egl
+media-libs/grillo                  playlist
+media-libs/clutter                 gtk
+
+net-misc/tightvnc                  server
+net-misc/oidentd                   masquerade
+net-misc/networkmanager            modemmanager
+net-libs/webkit-gtk                -geoloc
+net-dialup/ppp                     ipv6
 
 sys-apps/busybox                   mdev
 sys-apps/util-linux                -cramfs
@@ -32,5 +44,7 @@ sys-block/gparted                  mdadm -reiser4 -xfs -jfs
 sys-devel/llvm                     -clang -static-analyzer cmake
 
 www-client/firefox                 custom-optimization system-jpeg system-cairo system-icu system-sqlite
+www-client/firefox-bin             upx
+www-servers/apache                 apache2_modules_auth_digest
 
 x11-libs/vte                       python

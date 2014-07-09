@@ -5,3 +5,7 @@ net-print/cups
 media-sound/paprefs
 x11-libs/gtk+::stuff
 x11-libs/gtk+::elementary
+sys-kernel/gentoo-sources
+#net-misc/networkmanager
+#gnome-extras/nm-applet
+#net-dialup/ppp
