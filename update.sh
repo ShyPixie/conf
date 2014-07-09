@@ -90,6 +90,7 @@ ${HOME}/.config/openbox/rc.xml
 #/srv/squid
 #/etc/sudoers
 /etc/openbox-menu.conf
+/etc/genkernel.conf
 
 # Xorg
 /etc/X11/xorg.conf.d/20-nvidia.conf
