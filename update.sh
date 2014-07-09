@@ -98,6 +98,7 @@ ${HOME}/.config/openbox/rc.xml
 
 # systemd-units
 /etc/systemd/system/xinit-login.service
+/etc/systemd/system/oidentd.service
 
 # boot
 /boot/extlinux/extlinux.conf
