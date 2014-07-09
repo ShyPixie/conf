@@ -92,6 +92,8 @@ ${HOME}/.config/openbox/rc.xml
 /etc/openbox-menu.conf
 /etc/genkernel.conf
 
+`find /etc/env.d -type f`
+
 # Xorg
 /etc/X11/xorg.conf.d/20-nvidia.conf
 /etc/X11/xorg.conf.d/20-samsung.conf
