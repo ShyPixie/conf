@@ -91,7 +91,8 @@ ${HOME}/.config/openbox/rc.xml
 #/etc/sudoers
 /etc/openbox-menu.conf
 /etc/genkernel.conf
-
+/etc/etc-update.conf
+/etc/mdadm.conf
 `find /etc/env.d -type f`
 
 # Xorg
