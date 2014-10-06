@@ -1,9 +1,0 @@
-[Unit]
-Description=Xinit
-
-[Service]
-ExecStart=/bin/su laracraft304 -l -c xinit
-Restart=no
-
-[Install]
-WantedBy=graphical.target
