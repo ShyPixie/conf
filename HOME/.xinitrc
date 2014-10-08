@@ -1,7 +1,6 @@
 # Lara Maia <lara@craft.net.br> © 2013
 
-#  O xdm já faz o merge...
-# xrdb -merge "$HOME/.Xresources" 
+xrdb -merge "$HOME/.Xresources" 
 
 # Definir corretamente as variáveis do dbus (address, pid)
 eval $(dbus-launch --sh-syntax --exit-with-session)
@@ -14,8 +13,5 @@ eval $(dbus-launch --sh-syntax --exit-with-session)
   fi
 export GTK_MODULES
 
-# Carregar configurações da nvidia
-nvidia-settings --load-config-only
-
 # Iniciar sessão
-openbox-session
+xfce4-session
