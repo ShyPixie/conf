@@ -13,7 +13,7 @@ source /usr/share/bash-completion/bash_completion
 source /usr/share/doc/pkgfile/command-not-found.bash
 
 # Alsi, ASCII logo.
-alsi -ub -f
+#alsi -ub -f
 
 # XDG
 export XDG_CONFIG_HOME="$HOME"/.config
@@ -76,8 +76,8 @@ githardmv() {
 alias sudo='sudo ' # fix completation for sudo
 
 # Packages
-alias yaourt='yaourt_wrapper'
-alias pacaur='pacaur_wrapper'
+#alias yaourt='yaourt_wrapper'
+#alias pacaur='pacaur_wrapper'
 
 # Dir list
 alias ls='ls -h --group-directories-first --color=auto'
@@ -104,7 +104,7 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-alias geany='geany_checkpath'
+#alias geany='geany_checkpath'
 
 # Tools
 alias diff='colordiff'
