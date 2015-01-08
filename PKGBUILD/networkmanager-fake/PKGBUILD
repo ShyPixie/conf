@@ -1,0 +1,11 @@
+# Maintainer: Lara Maia <lara@craft.net.br>
+
+pkgname=networkmanager
+pkgurl="http://lara.craft.net.br"
+pkgdesc="Avoids network manager dependences"
+pkgver=fake
+license=(GPL)
+pkgrel=2
+arch=(any)
+provides=(network-manager-applet)
+conflicts=(network-manager-applet)
