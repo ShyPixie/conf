@@ -5,7 +5,7 @@
 #          netcat          [repo[
 #          colordiff       [repo]
 #          time            [repo]
-#          geany           [time]
+#          geany           [repo]
 #          geany_checkpath [aur]
 #          yaourt          [aur]
 
