@@ -74,7 +74,7 @@ function geany; geany_checkpath $argv; end
 function yaourt; yaourt_wrapper $argv; end
 function pacman; yaourt_wrapper $argv; end
 
-function orphans; pacman -Rcns (pacman -Qqtd); end
+function orphans; pacman -Qqtd | sudo pacman -Rcns -; or echo "Nenhum pacote orfão."; end
 function termbin; nc termbin.com 9999; end
 
 # Ferramentas
