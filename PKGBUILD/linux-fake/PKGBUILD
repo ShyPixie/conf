@@ -1,0 +1,10 @@
+# Maintainer: Lara Maia <lara@craft.net.br>
+
+pkgname=linux
+pkgurl="http://lara.craft.net.br"
+pkgdesc="Avoids linux kernel dependency"
+pkgver=3.18
+license=(GPL)
+pkgrel=1
+arch=(any)
+provides=(linux linux-headers)
