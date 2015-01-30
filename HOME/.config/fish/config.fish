@@ -1,4 +1,13 @@
-# Lara Maia <lara@craft.net.br> © 2013
+# Lara Maia <lara@craft.net.br> © 2015
+#
+# Depends: cdf             [aur]
+#          grc             [repo]
+#          netcat          [repo[
+#          colordiff       [repo]
+#          time            [repo]
+#          geany           [time]
+#          geany_checkpath [aur]
+#          yaourt          [aur]
 
 # ============== Configurações =======================
 
@@ -28,7 +37,9 @@ set -x HISTFILESIZE "20000"
 set -x HISTIGNORE "bg:fg:exit:cd:ls:la:ll:ps:history:historytop:sudo:su:..:...:....:....."
 
 # Cores para o grep, egrep e zgrep
-set -x GREP_OPTIONS "--color=auto"
+set -x grep --color=always
+set -x egrep --color=always
+set -x zgrep --color=always
 
 # =============== Aliases =========================
 
@@ -43,6 +54,7 @@ function ....; cd ../../..; end
 function .....; cd ../../../..; end
 
 function back; cd (echo $PWD | rev | cut -d"/" -f2- | rev); end
+function back2; cd $PWD; end
 function reload; . ~/.config/fish/config.fish; end
 function edit; geany ~/.config/fish/config.fish; end
 
@@ -52,15 +64,18 @@ function mv; /usr/bin/mv -vi $argv; end
 function cp; /usr/bin/cp -vi $argv; end
 function ln; /usr/bin/ln -i $argv; end
 function du; /usr/bin/du -h $argv; end
-function df; cdf -mh $argv | grep -v -e '0 /' -e tmpfs -e rootfs; end
+function df; cdf -mh | grep -v -e '0 /' -e rootfs -e cgroup -e 1000 | sed 's/devtmpfs/  tmpfs/'; end
 
 function chown; /usr/bin/chown --preserve-root $argv; end
 function chmod; /usr/bin/chmod --preserve-root $argv; end
 function chgrp; /usr/bin/chgrp --preserve-root $argv; end
 
 function geany; geany_checkpath $argv; end
+function yaourt; yaourt_wrapper $argv; end
+function pacman; yaourt_wrapper $argv; end
 
-function orphans; yaourt -Rcns (pacman -Qqtd); end
+function orphans; pacman -Rcns (pacman -Qqtd); end
+function termbin; nc termbin.com 9999; end
 
 # Ferramentas
 function diff; colordiff $argv; end
@@ -83,7 +98,6 @@ function shutdown; systemctl poweroff; end
 
 # Cores com grc
 function configure; grc -es --colour=auto ./configure $argv; end
-function diff; grc -es --colour=auto diff $argv; end
 function make; grc -es --colour=auto make $argv; end
 function gcc; grc -es --colour=auto gcc $argv; end
 function g++; grc -es --colour=auto g++ $argv; end
@@ -96,47 +110,81 @@ function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # http://unixcoders.wordpress.com/2013/02/12/print-numerical-permissions-of-files/
 function lp -d "Permissões numéricas no ls"
-	ls -lh $argv | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) \
+    ls -lh $argv | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) \
                 *2^(8-i));if(k)printf("%0o ",k);print}'
 end
 
 # https://gist.github.com/87359
 function historytop -d "Top 10"
-	history | awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}' | sort -nr | head
+    history | awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}' | sort -nr | head
 end
 
 function githardmv -d "Forçar git mv"
-	git checkout -- $argv[1] 1>/dev/null
-	git mv $argv[1] $argv[2] 1>/dev/null
-	echo "$argv[1] -> $argv[2]"
+    git checkout -- $argv[1] 1>/dev/null
+    git mv $argv[1] $argv[2] 1>/dev/null
+    echo "$argv[1] -> $argv[2]"
 end
+
+function superretab -d "super retab"
+    for file in (find $argv -type f -not -iwholename '*.git*')
+        sed -i 's/\t/    /g' $file; or exit 1
+        echo "$file retabed"
+    end
+end
+
+function yaourt_wrapper -d "yaourt wrapper for rsync db with xfer"
+    set -l CONF /etc/pacman.conf
+    set -l temp (mktemp)
+    set -l refresh 0
+    set -l update 0
+
+    switch $argv[1]
+        case "-Sy"
+            set refresh 1
+        case "-Syu" "-Suy"
+            set refresh 1
+            set update 1
+        case '*'
+            command yaourt $argv
+    end
+
+    if test $refresh -eq 1
+        cat $CONF | grep -v Xfer | sudo tee $temp >/dev/null ; or exit 1
+        sudo pacman -S --config $temp -y ; or exit 1
+    end
+
+    if test $update -eq 1
+        command yaourt -Su
+    end
+end
+
 
 # ---- ~ ----
 
 function fish_greeting -d "motd"
-	alsi -ub -f
+    alsi -ub -f
 end
 
 function fish_prompt -d "Prompt"
-	set laststatus $status
-	
-	# u+168b/u+169c/u+169b/u+168b
-	printf '%sᚋ᚜%s%s%s᚛᚜%s%s%s᚛ᚋ %s%s ' \
-	       $__prompt_color_separator \
-	       $__prompt_color_user      \
-	       $USER                     \
-	       $__prompt_color_separator \
-	       $__prompt_color_hostname  \
-	       (hostname)                \
-	       $__prompt_color_separator \
-	       $__prompt_color_pwd       \
-	       (echo $PWD | sed -e "s|^$HOME|~|")
+    set laststatus $status
 
-	if test $laststatus -eq 0
-		printf "%s:) " $__prompt_color_good
-	else
-		printf "%s:( " $__prompt_color_bad
-	end
-	
-	printf "%s" (set_color normal)
+    # u+168b/u+169c/u+169b/u+168b
+    printf '%s%s%s%s@%s%s%s: %s%s ' \
+           $__prompt_color_separator \
+           $__prompt_color_user      \
+           $USER                     \
+           $__prompt_color_separator \
+           $__prompt_color_hostname  \
+           (hostname)                \
+           $__prompt_color_separator \
+           $__prompt_color_pwd       \
+           (echo $PWD | sed -e "s|^$HOME|~|")
+
+    if test $laststatus -eq 0
+        printf "%s:) " $__prompt_color_good
+    else
+        printf "%s:( " $__prompt_color_bad
+    end
+
+    printf "%s" (set_color normal)
 end
