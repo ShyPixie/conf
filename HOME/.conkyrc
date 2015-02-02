@@ -75,8 +75,8 @@ ${voffset -13}${goto 575}${cpu cpu3}%
 ${voffset -13}${goto 605}${cpu cpu4}%
 #
 # SENSORS
-${voffset -13}${goto 640}${hwmon 0 temp 1}°C
-${voffset -13}${goto 685}${color white}SYS:${color DD99BB} ${hwmon 0 temp 3}°C
+${voffset -13}${goto 640}${hwmon 0 temp 3}°C
+${voffset -13}${goto 685}${color white}SYS:${color DD99BB} ${hwmon 0 temp 1}°C
 #
 # FANS
 ${voffset -13}${goto 765}${color white}APUFAN:${color DD99BB} ${hwmon 0 fan 1}rpm
