@@ -1,4 +1,14 @@
-# Lara Maia <lara@craft.net.br> © 2013
+# Lara Maia <lara@craft.net.br> © 2015
+#
+# Depends: sys-fs/cdf        [overlay{LaraCraft03}]
+#          grc               [repo]
+#          netcat            [repo]
+#          colordiff         [repo]
+#          sys-process/time  [repo]
+#          geany             [repo]
+#          geany-checkpath   [overlay{LaraCraft93}]
+#          gvim-checkpath    [overlay{LaraCraft93}]
+#          xmodmap           [repo]
 
 # ============== Configurações =======================
 
@@ -18,23 +28,38 @@ set __prompt_color_pwd       (set_color yellow)
 set __prompt_color_good      (set_color -o green)
 set __prompt_color_bad       (set_color -o red)
 
+# XDG
+set -x XDG_CONFIG_HOME "$HOME"/.config
+
 # Configuração do histórico
 set -x HISTCONTROL "ignoredups"
 set -x HISTSIZE "10000"
 set -x HISTFILESIZE "20000"
 set -x HISTIGNORE "bg:fg:exit:cd:ls:la:ll:ps:history:historytop:sudo:su:..:...:....:....."
 
-# Cores para o grep, egrep e zgrep
-set -x GREP_OPTIONS "--color=auto"
-
 # map super to esc
-xmodmap -e "keysym Super_R = Escape"
+xmodmap -e "keysym Super_R = Escape" 2>/dev/null
+
+# ============ Váriaveis Adicionais ===============
+
+set -g steamwine_prefix $HOME/.local/share/wineprefixes/steam
+set -g steamwine_path "$steamwine_prefix/drive_c/Program Files (x86)/Steam"
+set -g steamwine_gamespath "$steamwine_path/steamapps/common"
+
+set -g github http://github.com
+set -g githublara $github/LaraCraft93
+set -g gh $github
+set -g ghl $githublara
 
 # =============== Aliases =========================
 
+function grep; command grep --color=always $argv; end
+function egrep; command egrep --color=always $argv; end
+function zgrep; command zgrep --color=always $argv; end
+
 # Dir list
 function ls; command ls -h --group-directories-first --color='auto' $argv; end
-function ll; lp -l $argv; end
+function ll; lp $argv; end
 function la; lp -a $argv; end
 function perms; lp -ld $argv; end
 
@@ -44,8 +69,14 @@ function ....; cd ../../..; end
 function .....; cd ../../../..; end
 
 function back; cd (echo $PWD | rev | cut -d"/" -f2- | rev); end
+function back2; cd $PWD; end
 function reload; . ~/.config/fish/config.fish; end
 function edit; geany ~/.config/fish/config.fish; end
+function editworld; geany /var/lib/portage/world; end
+function editmake; geany /etc/portage/make.conf; end
+function edituse; geany /etc/portage/package.use; end
+function editmask; geany /etc/portage/package.mask; end
+function editkey; geany /etc/portage/package.accept_keywords; end
 
 # Operações de arquivos
 function rm; command rm -vI --preserve-root $argv; end
@@ -53,6 +84,7 @@ function mv; command mv -vi $argv; end
 function cp; command cp -vi $argv; end
 function ln; command ln -i $argv; end
 function du; command du -h $argv; end
+function df; cdf -mh | grep -v -e '0 /' -e rootfs -e cgroup -e 1000 | sed 's/devtmpfs/  tmpfs/'; end
 
 function chown; command chown --preserve-root $argv; end
 function chmod; command chmod --preserve-root $argv; end
@@ -61,9 +93,12 @@ function chgrp; command chgrp --preserve-root $argv; end
 function geany; geany_checkpath $argv; end
 function gvim; gvim_checkpath $argv; end
 
+function termbin; nc termbin.com 9999; end
+
 # Ferramentas
 function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
+function time; command time -p /bin/fish -c $argv; end
 
 # Kill
 function k; killall $argv; end
@@ -78,17 +113,21 @@ function psd; systemd-cgls; end
 function reboot; systemctl reboot; end
 function shutdown; systemctl poweroff; end
 
-# Fix sudo aliases (without fish default shell)
-function sudo; command sudo -s /bin/fish -c "$argv"; end
-
-# Fix time
-function time; command time -p /bin/fish -c $argv; end
+# Cores com grc
+function configure; grc -es --colour=auto ./configure $argv; end
+function make; grc -es --colour=auto make $argv; end
+function gcc; grc -es --colour=auto gcc $argv; end
+function g++; grc -es --colour=auto g++ $argv; end
+function ld; grc -es --colour=auto ld $argv; end
+function netstat; grc -es --colour=auto netstat $argv; end
+function ping; grc -es --colour=auto ping -c 3 $argv; end
+function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # ============== Funções ==========================
 
 # http://unixcoders.wordpress.com/2013/02/12/print-numerical-permissions-of-files/
 function lp -d "Permissões numéricas no ls"
-    ls -h $argv | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) \
+    ls -lh $argv | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) \
                 *2^(8-i));if(k)printf("%0o ",k);print}'
 end
 
@@ -103,6 +142,13 @@ function githardmv -d "Forçar git mv"
     echo "$argv[1] -> $argv[2]"
 end
 
+function superretab -d "super retab"
+    for file in (find $argv -type f -not -iwholename '*.git*')
+        sed -i 's/\t/    /g' $file; or exit 1
+        echo "$file retabed"
+    end
+end
+
 # ---- ~ ----
 
 function fish_greeting -d "motd"
@@ -115,7 +161,7 @@ function fish_prompt -d "Prompt"
     set laststatus $status
 
     # u+168b/u+169c/u+169b/u+168b
-    printf '%sᚋ᚜%s%s%s᚛᚜%s%s%s᚛ᚋ %s%s ' \
+    printf '%s%s%s%s@%s%s%s: %s%s ' \
            $__prompt_color_separator \
            $__prompt_color_user      \
            $USER                     \

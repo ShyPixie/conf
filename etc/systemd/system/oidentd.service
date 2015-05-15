@@ -1,9 +1,0 @@
-[Unit]
-Description=TCP/IP IDENT protocol server
-
-[Service]
-ExecStart=/usr/sbin/oidentd -f -m -i -S -r lara -u nobody -g nobody
-ExecReload=/bin/kill -HUP $MAINPID
-
-[Install]
-WantedBy=multi-user.target

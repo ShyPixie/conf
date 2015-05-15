@@ -1,6 +1,5 @@
-Defaults env_reset,passwd_timeout=1,lecture=never
+Defaults passwd_timeout=1,lecture=never,pwfeedback
 Defaults:lara badpass_message="O sua coisa, tá errado!"
 Defaults:lara passprompt="Digita a senha, sua anta: "
 root ALL=(ALL) ALL
-lara ALL=(ALL) ALL
-lara ALL=NOPASSWD:/usr/bin/adb, /usr/bin/fastboot, /usr/bin/systemctl
+lara ALL=(ALL) NOPASSWD: ALL

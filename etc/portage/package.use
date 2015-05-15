@@ -1,50 +1,38 @@
-# Lara Maia - 2014 <lara@craft.net.br>
+# Lara Maia <lara@craft.net.br> 2015
 
-app-emulation/wine                 gecko run-exes prelink
+app-emulation/wine                 staging s3tc
 app-emulation/winetricks           -gtk
-
-app-admin/conky                    nvidia -lua-imlib
-app-admin/sudo                     pam -sendmail
-
-app-arch/pcmanfm                   -nautilus
-app-arch/libarchive                e2fsprogs
+app-admin/sudo                     pam
 app-arch/tar                       minimal
-
 app-portage/eix                    optimization strong-optimization swap-remote
+app-text/ghostscript-gpl           cups
 
-dev-libs/libxslt                   python
-dev-libs/elfutils                  static-libs
-
-dev-java/oracle-jre-bin            nsplugin
-
+dev-java/oracle-jre-bin            fontconfig nsplugin
+dev-vcs/git                        -gpg -webdav -pcre -perl -python -gtk
+dev-lang/spidermonkey              system-icu minimal
 dev-db/sqlite                      secure-delete
-dev-vcs/git                        -gpg
-dev-lang/spidermonkey              system-icu
-dev-libs/folks                     eds
+dev-libs/elfutils                  static-libs
+dev-libs/libpcre                   pcre16
 
-media-sound/pulseaudio             -tcpd -ssl -webrtc-aec realtime
-media-sound/alsa-utils             -libsamplerate
+gnome-base/gvfs                    mtp archive
 
-media-libs/mesa                    -classic -llvm -openvg -vdpau egl
-media-libs/grillo                  playlist
-media-libs/clutter                 gtk
+media-sound/pulseaudio             -ipv6 -tcpd -ssl -webrtc-aec
+media-libs/libvpx                  postproc
+media-gfx/gimp                     aalib curl
+media-video/vlc                    mtp qt5
 
+net-misc/iputils                   -caps -filecaps
 net-misc/tightvnc                  server
-net-misc/oidentd                   masquerade
-net-misc/networkmanager            modemmanager
-net-libs/webkit-gtk                -geoloc
-net-dialup/ppp                     ipv6
+net-libs/webkit-gtk                -geoloc webgl
 
-sys-apps/busybox                   mdev
 sys-apps/util-linux                -cramfs
-
 sys-libs/glibc                     nscd
-
+sys-libs/zlib                      minizip
 sys-block/gparted                  mdadm -reiser4 -xfs -jfs
-sys-devel/llvm                     -clang -static-analyzer cmake
+sys-devel/llvm                     clang
+sys-auth/pambase                   minimal
+www-client/firefox                 minimal system-cairo system-icu system-jpeg system-libvpx system-sqlite wifi gstreamer
 
-www-client/firefox                 custom-optimization system-jpeg system-cairo system-icu system-sqlite
-www-client/firefox-bin             upx
-www-servers/apache                 apache2_modules_auth_digest
-
-x11-libs/vte                       python
+x11-drivers/ati-drivers            qt4
+xfce-base/xfce4-session            -xscreensaver
+xfce-extra/xfce4-pulseaudio-plugin keybinder

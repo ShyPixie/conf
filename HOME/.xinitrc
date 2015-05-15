@@ -1,24 +1,22 @@
-# Fix pcmanfm "Open with" dialog with openbox (need install lxmenu-data)
-export XDG_MENU_PREFIX=lxde-
-export XDG_CURRENT_DESKTOP=LXDE
+# Lara Maia <lara@craft.net.br> © 2015
 
-# Fix Gtk look
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-
-# Load xorg extras from /etc/X11/xinit/xinitrc.d
-if test -d /etc/X11/xinit/xinitrc.d/; then
-    for f in /etc/X11/xinit/xinitrc.d/*; do
-        test -r "$f" && . "$f"
+# Carregar configurações do xinit
+if test -d /etc/X11/xinit/xinitrc.d/
+then
+    for conf in /etc/X11/xinit/xinitrc.d/*; do
+        test -x "$conf" && . "$conf"
     done
-    unset f
+    unset conf
 fi
 
-# Load profiles from /etc/profile.d
-if test -d /etc/profile.d/; then
-    for profile in /etc/profile.d/*.sh; do
-        test -r "$profile" && . "$profile"
-    done
-    unset profile
-fi
+# Carregar configuração do profile
+. /etc/profile
 
-cinnamon-session
+# Iniciar sessão
+#/usr/bin/openbox
+#/usr/bin/lboxwm
+#/usr/bin/rox -S
+#/usr/bin/gnome-session
+/usr/bin/xfce4-session
+#/usr/bin/cinnamon-session
+#/usr/bin/budgie-session

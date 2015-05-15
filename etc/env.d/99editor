@@ -1,4 +1,0 @@
-# Configuration file for eselect
-# This file has been automatically generated.
-VISUAL="/bin/nano"
-EDITOR="/usr/bin/vi"

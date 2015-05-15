@@ -1,3 +1,0 @@
-exec >/home/lara/.openbox.log 2>&1
-
-simple-autostarter --fork-all

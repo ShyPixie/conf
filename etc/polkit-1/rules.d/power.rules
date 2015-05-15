@@ -1,8 +1,0 @@
-polkit.addRule(function(action, subject) {
-     if (action.id.indexOf("org.freedesktop.hal.power-management.shutdown") == 0) {
-          return polkit.Result.YES;
-     }
-     if (action.id.indexOf("org.freedesktop.hal.power-management.reboot") == 0) {
-          return polkit.Result.YES;
-     }
-});
