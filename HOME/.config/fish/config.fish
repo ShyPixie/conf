@@ -1,14 +1,13 @@
 # Lara Maia <lara@craft.net.br> © 2015
 #
-# Depends: sys-fs/cdf        [overlay{LaraCraft03}]
+# Depends: sys-fs/cdf        [overlay{LaraCraft93}]
 #          grc               [repo]
 #          netcat            [repo]
 #          colordiff         [repo]
 #          sys-process/time  [repo]
-#          geany             [repo]
-#          geany-checkpath   [overlay{LaraCraft93}]
-#          gvim-checkpath    [overlay{LaraCraft93}]
+#          vim               [repo]
 #          xmodmap           [repo]
+#          file              [repo]
 
 # ============== Configurações =======================
 
@@ -62,6 +61,7 @@ function ls; command ls -h --group-directories-first --color='auto' $argv; end
 function ll; lp $argv; end
 function la; lp -a $argv; end
 function perms; lp -ld $argv; end
+function types; file *; end
 
 function ..; cd ..; end
 function ...; cd ../..; end
@@ -71,12 +71,12 @@ function .....; cd ../../../..; end
 function back; cd (echo $PWD | rev | cut -d"/" -f2- | rev); end
 function back2; cd $PWD; end
 function reload; . ~/.config/fish/config.fish; end
-function edit; geany ~/.config/fish/config.fish; end
-function editworld; geany /var/lib/portage/world; end
-function editmake; geany /etc/portage/make.conf; end
-function edituse; geany /etc/portage/package.use; end
-function editmask; geany /etc/portage/package.mask; end
-function editkey; geany /etc/portage/package.accept_keywords; end
+function edit; vim ~/.config/fish/config.fish; end
+function editworld; sudo vim /var/lib/portage/world; end
+function editmake; sudo vim /etc/portage/make.conf; end
+function edituse; sudo vim /etc/portage/package.use; end
+function editmask; sudo vim /etc/portage/package.mask; end
+function editkey; sudo vim /etc/portage/package.accept_keywords; end
 
 # Operações de arquivos
 function rm; command rm -vI --preserve-root $argv; end
@@ -90,15 +90,13 @@ function chown; command chown --preserve-root $argv; end
 function chmod; command chmod --preserve-root $argv; end
 function chgrp; command chgrp --preserve-root $argv; end
 
-function geany; geany_checkpath $argv; end
-function gvim; gvim_checkpath $argv; end
-
-function termbin; nc termbin.com 9999; end
-
 # Ferramentas
+function termbin; nc termbin.com 9999; end
+function tb; termbin; end
 function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
 function time; command time -p /bin/fish -c $argv; end
+function e; equery $argv; end
 
 # Kill
 function k; killall $argv; end
@@ -124,6 +122,44 @@ function ping; grc -es --colour=auto ping -c 3 $argv; end
 function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # ============== Funções ==========================
+
+function catebuild -d "Mostra o conteúdo de um arquivo ebuild através do nome"
+    set -l eb (equery w $argv[1])
+    set -l ebst $status
+    if count $argv[1] >/dev/null
+        if test $ebst -eq 0
+            cat "$eb"
+        else
+            echo -n "$eb"
+        end
+    end
+end
+
+# Se for uma conexão ssh, executar o tmux
+if test ! -z "$SSH_TTY" -a -z "$STY"
+    while true
+        tmux -2 new-session -A -s ssh -t principal
+        echo "Olha só... você quebrou tudo T_T"
+        while true
+            tmux list-session | grep principal >/dev/null 2>&1
+            if test $status -eq 0
+                break
+            else
+                sleep 5
+            end
+        end
+    end
+end
+
+function exit -d "Sair da sessão do ssh sem fechar o terminal"
+    if test "$TERM" = "screen-256color" -a \
+    (tmux display-message -p '#S') = "ssh"
+        tmux detach -P
+    else
+        tmux detach -P -s ssh
+        builtin exit
+    end
+end
 
 # http://unixcoders.wordpress.com/2013/02/12/print-numerical-permissions-of-files/
 function lp -d "Permissões numéricas no ls"
