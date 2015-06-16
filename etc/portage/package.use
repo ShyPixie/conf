@@ -1,38 +1,35 @@
 # Lara Maia <lara@craft.net.br> 2015
 
-app-emulation/wine                 staging s3tc
-app-emulation/winetricks           -gtk
-app-admin/sudo                     pam
-app-arch/tar                       minimal
+app-arch/tar                       minimal # Instalei o tar, para usar o "tar"... ora bolas
+app-crypt/gcr                      gtk # Necessário para app-editors/atom (gnome-keyring)
+app-crypt/pinentry                 gnome-keyring # Necessário para app-editors/atom (gnome-keyring)
+app-emulation/wine                 staging s3tc samba # Patchs legais...
 app-portage/eix                    optimization strong-optimization swap-remote
-app-text/ghostscript-gpl           cups
-
+app-text/ghostscript-gpl          cups # Necessário para app-editors/atom (Não por muito tempo...)
+app-text/poppler                   cairo # Necessário para media-gfx/inkscape
 dev-java/oracle-jre-bin            fontconfig nsplugin
-dev-vcs/git                        -gpg -webdav -pcre -perl -python -gtk
-dev-lang/spidermonkey              system-icu minimal
-dev-db/sqlite                      secure-delete
+dev-lang/spidermonkey              system-icu
+dev-lang/mono                      minimal
 dev-libs/elfutils                  static-libs
 dev-libs/libpcre                   pcre16
-
+dev-vcs/git                        -gpg -webdav -pcre -perl -python -gtk
 gnome-base/gvfs                    mtp archive
-
-media-sound/pulseaudio             -ipv6 -tcpd -ssl -webrtc-aec
-media-libs/libvpx                  postproc
 media-gfx/gimp                     aalib curl
-media-video/vlc                    mtp qt5
-
-net-misc/iputils                   -caps -filecaps
-net-misc/tightvnc                  server
+media-libs/libcanberra             alsa
+media-libs/libpng                  apng # Necessário para www-client/firefox
+media-libs/libvpx                  postproc # Necessário para www-client/firefox[system-libvpx]
+media-libs/mesa                    -gbm -dri3 -classic # Eu realmente preciso do dri3, classic, gbm para o Catalyst?... Nah
+media-sound/pulseaudio             -ipv6 -tcpd -ssl -webrtc-aec # Audio... APENAS audio
 net-libs/webkit-gtk                -geoloc webgl
-
-sys-apps/util-linux                -cramfs
+net-misc/iputils                   -caps -filecaps
+net-nds/openldap                   minimal # Não precisamos do servidor em um desktop
+sys-apps/util-linux                -cramfs # Cramfs? Pra que cramfs?
+sys-auth/pambase                   minimal
+sys-block/gparted                  -mdadm -reiser4 -xfs -jfs # ext4 para o sistema, vfat para o efi... e só
+sys-devel/llvm                     clang # Necessário para media-libs/mesa
 sys-libs/glibc                     nscd
 sys-libs/zlib                      minizip
-sys-block/gparted                  mdadm -reiser4 -xfs -jfs
-sys-devel/llvm                     clang
-sys-auth/pambase                   minimal
-www-client/firefox                 minimal system-cairo system-icu system-jpeg system-libvpx system-sqlite wifi gstreamer
-
-x11-drivers/ati-drivers            qt4
-xfce-base/xfce4-session            -xscreensaver
-xfce-extra/xfce4-pulseaudio-plugin keybinder
+www-client/firefox                 system-cairo system-icu system-jpeg system-libvpx wifi gstreamer
+x11-apps/xinit                     minimal
+xfce-base/xfce4-session            -xscreensaver # Maldito xscreensaver... tchau
+xfce-extra/xfce4-pulseaudio-plugin keybinder # Cade os atalhos de teclado?
