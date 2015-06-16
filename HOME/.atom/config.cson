@@ -1,0 +1,26 @@
+"*":
+  "exception-reporting":
+    userId: "65cf60e8-2fb2-4525-e105-212b40627f3c"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "one-light-ui"
+      "piatto-light"
+    ]
+    disabledPackages: [
+      "Sublime-Style-Column-Selection"
+      "block-selection-mode"
+    ]
+  "symbols-tree-view":
+    autoToggle: true
+  editor:
+    invisibles: {}
+    fontSize: 15
+    showInvisibles: true
+    tabLength: 4
+  "isotope-light-ui":
+    customBackgroundColor: "false"
+  "autocomplete-plus": {}
+  "one-light-ui":
+    layoutMode: "Compact"
