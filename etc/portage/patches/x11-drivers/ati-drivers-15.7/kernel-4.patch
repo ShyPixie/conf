@@ -1,0 +1,178 @@
+diff -Naur common/lib/modules/fglrx/build_mod/firegl_public.c common-r1/lib/modules/fglrx/build_mod/firegl_public.c
+--- common/lib/modules/fglrx/build_mod/firegl_public.c	2015-07-04 10:31:23.000000000 -0400
++++ common-r1/lib/modules/fglrx/build_mod/firegl_public.c	2015-07-16 21:28:40.000000000 -0400
+@@ -93,7 +93,7 @@
+    and they use different config options. These options can only be enabled
+    on x86_64 with newer 2.6 kernels (2.6.23 for intel, 2.6.26 for amd). 
+ */
+-#if defined(CONFIG_AMD_IOMMU) || defined(CONFIG_DMAR)
++#if defined(CONFIG_AMD_IOMMU) || defined(CONFIG_INTEL_IOMMU) || defined(CONFIG_DMAR)
+     #define FIREGL_DMA_REMAPPING
+ #endif
+ 
+@@ -3498,7 +3498,11 @@
+ #else
+         //when MSI enabled. keep irq disabled when calling the action handler,
+         //exclude this IRQ from irq balancing (only on one CPU) 
+-        ((useMSI) ? (IRQF_DISABLED) : (IRQF_SHARED)),    
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,1,0)
++        ((useMSI) ? (IRQF_DISABLED | IRQF_NOBALANCING) : (IRQF_SHARED)),
++#else
++        ((useMSI) ? (IRQF_NOBALANCING) : (IRQF_SHARED)),
++#endif
+ #endif
+         dev_name,
+         context);
+@@ -4498,8 +4502,13 @@
+ 
+     if (cpu_has_pge)
+     {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+         cr4 = read_cr4();
+         write_cr4(cr4 & ~X86_CR4_PGE);
++#else
++	cr4 = __read_cr4();
++	__write_cr4(cr4 & ~X86_CR4_PGE);
++#endif
+     }
+      __flush_tlb();
+ 
+@@ -4512,7 +4521,11 @@
+     write_cr0(cr0 & 0xbfffffff);
+     if (cpu_has_pge)
+     {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+         write_cr4(cr4);
++#else
++	__write_cr4(cr4);
++#endif
+     }
+     local_irq_restore(flags);
+ 
+@@ -4539,8 +4552,13 @@
+ 
+     if (cpu_has_pge)
+     {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+         cr4 = read_cr4();
+         write_cr4(cr4 & ~X86_CR4_PGE);
++#else
++	cr4 = __read_cr4();
++	__write_cr4(cr4 & ~X86_CR4_PGE);
++#endif
+     }
+      __flush_tlb();
+   
+@@ -4552,7 +4570,11 @@
+     write_cr0(cr0 & 0xbfffffff);
+     if (cpu_has_pge)
+     {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+         write_cr4(cr4);
++#else
++	__write_cr4(cr4);
++#endif
+     }
+     local_irq_restore(flags);
+ 
+@@ -4846,8 +4868,13 @@
+ {
+     unsigned long orig_level;
+ 
+-    orig_level = GET_CPU_VAR(kasExecutionLevel);
+-    GET_CPU_VAR(kasExecutionLevel) = level;
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,19,0)
++    orig_level = __this_cpu_read(kasExecutionLevel);
++    __this_cpu_write(kasExecutionLevel, level);
++#else
++    orig_level = __get_cpu_var(kasExecutionLevel);
++    __get_cpu_var(kasExecutionLevel) = level;
++#endif
+ 
+     return orig_level;
+ }
+@@ -4859,7 +4886,11 @@
+  */
+ static unsigned long kas_GetExecutionLevel(void)
+ {
+-    return GET_CPU_VAR(kasExecutionLevel);
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,19,0)
++    return __this_cpu_read(kasExecutionLevel);
++#else
++    return __get_cpu_var(kasExecutionLevel);
++#endif
+ }
+ 
+ /** \brief Type definition for kas_spin_lock() parameter */
+@@ -6422,7 +6453,7 @@
+     generate_random_uuid((char *)buf);
+ }
+ 
+-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,15,0)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,15,0) && LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+ static int KCL_fpu_save_init(struct task_struct *tsk)
+ {
+    struct fpu *fpu = &tsk->thread.fpu;
+@@ -6461,7 +6492,7 @@
+     struct task_struct *cur_task = get_current();
+     preempt_disable();
+     if (cur_thread->status & TS_USEDFPU)
+-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,15,0)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,15,0) && LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+          KCL_fpu_save_init(cur_task);
+ #else
+          __save_init_fpu(cur_task);
+@@ -6483,7 +6514,7 @@
+ #else
+     if (cur_task->thread.has_fpu)
+ #endif
+-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,15,0)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,15,0) && LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+         KCL_fpu_save_init(cur_task);
+ #else
+         __save_init_fpu(cur_task);
+diff -Naur common/lib/modules/fglrx/build_mod/firegl_public.h common-r1/lib/modules/fglrx/build_mod/firegl_public.h
+--- common/lib/modules/fglrx/build_mod/firegl_public.h	2015-07-04 10:31:23.000000000 -0400
++++ common-r1/lib/modules/fglrx/build_mod/firegl_public.h	2015-07-16 21:23:06.000000000 -0400
+@@ -530,7 +530,6 @@
+ extern unsigned long ATI_API_CALL KCL_GetPageTableByVirtAddr(unsigned long virtual_addr, unsigned long* page_addr);
+ extern unsigned int ATI_API_CALL KCL_GetPageSizeByVirtAddr(unsigned long virtual_addr, unsigned int* page_size);
+ extern int ATI_API_CALL KCL_LockUserPages(unsigned long vaddr, unsigned long* page_list, unsigned int page_cnt);
+-extern int ATI_API_CALL KCL_LockReadOnlyUserPages(unsigned long vaddr, unsigned long* page_list, unsigned int page_cnt);
+ extern void ATI_API_CALL KCL_UnlockUserPages(unsigned long* page_list, unsigned int page_cnt);
+ extern int ATI_API_CALL KCL_TestAndClearPageDirtyFlag(unsigned long virtual_addr, unsigned int page_size);
+ extern unsigned long ATI_API_CALL KCL_MEM_AllocLinearAddrInterval(KCL_IO_FILE_Handle  file, unsigned long addr, unsigned long len, unsigned long pgoff);
+diff -Naur common/lib/modules/fglrx/build_mod/kcl_acpi.c common-r1/lib/modules/fglrx/build_mod/kcl_acpi.c
+--- common/lib/modules/fglrx/build_mod/kcl_acpi.c	2015-07-04 10:31:23.000000000 -0400
++++ common-r1/lib/modules/fglrx/build_mod/kcl_acpi.c	2015-06-04 06:27:32.000000000 -0400
+@@ -829,6 +829,7 @@
+     return retHandle;
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+ static acpi_status KCL_ACPI_Slot_No_Hotplug(KCL_ACPI_DevHandle handle, u32 lvl, void *data, void **rv)
+ {
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,12,7) && LINUX_VERSION_CODE < KERNEL_VERSION(3,17,0)
+@@ -848,6 +849,7 @@
+ #endif
+    return 0;
+ }
++#endif
+ 
+ void ATI_API_CALL KCL_ACPI_No_Hotplug(void* dev)
+ {
+diff -Naur common/lib/modules/fglrx/build_mod/kcl_str.c common-r1/lib/modules/fglrx/build_mod/kcl_str.c
+--- common/lib/modules/fglrx/build_mod/kcl_str.c	2015-07-04 10:31:23.000000000 -0400
++++ common-r1/lib/modules/fglrx/build_mod/kcl_str.c	2015-06-04 06:27:32.000000000 -0400
+@@ -169,7 +169,11 @@
+                                   const char* s2,
+                                   KCL_TYPE_SizeSigned count)
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+     return strnicmp(s1, s2, count);
++#else
++    return strncasecmp(s1, s2, count);
++#endif
+ }
+ 
+ /** \brief Locate character in string

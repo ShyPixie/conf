@@ -5,31 +5,28 @@ app-crypt/gcr                      gtk # Necessário para app-editors/atom (gnom
 app-crypt/pinentry                 gnome-keyring # Necessário para app-editors/atom (gnome-keyring)
 app-emulation/wine                 staging s3tc samba # Patchs legais...
 app-portage/eix                    optimization strong-optimization swap-remote
-app-text/ghostscript-gpl          cups # Necessário para app-editors/atom (Não por muito tempo...)
+app-text/ghostscript-gpl           cups # Necessário para app-editors/atom (Não por muito tempo...)
 app-text/poppler                   cairo # Necessário para media-gfx/inkscape
 dev-java/oracle-jre-bin            fontconfig nsplugin
-dev-lang/spidermonkey              system-icu
-dev-lang/mono                      minimal
 dev-libs/elfutils                  static-libs
 dev-libs/libpcre                   pcre16
 dev-vcs/git                        -gpg -webdav -pcre -perl -python -gtk
+games-util/steam-client-meta       steamruntime steamfonts trayicon
 gnome-base/gvfs                    mtp archive
 media-gfx/gimp                     aalib curl
 media-libs/libcanberra             alsa
-media-libs/libpng                  apng # Necessário para www-client/firefox
-media-libs/libvpx                  postproc # Necessário para www-client/firefox[system-libvpx]
 media-libs/mesa                    -gbm -dri3 -classic # Eu realmente preciso do dri3, classic, gbm para o Catalyst?... Nah
 media-sound/pulseaudio             -ipv6 -tcpd -ssl -webrtc-aec # Audio... APENAS audio
 net-libs/webkit-gtk                -geoloc webgl
 net-misc/iputils                   -caps -filecaps
 net-nds/openldap                   minimal # Não precisamos do servidor em um desktop
+net-ftp/gftp                       gtk
 sys-apps/util-linux                -cramfs # Cramfs? Pra que cramfs?
 sys-auth/pambase                   minimal
 sys-block/gparted                  -mdadm -reiser4 -xfs -jfs # ext4 para o sistema, vfat para o efi... e só
 sys-devel/llvm                     clang # Necessário para media-libs/mesa
 sys-libs/glibc                     nscd
 sys-libs/zlib                      minizip
-www-client/firefox                 system-cairo system-icu system-jpeg system-libvpx wifi gstreamer
 x11-apps/xinit                     minimal
 xfce-base/xfce4-session            -xscreensaver # Maldito xscreensaver... tchau
 xfce-extra/xfce4-pulseaudio-plugin keybinder # Cade os atalhos de teclado?
