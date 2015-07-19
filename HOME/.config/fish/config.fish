@@ -57,7 +57,7 @@ function egrep; command egrep --color=always $argv; end
 function zgrep; command zgrep --color=always $argv; end
 
 # Dir list
-function ls; command ls -h --group-directories-first --color='auto' $argv; end
+function ls; command ls -h --group-directories-first --color='auto' --indicator-style=classify $argv; end
 function ll; lp $argv; end
 function la; lp -a $argv; end
 function perms; lp -ld $argv; end
@@ -76,6 +76,7 @@ function editworld; sudo vim /var/lib/portage/world; end
 function editmake; sudo vim /etc/portage/make.conf; end
 function edituse; sudo vim /etc/portage/package.use; end
 function editmask; sudo vim /etc/portage/package.mask; end
+function editunmask; sudo vim /etc/portage/package.unmask; end
 function editkey; sudo vim /etc/portage/package.accept_keywords; end
 
 # Operações de arquivos
@@ -97,6 +98,8 @@ function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
 function time; command time -p /bin/fish -c $argv; end
 function e; equery $argv; end
+function sudo; command sudo -s $argv; end
+function eix-sync; eval /home/lara/Develop/tools/portage_excludes.sh; and command eix-sync $argv; end
 
 # Kill
 function k; killall $argv; end
@@ -123,6 +126,11 @@ function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # ============== Funções ==========================
 
+function reinstallcat -d "Reinstala todos os pacotes de uma determinada categoria."
+    set -l packages (eix -IA --only-names $argv[1])
+    sudo emerge -1 $packages
+end
+
 function catebuild -d "Mostra o conteúdo de um arquivo ebuild através do nome"
     set -l eb (equery w $argv[1])
     set -l ebst $status
@@ -137,18 +145,7 @@ end
 
 # Se for uma conexão ssh, executar o tmux
 if test ! -z "$SSH_TTY" -a -z "$STY"
-    while true
-        tmux -2 new-session -A -s ssh -t principal
-        echo "Olha só... você quebrou tudo T_T"
-        while true
-            tmux list-session | grep principal >/dev/null 2>&1
-            if test $status -eq 0
-                break
-            else
-                sleep 5
-            end
-        end
-    end
+    tmux -2 new-session -A -s ssh -t principal
 end
 
 function exit -d "Sair da sessão do ssh sem fechar o terminal"
@@ -178,10 +175,24 @@ function githardmv -d "Forçar git mv"
     echo "$argv[1] -> $argv[2]"
 end
 
+function gitatomdiff -d "Mostrar o diff no atom"
+    git diff > /tmp/gitatomdiff.diff; and \
+    atom /tmp/gitatomdiff.diff; and \
+    sleep 10; and \
+    rm -f /tmp/gitatomdiff.diff
+end
+
 function superretab -d "super retab"
     for file in (find $argv -type f -not -iwholename '*.git*')
         sed -i 's/\t/    /g' $file; or exit 1
         echo "$file retabed"
+    end
+end
+
+function execinfolder -d "Executa o comando em todos os arquivos na pasta"
+    for file in (find . -type f -not -iwholename '*.git*')
+        eval $argv $file; or exit 1
+        echo "Executando: $argv $file"
     end
 end
 
