@@ -1,18 +1,3 @@
-'atom-text-editor.vim-mode.visual-mode':
-    'down':      'vim-mode-visual-block:j'
-    'up':      'vim-mode-visual-block:k'
-    'left':      'vim-mode-visual-block:h'
-    'right':      'vim-mode-visual-block:l'
-    'I':      'vim-mode-visual-block:I'
-    'A':      'vim-mode-visual-block:A'
-    'D':      'vim-mode-visual-block:D'
-    'C':      'vim-mode-visual-block:C'
-    'o':      'vim-mode-visual-block:o'
-    'escape': 'vim-mode-visual-block:escape'
-    'ctrl-[': 'vim-mode-visual-block:escape'
-    'ctrl-c': 'vim-mode-visual-block:escape'
-    'ctrl-v': 'vim-mode:activate-blockwise-visual-mode'
-
 'body':
     'ctrl-shift-c': 'core:copy'
     'ctrl-shift-v': 'core:paste'

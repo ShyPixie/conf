@@ -6,21 +6,32 @@
   core:
     themes: [
       "one-light-ui"
-      "piatto-light"
+      "lazy-light-syntax"
     ]
     disabledPackages: [
       "Sublime-Style-Column-Selection"
       "block-selection-mode"
+      "symbols-tree-view"
+      "symbols-view"
     ]
   "symbols-tree-view":
     autoToggle: true
   editor:
     invisibles: {}
-    fontSize: 15
     showInvisibles: true
     tabLength: 4
+    fontSize: 13
+    preferredLineLength: 72
   "isotope-light-ui":
     customBackgroundColor: "false"
   "autocomplete-plus": {}
   "one-light-ui":
     layoutMode: "Compact"
+  "css-comb":
+    config: "csscomb"
+  "atom-beautify":
+    _analyticsUserId: "6cf124d8-3d0b-40e5-b574-160d1480a5e2"
+  "php-cs-fixer": {}
+  "hide-tree":
+    timeout: 200
+  "atom-ctags": {}

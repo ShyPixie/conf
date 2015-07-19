@@ -1,2 +1,2 @@
-piatto-light@1.1.0
+lazy-light-syntax@0.1.1
 
