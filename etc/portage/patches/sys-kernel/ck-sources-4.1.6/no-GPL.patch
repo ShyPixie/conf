@@ -1,0 +1,11 @@
+--- a/arch/x86/mm/init.c  2015-05-09 16:58:23.571007830 -0300
++++ b/arch/x86/mm/init.c  2015-05-09 16:59:14.607011382 -0300
+@@ -744,7 +744,7 @@
+ #endif
+        .cr4 = ~0UL,    /* fail hard if we screw up cr4 shadow initialization */
+ };
+-EXPORT_SYMBOL_GPL(cpu_tlbstate);
++EXPORT_SYMBOL(cpu_tlbstate);
+ 
+ void update_cache_mode_entry(unsigned entry, enum page_cache_mode cache)
+ {

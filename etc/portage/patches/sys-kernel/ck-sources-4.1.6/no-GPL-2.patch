@@ -1,0 +1,308 @@
+--- drivers/pci/pci.c.orig	2015-08-08 02:50:07.282086908 -0300
++++ drivers/pci/pci.c	2015-08-08 02:50:25.523089022 -0300
+@@ -32,7 +32,7 @@
+ const char *pci_power_names[] = {
+ 	"error", "D0", "D1", "D2", "D3hot", "D3cold", "unknown",
+ };
+-EXPORT_SYMBOL_GPL(pci_power_names);
++EXPORT_SYMBOL(pci_power_names);
+ 
+ int isa_dma_bridge_buggy;
+ EXPORT_SYMBOL(isa_dma_bridge_buggy);
+@@ -121,7 +121,7 @@
+ 	}
+ 	return max;
+ }
+-EXPORT_SYMBOL_GPL(pci_bus_max_busnr);
++EXPORT_SYMBOL(pci_bus_max_busnr);
+ 
+ #ifdef CONFIG_HAS_IOMEM
+ void __iomem *pci_ioremap_bar(struct pci_dev *pdev, int bar)
+@@ -137,7 +137,7 @@
+ 	}
+ 	return ioremap_nocache(res->start, resource_size(res));
+ }
+-EXPORT_SYMBOL_GPL(pci_ioremap_bar);
++EXPORT_SYMBOL(pci_ioremap_bar);
+ #endif
+ 
+ #define PCI_FIND_CAP_TTL	48
+@@ -179,7 +179,7 @@
+ 	return __pci_find_next_cap(dev->bus, dev->devfn,
+ 				   pos + PCI_CAP_LIST_NEXT, cap);
+ }
+-EXPORT_SYMBOL_GPL(pci_find_next_capability);
++EXPORT_SYMBOL(pci_find_next_capability);
+ 
+ static int __pci_bus_find_cap_start(struct pci_bus *bus,
+ 				    unsigned int devfn, u8 hdr_type)
+@@ -312,7 +312,7 @@
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(pci_find_next_ext_capability);
++EXPORT_SYMBOL(pci_find_next_ext_capability);
+ 
+ /**
+  * pci_find_ext_capability - Find an extended capability
+@@ -332,7 +332,7 @@
+ {
+ 	return pci_find_next_ext_capability(dev, 0, cap);
+ }
+-EXPORT_SYMBOL_GPL(pci_find_ext_capability);
++EXPORT_SYMBOL(pci_find_ext_capability);
+ 
+ static int __pci_find_next_ht_cap(struct pci_dev *dev, int pos, int ht_cap)
+ {
+@@ -378,7 +378,7 @@
+ {
+ 	return __pci_find_next_ht_cap(dev, pos + PCI_CAP_LIST_NEXT, ht_cap);
+ }
+-EXPORT_SYMBOL_GPL(pci_find_next_ht_capability);
++EXPORT_SYMBOL(pci_find_next_ht_capability);
+ 
+ /**
+  * pci_find_ht_capability - query a device's Hypertransport capabilities
+@@ -401,7 +401,7 @@
+ 
+ 	return pos;
+ }
+-EXPORT_SYMBOL_GPL(pci_find_ht_capability);
++EXPORT_SYMBOL(pci_find_ht_capability);
+ 
+ /**
+  * pci_find_parent_resource - return resource region of parent bus of given region
+@@ -796,7 +796,7 @@
+ 		__pci_bus_set_current_state(dev->subordinate, PCI_D3cold);
+ 	return ret;
+ }
+-EXPORT_SYMBOL_GPL(__pci_complete_power_transition);
++EXPORT_SYMBOL(__pci_complete_power_transition);
+ 
+ /**
+  * pci_set_power_state - Set the power state of a PCI device
+@@ -1142,7 +1142,7 @@
+ 
+ 	return state;
+ }
+-EXPORT_SYMBOL_GPL(pci_store_saved_state);
++EXPORT_SYMBOL(pci_store_saved_state);
+ 
+ /**
+  * pci_load_saved_state - Reload the provided save state into struct pci_dev.
+@@ -1178,7 +1178,7 @@
+ 	dev->state_saved = true;
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(pci_load_saved_state);
++EXPORT_SYMBOL(pci_load_saved_state);
+ 
+ /**
+  * pci_load_and_free_saved_state - Reload the save state pointed to by state,
+@@ -1194,7 +1194,7 @@
+ 	*state = NULL;
+ 	return ret;
+ }
+-EXPORT_SYMBOL_GPL(pci_load_and_free_saved_state);
++EXPORT_SYMBOL(pci_load_and_free_saved_state);
+ 
+ int __weak pcibios_enable_device(struct pci_dev *dev, int bars)
+ {
+@@ -1585,7 +1585,7 @@
+ {
+ 	return pcibios_set_pcie_reset_state(dev, state);
+ }
+-EXPORT_SYMBOL_GPL(pci_set_pcie_reset_state);
++EXPORT_SYMBOL(pci_set_pcie_reset_state);
+ 
+ /**
+  * pci_check_pme_status - Check if given device has generated PME.
+@@ -2008,7 +2008,7 @@
+ 
+ 	return false;
+ }
+-EXPORT_SYMBOL_GPL(pci_dev_run_wake);
++EXPORT_SYMBOL(pci_dev_run_wake);
+ 
+ /**
+  * pci_dev_keep_suspended - Check if the device can stay in the suspended state.
+@@ -2496,7 +2496,7 @@
+ 	*pinp = pin;
+ 	return PCI_SLOT(dev->devfn);
+ }
+-EXPORT_SYMBOL_GPL(pci_common_swizzle);
++EXPORT_SYMBOL(pci_common_swizzle);
+ 
+ /**
+  *	pci_release_region - Release a PCI bar
+@@ -2884,7 +2884,7 @@
+ 
+ 	return -EINVAL;
+ }
+-EXPORT_SYMBOL_GPL(pci_set_cacheline_size);
++EXPORT_SYMBOL(pci_set_cacheline_size);
+ 
+ /**
+  * pci_set_mwi - enables memory-write-invalidate PCI transaction
+@@ -2986,7 +2986,7 @@
+ 		}
+ 	}
+ }
+-EXPORT_SYMBOL_GPL(pci_intx);
++EXPORT_SYMBOL(pci_intx);
+ 
+ /**
+  * pci_intx_mask_supported - probe for INTx masking support
+@@ -3026,7 +3026,7 @@
+ 	pci_cfg_access_unlock(dev);
+ 	return mask_supported;
+ }
+-EXPORT_SYMBOL_GPL(pci_intx_mask_supported);
++EXPORT_SYMBOL(pci_intx_mask_supported);
+ 
+ static bool pci_check_and_set_intx_mask(struct pci_dev *dev, bool mask)
+ {
+@@ -3085,7 +3085,7 @@
+ {
+ 	return pci_check_and_set_intx_mask(dev, true);
+ }
+-EXPORT_SYMBOL_GPL(pci_check_and_mask_intx);
++EXPORT_SYMBOL(pci_check_and_mask_intx);
+ 
+ /**
+  * pci_check_and_unmask_intx - unmask INTx if no interrupt is pending
+@@ -3099,7 +3099,7 @@
+ {
+ 	return pci_check_and_set_intx_mask(dev, false);
+ }
+-EXPORT_SYMBOL_GPL(pci_check_and_unmask_intx);
++EXPORT_SYMBOL(pci_check_and_unmask_intx);
+ 
+ /**
+  * pci_msi_off - disables any MSI or MSI-X capabilities
+@@ -3132,7 +3132,7 @@
+ 		pci_write_config_word(dev, pos + PCI_MSIX_FLAGS, control);
+ 	}
+ }
+-EXPORT_SYMBOL_GPL(pci_msi_off);
++EXPORT_SYMBOL(pci_msi_off);
+ 
+ int pci_set_dma_max_seg_size(struct pci_dev *dev, unsigned int size)
+ {
+@@ -3298,7 +3298,7 @@
+ {
+ 	pcibios_reset_secondary_bus(dev);
+ }
+-EXPORT_SYMBOL_GPL(pci_reset_bridge_secondary_bus);
++EXPORT_SYMBOL(pci_reset_bridge_secondary_bus);
+ 
+ static int pci_parent_bus_reset(struct pci_dev *dev, int probe)
+ {
+@@ -3487,7 +3487,7 @@
+ {
+ 	return pci_dev_reset(dev, 0);
+ }
+-EXPORT_SYMBOL_GPL(__pci_reset_function);
++EXPORT_SYMBOL(__pci_reset_function);
+ 
+ /**
+  * __pci_reset_function_locked - reset a PCI device function while holding
+@@ -3512,7 +3512,7 @@
+ {
+ 	return __pci_dev_reset(dev, 0);
+ }
+-EXPORT_SYMBOL_GPL(__pci_reset_function_locked);
++EXPORT_SYMBOL(__pci_reset_function_locked);
+ 
+ /**
+  * pci_probe_reset_function - check whether the device can be safely reset
+@@ -3562,7 +3562,7 @@
+ 
+ 	return rc;
+ }
+-EXPORT_SYMBOL_GPL(pci_reset_function);
++EXPORT_SYMBOL(pci_reset_function);
+ 
+ /**
+  * pci_try_reset_function - quiesce and reset a PCI device function
+@@ -3590,7 +3590,7 @@
+ 
+ 	return rc;
+ }
+-EXPORT_SYMBOL_GPL(pci_try_reset_function);
++EXPORT_SYMBOL(pci_try_reset_function);
+ 
+ /* Do any devices on or below this bus prevent a bus reset? */
+ static bool pci_bus_resetable(struct pci_bus *bus)
+@@ -3819,7 +3819,7 @@
+ {
+ 	return pci_slot_reset(slot, 1);
+ }
+-EXPORT_SYMBOL_GPL(pci_probe_reset_slot);
++EXPORT_SYMBOL(pci_probe_reset_slot);
+ 
+ /**
+  * pci_reset_slot - reset a PCI slot
+@@ -3852,7 +3852,7 @@
+ 
+ 	return rc;
+ }
+-EXPORT_SYMBOL_GPL(pci_reset_slot);
++EXPORT_SYMBOL(pci_reset_slot);
+ 
+ /**
+  * pci_try_reset_slot - Try to reset a PCI slot
+@@ -3881,7 +3881,7 @@
+ 
+ 	return rc;
+ }
+-EXPORT_SYMBOL_GPL(pci_try_reset_slot);
++EXPORT_SYMBOL(pci_try_reset_slot);
+ 
+ static int pci_bus_reset(struct pci_bus *bus, int probe)
+ {
+@@ -3912,7 +3912,7 @@
+ {
+ 	return pci_bus_reset(bus, 1);
+ }
+-EXPORT_SYMBOL_GPL(pci_probe_reset_bus);
++EXPORT_SYMBOL(pci_probe_reset_bus);
+ 
+ /**
+  * pci_reset_bus - reset a PCI bus
+@@ -3939,7 +3939,7 @@
+ 
+ 	return rc;
+ }
+-EXPORT_SYMBOL_GPL(pci_reset_bus);
++EXPORT_SYMBOL(pci_reset_bus);
+ 
+ /**
+  * pci_try_reset_bus - Try to reset a PCI bus
+@@ -3968,7 +3968,7 @@
+ 
+ 	return rc;
+ }
+-EXPORT_SYMBOL_GPL(pci_try_reset_bus);
++EXPORT_SYMBOL(pci_try_reset_bus);
+ 
+ /**
+  * pcix_get_max_mmrbc - get PCI-X maximum designed memory read byte count
+@@ -4322,7 +4322,7 @@
+ 
+ 	return pci_bus_read_dev_vendor_id(pdev->bus, pdev->devfn, &v, 0);
+ }
+-EXPORT_SYMBOL_GPL(pci_device_is_present);
++EXPORT_SYMBOL(pci_device_is_present);
+ 
+ void pci_ignore_hotplug(struct pci_dev *dev)
+ {
+@@ -4333,7 +4333,7 @@
+ 	if (bridge)
+ 		bridge->ignore_hotplug = 1;
+ }
+-EXPORT_SYMBOL_GPL(pci_ignore_hotplug);
++EXPORT_SYMBOL(pci_ignore_hotplug);
+ 
+ #define RESOURCE_ALIGNMENT_PARAM_SIZE COMMAND_LINE_SIZE
+ static char resource_alignment_param[RESOURCE_ALIGNMENT_PARAM_SIZE] = {0};
