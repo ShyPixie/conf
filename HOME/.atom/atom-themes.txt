@@ -1,2 +1,2 @@
-lazy-light-syntax@0.1.1
+atom-material-ui@0.6.0
 
