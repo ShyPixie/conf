@@ -1,3 +1,5 @@
+dev-dotnet/libgdiplus
+dev-lang/mono
 dev-libs/glib:2
 dev-libs/libgcrypt
 dev-libs/nspr

@@ -3,30 +3,45 @@
 app-arch/tar                       minimal # Instalei o tar, para usar o "tar"... ora bolas
 app-crypt/gcr                      gtk # Necessário para app-editors/atom (gnome-keyring)
 app-crypt/pinentry                 gnome-keyring # Necessário para app-editors/atom (gnome-keyring)
+app-crypt/heimdal                  -ssl # Necessário para app-emulation/wine[samba]
+app-emulation/vmware-tools         vmware_guest_windows
+app-emulation/vmware-workstation   vmware-tools vix
 app-emulation/wine                 staging s3tc samba # Patchs legais...
+app-eselect/eselect-php            fpm # Necessário para dev-lang/php[fpm]
 app-portage/eix                    optimization strong-optimization swap-remote
 app-text/ghostscript-gpl           cups # Necessário para app-editors/atom (Não por muito tempo...)
 app-text/poppler                   cairo # Necessário para media-gfx/inkscape
 dev-java/oracle-jre-bin            fontconfig nsplugin
+dev-lang/php                       fpm cgi gd pcntl curl zip # Necessário para (gd)dev-lang/php[truetype, exif] (pcntl,curl,zip)app-benchmarks/phoronix-test-suite
 dev-libs/elfutils                  static-libs
 dev-libs/libpcre                   pcre16
+dev-libs/quazip                    qt4 # Necessário para o Fritzing (pode ser qt5)
 dev-vcs/git                        -gpg -webdav -pcre -perl -python -gtk
-games-util/steam-client-meta       steamruntime steamfonts trayicon
+games-util/steam-client-meta       streaming steamfonts trayicon
 gnome-base/gvfs                    mtp archive
 media-gfx/gimp                     aalib curl
 media-libs/libcanberra             alsa
-media-libs/mesa                    -gbm -dri3 -classic # Eu realmente preciso do dri3, classic, gbm para o Catalyst?... Nah
-media-sound/pulseaudio             -ipv6 -tcpd -ssl -webrtc-aec # Audio... APENAS audio
+media-libs/libpng                  apng # Necessário para o www-client/firefox
+media-libs/mesa                    gbm -dri3 -classic # Eu realmente preciso do dri3, classic, gbm para o Catalyst?... Nah
+media-sound/pulseaudio             qt4 equalizer realtime eipv6 -tcpd -ssl -webrtc-aec # Audio... APENAS audio
 net-libs/webkit-gtk                -geoloc webgl
+net-misc/aria2                     adns
 net-misc/iputils                   -caps -filecaps
+net-misc/tigervnc                  server
+net-misc/networkmanager            modemmanager
 net-nds/openldap                   minimal # Não precisamos do servidor em um desktop
 net-ftp/gftp                       gtk
+net-p2p/transmission               gtk
 sys-apps/util-linux                -cramfs # Cramfs? Pra que cramfs?
 sys-auth/pambase                   minimal
 sys-block/gparted                  -mdadm -reiser4 -xfs -jfs # ext4 para o sistema, vfat para o efi... e só
 sys-devel/llvm                     clang # Necessário para media-libs/mesa
+sys-libs/ncurses                   tinfo # Necessário para =dev-util/atom-shell-9999
 sys-libs/glibc                     nscd
 sys-libs/zlib                      minizip
 x11-apps/xinit                     minimal
+x11-drivers/ati-drivers            qt4
 xfce-base/xfce4-session            -xscreensaver # Maldito xscreensaver... tchau
 xfce-extra/xfce4-pulseaudio-plugin keybinder # Cade os atalhos de teclado?
+www-client/firefox                 gstreamer system-cairo wifi
+www-servers/lighttpd               php

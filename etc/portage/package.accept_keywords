@@ -1,26 +1,2 @@
 =games-action/minecraft-9999 **
-games-util/steam-launcher **
-
-sys-devel/gcc ~amd64
-x11-drivers/ati-drivers ~amd64
-sys-kernel/ck-sources ~amd64
-
-xfce-extra/xfce4-pulseaudio-plugin ~amd64
-xfce-base/libxfce4ui ~amd64 # Necessário para xfce-extra/xfce4-pulseaudio-plugin
-xfce-base/xfconf ~amd64 # Necessário para xfce-extra/xfce4-pulseaudio-plugin
-app-editors/atom ~amd64
-dev-util/atom-shell ~amd64 # Necessário para app-editors/atom
-sys-power/tpc ~amd64
-net-misc/megasync-bin ~amd64
-games-util/steam-meta ~amd64
-sys-process/systemd-cron ~amd64
-app-emulation/wine ~amd64
-app-arch/upx-bin ~amd64
-app-arch/xarchiver ~amd64
-sys-fs/cdf ~amd64
-sys-apps/lm_sensors-f2a78m-conf
-app-emulation/docker ~amd64
-app-admin/backup-conf ~amd64
-games-util/steamwine ~amd64
-app-emulation/winetricks ~amd64
-www-client/opera-developer ~amd64
+=dev-util/repo-9999 **
