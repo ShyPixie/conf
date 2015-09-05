@@ -57,11 +57,12 @@ function egrep; command egrep --color=always $argv; end
 function zgrep; command zgrep --color=always $argv; end
 
 # Dir list
-function ls; command ls -h --group-directories-first --color='auto' --indicator-style=classify $argv; end
-function ll; lp $argv; end
+function ls; lp $argv; end
+function ll; lp -l $argv; end
 function la; lp -a $argv; end
 function perms; lp -ld $argv; end
 function types; file *; end
+function tree; command tree -C $argv; end
 
 function ..; cd ..; end
 function ...; cd ../..; end
@@ -80,12 +81,13 @@ function editunmask; sudo vim /etc/portage/package.unmask; end
 function editkey; sudo vim /etc/portage/package.accept_keywords; end
 
 # Operações de arquivos
+function cd; builtin cd $argv; and ls; end
 function rm; command rm -vI --preserve-root $argv; end
 function mv; command mv -vi $argv; end
 function cp; command cp -vi $argv; end
 function ln; command ln -i $argv; end
 function du; command du -h $argv; end
-function df; cdf -mh | grep -v -e '0 /' -e rootfs -e cgroup -e 1000 | sed 's/devtmpfs/  tmpfs/'; end
+function df; cdf -mh $argv | grep -v -e '0 /' -e rootfs -e cgroup -e 1000; end
 
 function chown; command chown --preserve-root $argv; end
 function chmod; command chmod --preserve-root $argv; end
@@ -158,10 +160,13 @@ function exit -d "Sair da sessão do ssh sem fechar o terminal"
     end
 end
 
-# http://unixcoders.wordpress.com/2013/02/12/print-numerical-permissions-of-files/
 function lp -d "Permissões numéricas no ls"
-    ls -lh $argv | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) \
-                *2^(8-i));if(k)printf("%0o ",k);print}'
+    if not contains -- -l $argv
+        command ls $argv --color=always -h --group-directories-first --indicator-style=classify
+    else
+        grc --colour=on --config=$HOME/.grc/ls.conf  echo -e (/bin/ls $argv -h --group-directories-first --indicator-style=classify | \
+        awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf("%0o ",k);printf $0 "\\\n"}')
+    end
 end
 
 # https://gist.github.com/87359
@@ -186,6 +191,13 @@ function superretab -d "super retab"
     for file in (find $argv -type f -not -iwholename '*.git*')
         sed -i 's/\t/    /g' $file; or exit 1
         echo "$file retabed"
+    end
+end
+
+function makerepomanhappy -d ""
+    for ebuild in (find . -type f -iwholename '*.ebuild*' \( -not -iwholename '*.git*' \))
+        sed -i 's/    /\t/g' $ebuild; or exit 1
+        echo "$ebuild fixed"
     end
 end
 
