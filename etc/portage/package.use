@@ -1,5 +1,6 @@
 # Lara Maia <lara@craft.net.br> 2015
 
+app-admin/conky                    lua lua-cairo lua-imlib wifi vim-syntax
 app-arch/tar                       minimal # Instalei o tar, para usar o "tar"... ora bolas
 app-crypt/gcr                      gtk # Necessário para app-editors/atom (gnome-keyring)
 app-crypt/pinentry                 gnome-keyring # Necessário para app-editors/atom (gnome-keyring)
@@ -19,6 +20,7 @@ dev-libs/quazip                    qt4 # Necessário para o Fritzing (pode ser q
 dev-vcs/git                        -gpg -webdav -pcre -perl -python -gtk
 games-util/steam-client-meta       streaming steamfonts trayicon
 gnome-base/gvfs                    mtp archive
+media-libs/clutter                 gtk
 media-gfx/gimp                     aalib curl
 media-libs/libcanberra             alsa
 media-libs/libpng                  apng # Necessário para o www-client/firefox

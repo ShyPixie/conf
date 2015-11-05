@@ -17,6 +17,6 @@ fi
 #/usr/bin/lboxwm
 #/usr/bin/rox -S
 #/usr/bin/gnome-session
-/usr/bin/xfce4-session
-#/usr/bin/cinnamon-session
+#/usr/bin/xfce4-session
+/usr/bin/cinnamon-session
 #/usr/bin/budgie-session

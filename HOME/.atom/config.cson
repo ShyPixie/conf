@@ -1,63 +1,33 @@
 "*":
   "exception-reporting":
-    userId: "65cf60e8-2fb2-4525-e105-212b40627f3c"
+    userId: "97d2b161-e772-cfc8-379c-c632e4c83476"
   welcome:
     showOnStartup: false
   core:
     themes: [
-      "atom-material-ui"
-      "one-light-syntax"
+      "one-light-ui"
+      "atom-light-syntax"
     ]
     disabledPackages: [
-      "Sublime-Style-Column-Selection"
-      "block-selection-mode"
-      "symbols-tree-view"
       "symbols-view"
       "spell-check"
       "tree-view"
       "welcome"
     ]
-    autoHideMenuBar: true
-  "symbols-tree-view":
-    autoToggle: true
   editor:
     invisibles: {}
-    tabLength: 4
     fontSize: 13
+    tabLength: 4
     preferredLineLength: 72
     showInvisibles: true
     showIndentGuide: true
-    autoIndentOnPaste: false
-  "isotope-light-ui":
-    customBackgroundColor: "false"
-  "autocomplete-plus": {}
-  "one-light-ui":
-    layoutMode: "Compact"
-  "css-comb":
-    config: "csscomb"
+  linter: {}
+  "atom-css-comb":
+    readyMadeConfigs: "csscomb"
   "atom-beautify":
     _analyticsUserId: "6cf124d8-3d0b-40e5-b574-160d1480a5e2"
     php_cs_fixer_path: "/usr/local/bin/php-cs-fixer"
     php_level: "psr2"
     php_fixers: "-braces,-visibility"
-  "php-cs-fixer": {}
-  "hide-tree":
-    timeout: 200
-  "atom-ctags": {}
-  "atom-material-ui":
-    accentColor: "Purple"
-    compactTreeView: true
-    disableAnimations: true
-    tabSize: "Small"
-    panelContrast: true
-    depth: true
-  "daylight-ui":
-    layoutMode: "Compact"
-  "one-light-ui-adwaita":
-    layoutMode: "Compact"
-  "paper-flat-ui":
-    color: "Pink"
-  "linter-php": {}
-  linter: {}
   "linter-csslint":
     csslintExecutablePath: "/usr/bin/csslint"

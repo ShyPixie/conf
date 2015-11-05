@@ -45,8 +45,8 @@ set -g steamwine_prefix $HOME/.local/share/wineprefixes/steam
 set -g steamwine_path "$steamwine_prefix/drive_c/Program Files (x86)/Steam"
 set -g steamwine_gamespath "$steamwine_path/steamapps/common"
 
-set -g github http://github.com
-set -g githublara $github/LaraCraft93
+set -g github https://github.com
+set -g githublara git@github.com:ShyPixie
 set -g gh $github
 set -g ghl $githublara
 
@@ -127,6 +127,10 @@ function ping; grc -es --colour=auto ping -c 3 $argv; end
 function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # ============== Funções ==========================
+
+function metadata
+    sudo wget http://www.gentoo.org/dtd/metadata.dtd -O /usr/portage/distfiles/metadata.dtd
+end
 
 function reinstallcat -d "Reinstala todos os pacotes de uma determinada categoria."
     set -l packages (eix -IA --only-names $argv[1])
