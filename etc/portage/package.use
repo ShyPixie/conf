@@ -39,7 +39,6 @@ sys-apps/util-linux                -cramfs # Cramfs? Pra que cramfs?
 sys-auth/pambase                   minimal
 sys-block/gparted                  -mdadm -reiser4 -xfs -jfs # ext4 para o sistema, vfat para o efi... e só
 sys-devel/llvm                     clang # Necessário para media-libs/mesa
-sys-libs/ncurses                   tinfo # Necessário para =dev-util/atom-shell-9999
 sys-libs/glibc                     nscd
 sys-libs/zlib                      minizip
 x11-apps/xinit                     minimal
