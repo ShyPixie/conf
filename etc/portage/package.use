@@ -14,6 +14,7 @@ app-text/ghostscript-gpl           cups # Necessário para app-editors/atom (Nã
 app-text/poppler                   cairo # Necessário para media-gfx/inkscape
 dev-java/oracle-jre-bin            fontconfig nsplugin
 dev-lang/php                       fpm cgi gd pcntl curl zip # Necessário para (gd)dev-lang/php[truetype, exif] (pcntl,curl,zip)app-benchmarks/phoronix-test-suite
+dev-libs/libgdata                  gnome # Necessário para cinnamon
 dev-libs/elfutils                  static-libs
 dev-libs/libpcre                   pcre16
 dev-libs/quazip                    qt4 # Necessário para o Fritzing (pode ser qt5)
