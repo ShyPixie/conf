@@ -13,6 +13,33 @@
       "spell-check"
       "tree-view"
       "welcome"
+      "autocomplete-python"
+      "autocomplete-clang"
+      "about"
+      "autocomplete-atom-api"
+      "autocomplete-css"
+      "autocomplete-html"
+      "autocomplete-plus"
+      "autocomplete-snippets"
+      "background-tips"
+      "language-clojure"
+      "language-csharp"
+      "language-coffee-script"
+      "language-go"
+      "language-java"
+      "language-hyperlink"
+      "language-mustache"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-toml"
+      "atom-ctags"
+      "archive-view"
+      "command-palette"
+      "dev-live-reload"
+      "encoding-selector"
+      "exception-reporting"
+      "metrics"
+      "open-on-github"
     ]
   editor:
     invisibles: {}
@@ -31,3 +58,13 @@
     php_fixers: "-braces,-visibility"
   "linter-csslint":
     csslintExecutablePath: "/usr/bin/csslint"
+  "linter-php": {}
+".gohtml.html.text":
+  editor:
+    preferredLineLength: 72
+".go.source":
+  editor:
+    preferredLineLength: 72
+".gotemplate.source":
+  editor:
+    preferredLineLength: 72

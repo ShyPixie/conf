@@ -1,6 +1,2 @@
-'body':
-    'ctrl-shift-c': 'core:copy'
-    'ctrl-shift-v': 'core:paste'
-
-'atom-text-editor:not([mini])':
-    'ctrl-shift-c': 'unset!'
+'atom-workspace atom-text-editor:not(.mini)':
+  'ctrl-shift-a': 'box-edit:toggle'

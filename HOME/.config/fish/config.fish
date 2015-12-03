@@ -101,7 +101,6 @@ function allmounts; mount | column -t; end
 function time; command time -p /bin/fish -c $argv; end
 function e; equery $argv; end
 function sudo; command sudo -s $argv; end
-function eix-sync; eval /home/lara/Develop/tools/portage_excludes.sh; and command eix-sync $argv; end
 
 # Kill
 function k; killall $argv; end
