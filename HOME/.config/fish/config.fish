@@ -94,6 +94,7 @@ function chmod; command chmod --preserve-root $argv; end
 function chgrp; command chgrp --preserve-root $argv; end
 
 # Ferramentas
+function font; ~/Develop/tools/xfce4-terminal-font.py $argv; end
 function termbin; nc termbin.com 9999; end
 function tb; termbin; end
 function diff; colordiff $argv; end

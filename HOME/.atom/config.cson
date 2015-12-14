@@ -43,11 +43,11 @@
     ]
   editor:
     invisibles: {}
-    fontSize: 13
     tabLength: 4
     preferredLineLength: 72
     showInvisibles: true
     showIndentGuide: true
+    fontSize: 12
   linter: {}
   "atom-css-comb":
     readyMadeConfigs: "csscomb"
@@ -62,9 +62,9 @@
 ".gohtml.html.text":
   editor:
     preferredLineLength: 72
-".go.source":
+".gotemplate.source":
   editor:
     preferredLineLength: 72
-".gotemplate.source":
+".go.source":
   editor:
     preferredLineLength: 72
