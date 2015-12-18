@@ -102,6 +102,7 @@ function allmounts; mount | column -t; end
 function time; command time -p /bin/fish -c $argv; end
 function e; equery $argv; end
 function sudo; command sudo -s $argv; end
+function repoman; metadata; and command repoman $argv; end
 
 # Kill
 function k; killall $argv; end
@@ -129,7 +130,8 @@ function traceroute; grc -es --colour=auto traceroute $argv; end
 # ============== Funções ==========================
 
 function metadata
-    sudo wget http://www.gentoo.org/dtd/metadata.dtd -O /usr/portage/distfiles/metadata.dtd
+    echo -e "\e[01;32mUpdating metadata.dtd\e[m"
+    sudo wget -nv http://www.gentoo.org/dtd/metadata.dtd -O /usr/portage/distfiles/metadata.dtd
 end
 
 function reinstallcat -d "Reinstala todos os pacotes de uma determinada categoria."
