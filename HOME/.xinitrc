@@ -1,4 +1,4 @@
-# Lara Maia <lara@craft.net.br> © 2015
+# Lara Maia <dev@lara.click> 2016
 
 # Carregar configurações do xinit
 if test -d /etc/X11/xinit/xinitrc.d/
@@ -13,10 +13,4 @@ fi
 . /etc/profile
 
 # Iniciar sessão
-#/usr/bin/openbox
-#/usr/bin/lboxwm
-#/usr/bin/rox -S
-#/usr/bin/gnome-session
-#/usr/bin/xfce4-session
 /usr/bin/cinnamon-session
-#/usr/bin/budgie-session
