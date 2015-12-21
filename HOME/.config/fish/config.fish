@@ -39,6 +39,9 @@ set -x HISTIGNORE "bg:fg:exit:cd:ls:la:ll:ps:history:historytop:sudo:su:..:...:.
 # map super to esc
 xmodmap -e "keysym Super_R = Escape" 2>/dev/null
 
+# Terminal do pinentry
+set -x GPG_TTY (tty)
+
 # ============ Váriaveis Adicionais ===============
 
 set -g steamwine_prefix $HOME/.local/share/wineprefixes/steam
@@ -95,14 +98,17 @@ function chgrp; command chgrp --preserve-root $argv; end
 
 # Ferramentas
 function font; ~/Develop/tools/xfce4-terminal-font.py $argv; end
+function kernel-update; ~/Develop/tools/kernel_updater.sh $argv; end
+function boot-update; ~/Develop/tools/linux_stub_loader.sh $argv; end
+function uniform-root; ~/Develop/tools/uniform-root.sh $argv; end
 function termbin; nc termbin.com 9999; end
 function tb; termbin; end
 function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
 function time; command time -p /bin/fish -c $argv; end
 function e; equery $argv; end
-function sudo; command sudo -s $argv; end
-function repoman; metadata; and command repoman $argv; end
+function sudo; command sudo -sE $argv; end
+function repoman; fixmetadata; and command repoman $argv; end
 
 # Kill
 function k; killall $argv; end
@@ -129,7 +135,7 @@ function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # ============== Funções ==========================
 
-function metadata
+function fixmetadata
     echo -e "\e[01;32mUpdating metadata.dtd\e[m"
     sudo wget -nv http://www.gentoo.org/dtd/metadata.dtd -O /usr/portage/distfiles/metadata.dtd
 end
