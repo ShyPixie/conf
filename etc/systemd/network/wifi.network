@@ -1,0 +1,7 @@
+[Match]
+Name=wlp0s16f1u1
+
+[Network]
+DHCP=ipv4
+DNS=8.8.4.4
+DNS=8.8.8.8
