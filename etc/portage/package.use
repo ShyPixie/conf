@@ -25,7 +25,8 @@ media-libs/clutter                 gtk
 media-gfx/gimp                     aalib curl
 media-libs/libcanberra             alsa
 media-libs/libpng                  apng # Necessário para o www-client/firefox
-media-libs/mesa                    gbm -llvm -opencl -vaapi -dri3 -classic -gallium # Eu realmente preciso do dri3, classic, gbm para o Catalyst?... Nah
+media-libs/mesa                    gbm gles2 # [gles2] Necessário para gnome-extra/cinnamon
+media-libs/cogl                    gles2 # [gles2] Necessário para gnome-extra/cinnamon
 media-plugins/audacious-plugins    http
 media-sound/pulseaudio             qt4 equalizer realtime eipv6 -tcpd -ssl -webrtc-aec # Audio... APENAS audio
 net-libs/webkit-gtk                -geoloc webgl
