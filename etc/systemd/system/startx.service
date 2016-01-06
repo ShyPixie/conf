@@ -4,6 +4,7 @@ After=systemd-user-sessions.service
 [Service]
 User=lara
 ExecStart=/usr/bin/startx -- vt8
+RestartSec=3s
 
 [Install]
 WantedBy=multi-user.target
