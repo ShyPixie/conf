@@ -1,6 +1,8 @@
 # Lara Maia <lara@craft.net.br> 2015
 
-export PATH="/usr/lib/colorgcc/bin:$PATH"
+#export PATH="/usr/lib/colorgcc/bin:$PATH"
+export CONF_WRAPPER="/usr/bin/grc -es"
+export MAKE_WRAPPER="/usr/bin/grc -es"
 export CCACHE_PATH="/usr/bin"
 
 pre_src_prepare() {
