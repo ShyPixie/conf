@@ -1,13 +1,14 @@
-# Lara Maia <lara@craft.net.br> © 2015
+# Lara Maia <dev@lara.click> © 2016
 #
-# Depends: cdf             [aur]
-#          grc             [repo]
-#          netcat          [repo[
-#          colordiff       [repo]
-#          time            [repo]
-#          geany           [repo]
-#          geany_checkpath [aur]
-#          yaourt          [aur]
+# Depends: cdf               [aur]
+#          grc               [repo]
+#          netcat            [repo]
+#          colordiff         [repo]
+#          time              [repo]
+#          vim               [repo]
+#          xorg-xmodmap      [repo]
+#          file              [repo]
+#          tree              [repo]
 
 # ============== Configurações =======================
 
@@ -36,17 +37,28 @@ set -x HISTSIZE "10000"
 set -x HISTFILESIZE "20000"
 set -x HISTIGNORE "bg:fg:exit:cd:ls:la:ll:ps:history:historytop:sudo:su:..:...:....:....."
 
-# Cores para o grep, egrep e zgrep
-set -x grep --color=always
-set -x egrep --color=always
-set -x zgrep --color=always
+# ============ Váriaveis Adicionais ===============
+
+set -g github https://github.com
+set -g githublara git@github.com:ShyPixie
+set -g githubraspberry git@github.com:RaspberryLove
+set -g gh $github
+set -g ghl $githublara
+set -g ghr $githubraspberry
 
 # =============== Aliases =========================
 
+function grep; command grep --color=always $argv; end
+function egrep; command egrep --color=always $argv; end
+function zgrep; command zgrep --color=always $argv; end
+
 # Dir list
-function ls; /usr/bin/ls -h --group-directories-first --color='auto' $argv; end
-function ll; lp $argv; end
+function ls; lp $argv; end
+function ll; lp -l $argv; end
 function la; lp -a $argv; end
+function perms; lp -ld $argv; end
+function types; file *; end
+function tree; command tree -C $argv; end
 
 function ..; cd ..; end
 function ...; cd ../..; end
@@ -56,31 +68,34 @@ function .....; cd ../../../..; end
 function back; cd (echo $PWD | rev | cut -d"/" -f2- | rev); end
 function back2; cd $PWD; end
 function reload; . ~/.config/fish/config.fish; end
-function edit; geany ~/.config/fish/config.fish; end
+function edit; vim ~/.config/fish/config.fish; end
 
 # Operações de arquivos
-function rm; /usr/bin/rm -vI --preserve-root $argv; end
-function mv; /usr/bin/mv -vi $argv; end
-function cp; /usr/bin/cp -vi $argv; end
-function ln; /usr/bin/ln -i $argv; end
-function du; /usr/bin/du -h $argv; end
-function df; cdf -mh | grep -v -e '0 /' -e rootfs -e cgroup -e 1000 | sed 's/devtmpfs/  tmpfs/'; end
+function cd; builtin cd $argv; and ls; end
+function rm; command rm -vI --preserve-root $argv; end
+function mv; command mv -vi $argv; end
+function cp; command cp -vi $argv; end
+function ln; command ln -i $argv; end
+function du; command du -h $argv; end
+function df; cdf -mh $argv | grep -v -e '0 /' -e rootfs -e cgroup -e 1000; end
 
-function chown; /usr/bin/chown --preserve-root $argv; end
-function chmod; /usr/bin/chmod --preserve-root $argv; end
-function chgrp; /usr/bin/chgrp --preserve-root $argv; end
-
-function geany; geany_checkpath $argv; end
-function yaourt; yaourt_wrapper $argv; end
-function pacman; yaourt_wrapper $argv; end
-
-function orphans; pacman -Qqtd | sudo pacman -Rcns -; or echo "Nenhum pacote orfão."; end
-function termbin; nc termbin.com 9999; end
+function chown; command chown --preserve-root $argv; end
+function chmod; command chmod --preserve-root $argv; end
+function chgrp; command chgrp --preserve-root $argv; end
 
 # Ferramentas
+function uniform-root; ~/Develop/tools/uniform-root.sh $argv; end
+function termbin; nc termbin.com 9999; end
+function tb; termbin; end
 function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
-function time; /usr/bin/time -p /bin/fish -c $argv; end
+function time; command time -p /bin/fish -c $argv; end
+function sudo; command sudo -sE $argv; end
+
+# Pacman helpers
+function yaourt; yaourt_wrapper $argv; end
+function pacman; yaourt_wrapper $argv; end
+function orphans; pacman -Qqtd | sudo pacman -Rcns -; or echo "Nenhum pacote orfão."; end
 function pacmanunlock; sudo rm -f /var/lib/pacman/db.lck; end
 
 # Kill
@@ -108,10 +123,28 @@ function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # ============== Funções ==========================
 
-# http://unixcoders.wordpress.com/2013/02/12/print-numerical-permissions-of-files/
+# Se for uma conexão ssh, executar o tmux
+if test ! -z "$SSH_TTY" -a -z "$STY"
+    tmux -2 new-session -A -s ssh -t principal
+end
+
+function exit -d "Sair da sessão do ssh sem fechar o terminal"
+    if test "$TERM" = "screen-256color" -a \
+    (tmux display-message -p '#S') = "ssh"
+        tmux detach -P
+    else
+        tmux detach -P -s ssh
+        builtin exit
+    end
+end
+
 function lp -d "Permissões numéricas no ls"
-    ls -lh $argv | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) \
-                *2^(8-i));if(k)printf("%0o ",k);print}'
+    if not contains -- -l $argv
+        command ls $argv --color=always -h --group-directories-first --indicator-style=classify
+    else
+        grc --colour=on --config=$HOME/.grc/ls.conf  echo -e (/bin/ls $argv -h --group-directories-first --indicator-style=classify | \
+        awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf("%0o ",k);printf $0 "\\\n"}')
+    end
 end
 
 # https://gist.github.com/87359
@@ -158,11 +191,19 @@ function yaourt_wrapper -d "yaourt wrapper for rsync db with xfer"
     end
 end
 
+function execinfolder -d "Executa o comando em todos os arquivos na pasta"
+    for file in (find . -type f -not -iwholename '*.git*')
+        eval $argv $file; or exit 1
+        echo "Executando: $argv $file"
+    end
+end
 
 # ---- ~ ----
 
 function fish_greeting -d "motd"
-    alsi -ub -f
+    if test (id -u) != 0
+       cat "$HOME"/.termlogo | xargs -0 echo -e
+    end
 end
 
 function fish_prompt -d "Prompt"
