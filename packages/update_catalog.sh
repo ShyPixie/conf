@@ -1,7 +1,7 @@
 #!/bin/bash
-# Lara Maia © 2012 ~ 2013 <lara@craft.net.br>
-# Contributor: BlackICE <manfredi@gmail.com>
-# Versão: 3.0
+# Lara Maia © 2012 ~ 2013 <dev@lara.click>
+# Contributor: Acidhub <contact@acidhub.click>
+# Versão: 3.0.1
 
 echo -e "\nAguarde enquanto seu sistema é escaneado...\n"
 
@@ -23,9 +23,9 @@ function checkpackages() { # (repository, package type
 	esac
 	
 	if [ "$1" == "aur" ]; then
-		packages_count=($(cat ${aur_file[0]} | wc -l) $(cat ${aur_file[1]} | wc -l))
+		packages_count=($(cat ${aur_file[1]} | wc -l) $(cat ${aur_file[0]} | wc -l))
 	else
-		packages_count=($(cat ${repo_file[0]} | wc -l) $(cat ${repo_file[1]} | wc -l))
+		packages_count=($(cat ${repo_file[1]} | wc -l) $(cat ${repo_file[0]} | wc -l))
 	fi
 	
 	echo -ne "\n - \e[4;37mPacotes do repositório $1\e[0m: "
