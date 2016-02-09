@@ -1,6 +1,6 @@
-# Lara Maia <lara@craft.net.br> © 2015
+# Lara Maia <dev@lara.click> © 2016
 #
-# Depends: sys-fs/cdf        [overlay{LaraCraft93}]
+# Depends: sys-fs/cdf        [overlay{ShyPixie}]
 #          grc               [repo]
 #          netcat            [repo]
 #          colordiff         [repo]
@@ -8,6 +8,8 @@
 #          vim               [repo]
 #          xmodmap           [repo]
 #          file              [repo]
+#          tree              [repo]
+#          tmux              [repo]
 
 # ============== Configurações =======================
 
@@ -50,8 +52,10 @@ set -g steamwine_gamespath "$steamwine_path/steamapps/common"
 
 set -g github https://github.com
 set -g githublara git@github.com:ShyPixie
+set -g githubraspberry git@github.com:RaspberryLove
 set -g gh $github
 set -g ghl $githublara
+set -g ghr $githubraspberry
 
 # =============== Aliases =========================
 
@@ -154,6 +158,15 @@ function catebuild -d "Mostra o conteúdo de um arquivo ebuild através do nome"
         else
             echo -n "$eb"
         end
+    end
+end
+
+function mvtodist -d "Move para /usr/portage/distfiles and define as permissões"
+    if test ! $argv[1]
+        echo "Você precisa especificar um arquivo"
+    else
+        sudo chown portage:portage $argv[1]
+        sudo mv $argv[1] /usr/portage/distfiles/
     end
 end
 

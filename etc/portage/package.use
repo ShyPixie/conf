@@ -20,8 +20,9 @@ dev-libs/libpcre                   pcre16
 dev-libs/quazip                    qt4 # Necessário para o Fritzing (pode ser qt5)
 dev-vcs/git                        -gpg -webdav -pcre -perl -python -gtk
 games-util/steam-client-meta       streaming steamfonts trayicon
-gnome-base/gvfs                    mtp archive
+gnome-base/gvfs                    mtp archive zeroconf
 media-libs/clutter                 gtk
+media-libs/devil                   mng
 media-gfx/gimp                     aalib curl
 media-libs/libcanberra             alsa
 media-libs/libpng                  apng # Necessário para o www-client/firefox
@@ -36,6 +37,7 @@ net-misc/tigervnc                  server
 net-misc/networkmanager            modemmanager
 net-nds/openldap                   minimal # Não precisamos do servidor em um desktop
 net-ftp/gftp                       gtk
+net-fs/samba                       avahi
 net-p2p/transmission               gtk
 sys-apps/util-linux                -cramfs # Cramfs? Pra que cramfs?
 sys-auth/pambase                   minimal

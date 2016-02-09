@@ -48,7 +48,8 @@
     showInvisibles: true
     showIndentGuide: true
     fontSize: 12
-  linter: {}
+  linter:
+    errorPanelHeight: 140
   "atom-css-comb":
     readyMadeConfigs: "csscomb"
   "atom-beautify":
