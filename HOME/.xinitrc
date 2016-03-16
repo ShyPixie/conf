@@ -1,5 +1,8 @@
 # Lara Maia <dev@lara.click> 2016
 
+# https://bugs.freedesktop.org/show_bug.cgi?id=49950
+setxkbmap -layout br -variant abnt2
+
 # Carregar configurações do xinit
 if test -d /etc/X11/xinit/xinitrc.d/
 then
