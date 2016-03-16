@@ -139,6 +139,12 @@ function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # ============== Funções ==========================
 
+function fixsteam -d "Remove arquivos conflitantes do runtime do steam"
+    echo "Please wait..."
+    find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete
+    echo "Done!"
+end
+
 function fixmetadata
     echo -e "\e[01;32mUpdating metadata.dtd\e[m"
     sudo wget -nv http://www.gentoo.org/dtd/metadata.dtd -O /usr/portage/distfiles/metadata.dtd
