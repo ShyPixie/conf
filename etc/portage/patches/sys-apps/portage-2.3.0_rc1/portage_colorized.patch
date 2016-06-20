@@ -1,0 +1,33 @@
+/*
+ * This add CONF_WRAPPER and MAKE_WRAPPER for a colorized output
+ * using an wrapper like grc or any other specified by user.
+ *
+ * Lara Maia <dev@lara.click>
+ */
+
+--- bin/phase-helpers.sh.orig	2016-01-06 10:26:22.096905640 -0200
++++ bin/phase-helpers.sh	2016-01-06 10:26:58.826909956 -0200
+@@ -650,9 +650,9 @@
+ 			"${conf_args[@]}" \
+ 			"$@" \
+ 			"${EXTRA_ECONF[@]}"
+-		__vecho "${ECONF_SOURCE}/configure" "$@"
++		__vecho ${CONF_WRAPPER} "${ECONF_SOURCE}/configure" "$@"
+
+-		if ! "${ECONF_SOURCE}/configure" "$@" ; then
++		if ! ${CONF_WRAPPER} "${ECONF_SOURCE}/configure" "$@" ; then
+
+ 			if [ -s config.log ]; then
+ 				echo
+
+--- bin/ebuild-helpers/emake.orig	2016-01-06 11:10:02.808213654 -0200
++++ bin/ebuild-helpers/emake	2016-01-06 11:10:28.687216695 -0200
+@@ -12,7 +12,7 @@
+ source "${PORTAGE_BIN_PATH}"/isolated-functions.sh || exit 1
+
+ cmd=(
+-	${MAKE:-make} ${MAKEOPTS} "$@" ${EXTRA_EMAKE}
++	${MAKE_WRAPPER} ${MAKE:-make} ${MAKEOPTS} "$@" ${EXTRA_EMAKE}
+ )
+
+ if [[ ${PORTAGE_QUIET} != 1 ]] ; then

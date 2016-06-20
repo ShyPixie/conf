@@ -1,0 +1,4 @@
+dev-lang/php                       fpm cgi gd pcntl curl zip # (gd) dev-lang/php[truetype, exif]
+                                                             # (pcntl,curl,zip) app-benchmarks/phoronix-test-suite
+dev-libs/quazip                    qt5 # (qt5) sci-electronics/fritzing
+dev-vcs/git                        gpg -webdav -pcre -perl -python -gtk
