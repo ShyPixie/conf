@@ -16,4 +16,5 @@ fi
 . /etc/profile
 
 # Iniciar sessão
-/usr/bin/cinnamon-session
+/usr/bin/startxfce4
+#/usr/bin/cinnamon-session

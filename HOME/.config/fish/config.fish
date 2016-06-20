@@ -80,12 +80,12 @@ function back; cd (echo $PWD | rev | cut -d"/" -f2- | rev); end
 function back2; cd $PWD; end
 function reload; . ~/.config/fish/config.fish; end
 function edit; vim ~/.config/fish/config.fish; end
-function editworld; sudo vim /var/lib/portage/world; end
-function editmake; sudo vim /etc/portage/make.conf; end
-function edituse; sudo vim /etc/portage/package.use; end
-function editmask; sudo vim /etc/portage/package.mask; end
-function editunmask; sudo vim /etc/portage/package.unmask; end
-function editkey; sudo vim /etc/portage/package.accept_keywords; end
+function editworld; editportage ../../var/lib/portage world; end
+function editmake; editportage "" make.conf; end
+function edituse; editportage package.use $argv[1]; end
+function editmask; editportage package.mask $argv[1]; end
+function editunmask; editportage package.unmask $argv[1]; end
+function editkey; editportage package.accept_keywords $argv[1]; end
 
 # Operações de arquivos
 function cd; builtin cd $argv; and ls; end
@@ -112,7 +112,6 @@ function allmounts; mount | column -t; end
 function time; command time -p /bin/fish -c $argv; end
 function e; equery $argv; end
 function sudo; command sudo -sE $argv; end
-function repoman; fixmetadata; and command repoman $argv; end
 
 # Kill
 function k; killall $argv; end
@@ -139,15 +138,29 @@ function traceroute; grc -es --colour=auto traceroute $argv; end
 
 # ============== Funções ==========================
 
-function fixsteam -d "Remove arquivos conflitantes do runtime do steam"
-    echo "Please wait..."
-    find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete
-    echo "Done!"
+function editportage -d "Edita arquivos de configuração do portage"
+    if test (count $argv) -lt 2
+        echo "Você precisa especificar uma categoria."
+    else
+        set category (echo $argv[2] | sed 's/-.*//g')
+        set config_file (echo /etc/portage/$argv[1]/$category)
+        if test -f $config_file
+            sudo vim $config_file
+        else
+            echo "Essa categoria não existe, criar?[s/N]"
+            read -l ret
+            switch $ret
+                case s S
+                    sudo vim $config_file
+            end
+        end
+    end
 end
 
-function fixmetadata
-    echo -e "\e[01;32mUpdating metadata.dtd\e[m"
-    sudo wget -nv http://www.gentoo.org/dtd/metadata.dtd -O /usr/portage/distfiles/metadata.dtd
+function fixsteam -d "Remove arquivos conflitantes do runtime do steam"
+    echo "Por favor aguarde..."
+    find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete
+    echo "Feito!"
 end
 
 function reinstallcat -d "Reinstala todos os pacotes de uma determinada categoria."
@@ -169,7 +182,7 @@ end
 
 function mvtodist -d "Move para /usr/portage/distfiles and define as permissões"
     if test ! $argv[1]
-        echo "Você precisa especificar um arquivo"
+        echo "Você precisa especificar um arquivo."
     else
         sudo chown portage:portage $argv[1]
         sudo mv $argv[1] /usr/portage/distfiles/

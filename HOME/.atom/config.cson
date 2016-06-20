@@ -1,9 +1,11 @@
 "*":
   "atom-beautify":
-    _analyticsUserId: "6cf124d8-3d0b-40e5-b574-160d1480a5e2"
-    php_cs_fixer_path: "/usr/local/bin/php-cs-fixer"
-    php_fixers: "-braces,-visibility"
-    php_level: "psr2"
+    general:
+      _analyticsUserId: "6cf124d8-3d0b-40e5-b574-160d1480a5e2"
+    php:
+      cs_fixer_path: "/usr/local/bin/php-cs-fixer"
+      fixers: "-braces,-visibility"
+      level: "psr2"
   "atom-css-comb":
     readyMadeConfigs: "csscomb"
   core:
@@ -33,7 +35,6 @@
       "language-toml"
       "atom-ctags"
       "archive-view"
-      "command-palette"
       "dev-live-reload"
       "encoding-selector"
       "exception-reporting"
@@ -53,6 +54,7 @@
     tabLength: 4
   "exception-reporting":
     userId: "97d2b161-e772-cfc8-379c-c632e4c83476"
+  hex: {}
   linter:
     errorPanelHeight: 140
   "linter-csslint":
