@@ -1,3 +1,4 @@
+app-crypt/mit-krb5
 dev-dotnet/libgdiplus
 dev-lang/mono
 dev-libs/glib:2
@@ -15,13 +16,17 @@ media-libs/libjpeg-turbo
 media-libs/libogg
 media-libs/libpng:1.2
 media-libs/libsdl
+media-libs/libsdl2
 media-libs/libtheora
 media-libs/libvorbis
 media-libs/libtxc_dxtn
 media-libs/openal
+media-libs/sdl2-image
 media-plugins/alsa-plugins
 media-sound/pulseaudio
+media-video/rtmpdump
 net-misc/curl
+net-nds/openldap
 net-print/cups
 sys-apps/dbus
 sys-apps/lsb-release
