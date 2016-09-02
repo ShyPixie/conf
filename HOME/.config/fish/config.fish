@@ -52,10 +52,10 @@ set -g steamwine_gamespath "$steamwine_path/steamapps/common"
 
 set -g github https://github.com
 set -g githublara git@github.com:ShyPixie
-set -g githubraspberry git@github.com:RaspberryLove
+set -g githubdeplayground git@github.com:DEPlayground
 set -g gh $github
 set -g ghl $githublara
-set -g ghr $githubraspberry
+set -g ghdep $githubdeplayground
 
 # =============== Aliases =========================
 
@@ -112,6 +112,7 @@ function allmounts; mount | column -t; end
 function time; command time -p /bin/fish -c $argv; end
 function e; equery $argv; end
 function sudo; command sudo -sE $argv; end
+function pycharm; pycharm-community $argv; end
 
 # Kill
 function k; killall $argv; end
@@ -159,7 +160,7 @@ end
 
 function fixsteam -d "Remove arquivos conflitantes do runtime do steam"
     echo "Por favor aguarde..."
-    find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete
+    find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so" \) -print -delete
     echo "Feito!"
 end
 
@@ -246,7 +247,9 @@ function makerepomanhappy -d ""
 end
 
 function execinfolder -d "Executa o comando em todos os arquivos na pasta"
-    for file in (find . -type f -not -iwholename '*.git*')
+    for file in (find . -type f -not -iwholename '*.git*' \
+                                -not -iwholename '*lib32*' \
+                                -not -iwholename '*lib64*')
         eval $argv $file; or exit 1
         echo "Executando: $argv $file"
     end
