@@ -4,4 +4,4 @@ app-emulation/wine                 staging s3tc
 app-eselect/eselect-php            fpm # (fpm) dev-lang/php[fpm]
 app-portage/eix                    optimization strong-optimization swap-remote
 app-text/poppler                   cairo # (cairo) media-gfx/inkscape
-
+app-text/ghostscript-gpl           cups # (cups) @steam
