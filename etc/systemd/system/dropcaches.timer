@@ -1,0 +1,9 @@
+[Unit]
+Description=Drop caches periodically
+
+[Timer]
+OnBootSec=4h
+OnUnitActiveSec=4h
+
+[Install]
+WantedBy=basic.target
