@@ -11,6 +11,17 @@
 #          tree              [repo]
 #          tmux              [repo]
 
+
+#if set -q STARTX11
+#    set -e STARTX11
+#    startx
+#    exit 0
+#end
+
+if test ! (tty | grep pts)
+    set LANG pt_BR.utf8
+end
+
 # ============== Configurações =======================
 
 # Cores padrões
@@ -39,7 +50,7 @@ set -x HISTFILESIZE "20000"
 set -x HISTIGNORE "bg:fg:exit:cd:ls:la:ll:ps:history:historytop:sudo:su:..:...:....:....."
 
 # map super to esc
-xmodmap -e "keysym Super_R = Escape" 2>/dev/null
+#xmodmap -e "keysym Super_R = Escape" 2>/dev/null
 
 # Terminal do pinentry
 set -x GPG_TTY (tty)
@@ -59,13 +70,10 @@ set -g ghdep $githubdeplayground
 
 # =============== Aliases =========================
 
-function grep; command grep --color=always $argv; end
-function egrep; command egrep --color=always $argv; end
-function zgrep; command zgrep --color=always $argv; end
-
 # Dir list
 function ls; lp $argv; end
 function ll; lp -l $argv; end
+function lla; lp -l -a $argv; end
 function la; lp -a $argv; end
 function perms; lp -ld $argv; end
 function types; file *; end
@@ -89,12 +97,12 @@ function editkey; editportage package.accept_keywords $argv[1]; end
 
 # Operações de arquivos
 function cd; builtin cd $argv; and ls; end
-function rm; command rm -vI --preserve-root $argv; end
-function mv; command mv -vi $argv; end
-function cp; command cp -vi $argv; end
-function ln; command ln -i $argv; end
+function rm; command rm -v $argv; end
+function mv; command mv -v $argv; end
+function cp; command cp -v $argv; end
+function ln; command ln $argv; end
 function du; command du -h $argv; end
-function df; cdf -mh $argv | grep -v -e '0 /' -e rootfs -e cgroup -e 1000; end
+function df; cutedf $argv; end
 
 function chown; command chown --preserve-root $argv; end
 function chmod; command chmod --preserve-root $argv; end
@@ -109,7 +117,7 @@ function termbin; nc termbin.com 9999; end
 function tb; termbin; end
 function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
-function time; command time -p /bin/fish -c $argv; end
+function time; command time -p /bin/fish -c "$argv"; end
 function e; equery $argv; end
 function sudo; command sudo -sE $argv; end
 function pycharm; pycharm-community $argv; end
@@ -225,13 +233,6 @@ function githardmv -d "Forçar git mv"
     echo "$argv[1] -> $argv[2]"
 end
 
-function gitatomdiff -d "Mostrar o diff no atom"
-    git diff > /tmp/gitatomdiff.diff; and \
-    atom /tmp/gitatomdiff.diff; and \
-    sleep 10; and \
-    rm -f /tmp/gitatomdiff.diff
-end
-
 function superretab -d "super retab"
     for file in (find $argv -type f -not -iwholename '*.git*')
         sed -i 's/\t/    /g' $file; or exit 1
@@ -240,8 +241,9 @@ function superretab -d "super retab"
 end
 
 function makerepomanhappy -d ""
-    for ebuild in (find . -type f -iwholename '*.ebuild*' \( -not -iwholename '*.git*' \))
+    for ebuild in (find . -type f -iname '*.ebuild*' \( ! -iname '*.git*' \))
         sed -i 's/    /\t/g' $ebuild; or exit 1
+        sed -i '/^$/N;/^\n$/D' $ebuild; or exit 1
         echo "$ebuild fixed"
     end
 end
