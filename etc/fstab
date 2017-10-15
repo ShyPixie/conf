@@ -1,0 +1,5 @@
+
+# <file system>   <dir>     <type>   <options> <dump> <pass>
+/dev/sda2         /         ext4     rw,data=ordered,commit=60,nobarrier,noatime,nodiratime,norelatime 1 1
+/dev/sda1         /boot     vfat     rw,noatime,nodiratime,norelatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 2
+/swapfile         none      swap     defaults 0 0
