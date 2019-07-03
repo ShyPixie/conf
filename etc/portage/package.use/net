@@ -1,9 +1,0 @@
-net-libs/webkit-gtk                -geoloc webgl
-net-misc/aria2                     adns
-net-misc/curl                      -curl_ssl_openssl curl_ssl_gnutls
-net-misc/iputils                   -caps -filecaps
-net-misc/tigervnc                  server
-net-nds/openldap                   minimal
-net-p2p/transmission               gtk
-net-wireless/wpa_supplicant        gnutls eap-sim
-

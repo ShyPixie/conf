@@ -1,3 +1,0 @@
-cross-avr/binutils -openmp -hardened -sanitize -vtv -selinux multilib
-cross-avr/avr-libc -openmp -hardened -sanitize -vtv -selinux multilib
-cross-avr/gcc -fortran -go -openmp -hardened -sanitize -vtv -selinux -boundschecking -d -gcj -gtk -libffi -mudflap -objc -objc++ -objc-gc multilib

@@ -1,30 +1,22 @@
-# Lara Maia <dev@lara.click> © 2016
-#
-# Depends: sys-fs/cdf        [overlay{ShyPixie}]
-#          grc               [repo]
-#          netcat            [repo]
-#          colordiff         [repo]
-#          sys-process/time  [repo]
-#          vim               [repo]
-#          xmodmap           [repo]
-#          file              [repo]
-#          tree              [repo]
-#          tmux              [repo]
+# Lara Maia <dev@lara.click> © 2018
+# fish config for msys2
+# PATH
+#set -xg PATH /c/Program\ Files/Docker/Docker/Resources/bin /c/Program\ Files\ \(x86\)/gnupg/bin /c/Program\ Files\ \(x86\)/Gpg4win/bin /mingw64/bin /usr/bin /bin /usr/local/bin /c/Windows /c/Windows/system32
+set -xg PATH /mingw64/bin /usr/bin /bin /usr/local/bin /c/Windows /c/Windows/system32
 
+# DISPLAY
+set -xg DISPLAY :0
 
-#if set -q STARTX11
-#    set -e STARTX11
-#    startx
-#    exit 0
-#end
+# GPG Authentication
+#set -xg GNUPGHOME /c/Users/Lara/AppData/Roaming/gnupg
+#eval (/usr/bin/ssh-pageant -cra "/tmp/.ssh-pageant-Lara")
+set -xg SSH_AUTH_SOCK /home/lara/.gnupg/S.gpg-agent.ssh
+set -xg GPG_TTY (tty)
+gpgconf --launch gpg-agent
 
-if test ! (tty | grep pts)
-    set LANG pt_BR.utf8
-end
+set -xg HOME2 /c/Users/Lara
 
-# ============== Configurações =======================
-
-# Cores padrões
+# Colors
 set fish_color_normal white
 set fish_color_command green
 set fish_color_redirection blue
@@ -32,259 +24,137 @@ set fish_color_end yellow -o
 set fish_color_error red -o
 set fish_color_match blue -o
 
-# Cores do prompt
-set __prompt_color_separator (set_color white)
-set __prompt_color_user      (set_color purple)
-set __prompt_color_hostname  (set_color green)
-set __prompt_color_pwd       (set_color yellow)
-set __prompt_color_good      (set_color -o green)
-set __prompt_color_bad       (set_color -o red)
-
 # XDG
-set -x XDG_CONFIG_HOME "$HOME"/.config
+set -x XDG_CONFIG_HOME /c/Users/Lara/.config
 
-# Configuração do histórico
+# History
 set -x HISTCONTROL "ignoredups"
 set -x HISTSIZE "10000"
 set -x HISTFILESIZE "20000"
 set -x HISTIGNORE "bg:fg:exit:cd:ls:la:ll:ps:history:historytop:sudo:su:..:...:....:....."
 
-# map super to esc
-#xmodmap -e "keysym Super_R = Escape" 2>/dev/null
+# Github
+set -g gh https://github.com
+set -g ghl git@github.com:ShyPixie
+set -g ghr git@github.com:RaspberryLove
+set -g ghth git@github.com:TOSHACK
 
-# Terminal do pinentry
-set -x GPG_TTY (tty)
-
-# ============ Váriaveis Adicionais ===============
-
-set -g steamwine_prefix $HOME/.local/share/wineprefixes/steam
-set -g steamwine_path "$steamwine_prefix/drive_c/Program Files (x86)/Steam"
-set -g steamwine_gamespath "$steamwine_path/steamapps/common"
-
-set -g github https://github.com
-set -g githublara git@github.com:ShyPixie
-set -g githubdeplayground git@github.com:DEPlayground
-set -g gh $github
-set -g ghl $githublara
-set -g ghdep $githubdeplayground
+# mingw
+set -g mingwpkg mingw-w64-x86_64
+set -g mingwpkg32 mingw-w64-i686
 
 # =============== Aliases =========================
+
+function grep; command grep --color=always $argv; end
+function egrep; command egrep --color=always $argv; end
+function zgrep; command zgrep --color=always $argv; end
 
 # Dir list
 function ls; lp $argv; end
 function ll; lp -l $argv; end
-function lla; lp -l -a $argv; end
 function la; lp -a $argv; end
 function perms; lp -ld $argv; end
 function types; file *; end
 function tree; command tree -C $argv; end
 
-function ..; cd ..; end
-function ...; cd ../..; end
-function ....; cd ../../..; end
-function .....; cd ../../../..; end
+function .; cd ..; end
+function ..; cd ../..; end
+function ...; cd ../../..; end
+function ....; cd ../../../..; end
 
 function back; cd (echo $PWD | rev | cut -d"/" -f2- | rev); end
 function back2; cd $PWD; end
-function reload; . ~/.config/fish/config.fish; end
+function reload; source ~/.config/fish/config.fish; end
 function edit; vim ~/.config/fish/config.fish; end
-function editworld; editportage ../../var/lib/portage world; end
-function editmake; editportage "" make.conf; end
-function edituse; editportage package.use $argv[1]; end
-function editmask; editportage package.mask $argv[1]; end
-function editunmask; editportage package.unmask $argv[1]; end
-function editkey; editportage package.accept_keywords $argv[1]; end
 
-# Operações de arquivos
+function notepad++; /c/Program\ Files/Notepad++/Notepad++.exe $argv; end
+function note; notepad++ $argv; end
+function winrar; /c/Program\ Files/WinRAR/WinRAR.exe $argv; end
+
 function cd; builtin cd $argv; and ls; end
-function rm; command rm -v $argv; end
-function mv; command mv -v $argv; end
-function cp; command cp -v $argv; end
-function ln; command ln $argv; end
+function rm; command rm -vI --preserve-root $argv; end
+function mv; command mv -vi $argv; end
+function cp; command cp -vi $argv; end
+function ln; command ln -i $argv; end
 function du; command du -h $argv; end
-function df; cutedf $argv; end
 
 function chown; command chown --preserve-root $argv; end
 function chmod; command chmod --preserve-root $argv; end
 function chgrp; command chgrp --preserve-root $argv; end
 
-# Ferramentas
-function font; ~/Develop/tools/xfce4-terminal-font.py $argv; end
-function kernel-update; ~/Develop/tools/kernel_updater.sh $argv; end
-function boot-update; ~/Develop/tools/linux_stub_loader.sh $argv; end
-function uniform-root; ~/Develop/tools/uniform-root.sh $argv; end
-function termbin; nc termbin.com 9999; end
-function tb; termbin; end
 function diff; colordiff $argv; end
 function allmounts; mount | column -t; end
-function time; command time -p /bin/fish -c "$argv"; end
-function e; equery $argv; end
-function sudo; command sudo -sE $argv; end
-function pycharm; pycharm-community $argv; end
 
-# Kill
-function k; killall $argv; end
-function kf; killall -9 $argv; end
-function k9; killall -9 $argv; end
+function psc; ps xawfe; end
 
-# Listagem de processos
-function psc; ps xawf -eo pid,user,cgroup,args; end
-function psd; systemd-cgls; end
+function exit; kill (pgrep -u $USER); end
 
-# Power
-function reboot; systemctl reboot; end
-function shutdown; systemctl poweroff; end
+# ============== Useful functions ==========================
 
-# Cores com grc
-function configure; grc -es --colour=auto ./configure $argv; end
-function make; grc -es --colour=auto make $argv; end
-function gcc; grc -es --colour=auto gcc $argv; end
-function g++; grc -es --colour=auto g++ $argv; end
-function ld; grc -es --colour=auto ld $argv; end
-function netstat; grc -es --colour=auto netstat $argv; end
-function ping; grc -es --colour=auto ping -c 3 $argv; end
-function traceroute; grc -es --colour=auto traceroute $argv; end
+function lp -d "ls with numerical permissions"
+    switch "$argv"
+        case '*l*'
+            echo -e (/bin/ls $argv -h --group-directories-first --indicator-style=classify | awk \
+              '{k=0
+                for(i=0; i<=8; i++) {
+                    k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i))
+                }
 
-# ============== Funções ==========================
-
-function editportage -d "Edita arquivos de configuração do portage"
-    if test (count $argv) -lt 2
-        echo "Você precisa especificar uma categoria."
-    else
-        set category (echo $argv[2] | sed 's/-.*//g')
-        set config_file (echo /etc/portage/$argv[1]/$category)
-        if test -f $config_file
-            sudo vim $config_file
-        else
-            echo "Essa categoria não existe, criar?[s/N]"
-            read -l ret
-            switch $ret
-                case s S
-                    sudo vim $config_file
-            end
-        end
+                if(k) {
+                    split($0, lsInfo, " ", sep)
+                    printf("\033[01;32m%0o \033[m", k)
+                    printf("\033[00;33m%s%s", lsInfo[1], sep[1])
+                    printf("\033[01;34m%s%s", lsInfo[2], sep[2])
+                    printf("\033[01;35m%s%s", lsInfo[3], sep[3])
+                    printf("\033[00;35m%s%s", lsInfo[4], sep[4])
+                    printf("\033[m%s%s", lsInfo[5], sep[5])
+                    printf("%s%s", lsInfo[6], sep[6])
+                    printf("%s%s", lsInfo[7], sep[7])
+                    printf("%s%s", lsInfo[8], sep[8])
+                    printf("\033[00;33m%s%s", lsInfo[9], sep[9])
+                    printf("%s%s", lsInfo[10], sep[10])
+                    printf("%s%s", lsInfo[11], sep[11])
+                    printf("\033[m\\\n")
+                }
+               }
+             ')
+        case "*"
+            command ls $argv --color=always -h --group-directories-first --indicator-style=classify
     end
 end
 
-function fixsteam -d "Remove arquivos conflitantes do runtime do steam"
-    echo "Por favor aguarde..."
-    find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so" \) -print -delete
-    echo "Feito!"
-end
-
-function reinstallcat -d "Reinstala todos os pacotes de uma determinada categoria."
-    set -l packages (eix -IA --only-names $argv[1])
-    sudo emerge -1 $packages
-end
-
-function catebuild -d "Mostra o conteúdo de um arquivo ebuild através do nome"
-    set -l eb (equery w $argv[1])
-    set -l ebst $status
-    if count $argv[1] >/dev/null
-        if test $ebst -eq 0
-            cat "$eb"
-        else
-            echo -n "$eb"
-        end
-    end
-end
-
-function mvtodist -d "Move para /usr/portage/distfiles and define as permissões"
-    if test ! $argv[1]
-        echo "Você precisa especificar um arquivo."
-    else
-        sudo chown portage:portage $argv[1]
-        sudo mv $argv[1] /usr/portage/distfiles/
-    end
-end
-
-# Se for uma conexão ssh, executar o tmux
-if test ! -z "$SSH_TTY" -a -z "$STY"
-    tmux -2 new-session -A -s ssh -t principal
-end
-
-function exit -d "Sair da sessão do ssh sem fechar o terminal"
-    if test "$TERM" = "screen-256color" -a \
-    (tmux display-message -p '#S') = "ssh"
-        tmux detach -P
-    else
-        tmux detach -P -s ssh
-        builtin exit
-    end
-end
-
-function lp -d "Permissões numéricas no ls"
-    if not contains -- -l $argv
-        command ls $argv --color=always -h --group-directories-first --indicator-style=classify
-    else
-        grc --colour=on --config=$HOME/.grc/ls.conf  echo -e (/bin/ls $argv -h --group-directories-first --indicator-style=classify | \
-        awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf("%0o ",k);printf $0 "\\\n"}')
-    end
-end
-
-# https://gist.github.com/87359
-function historytop -d "Top 10"
-    history | awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}' | sort -nr | head
-end
-
-function githardmv -d "Forçar git mv"
-    git checkout -- $argv[1] 1>/dev/null
-    git mv $argv[1] $argv[2] 1>/dev/null
-    echo "$argv[1] -> $argv[2]"
-end
-
-function superretab -d "super retab"
-    for file in (find $argv -type f -not -iwholename '*.git*')
-        sed -i 's/\t/    /g' $file; or exit 1
-        echo "$file retabed"
-    end
-end
-
-function makerepomanhappy -d ""
-    for ebuild in (find . -type f -iname '*.ebuild*' \( ! -iname '*.git*' \))
-        sed -i 's/    /\t/g' $ebuild; or exit 1
-        sed -i '/^$/N;/^\n$/D' $ebuild; or exit 1
-        echo "$ebuild fixed"
-    end
-end
-
-function execinfolder -d "Executa o comando em todos os arquivos na pasta"
-    for file in (find . -type f -not -iwholename '*.git*' \
-                                -not -iwholename '*lib32*' \
-                                -not -iwholename '*lib64*')
-        eval $argv $file; or exit 1
-        echo "Executando: $argv $file"
-    end
+function docker_remove_all -d "Remove all images and containers from docker"
+    docker rm (docker ps -a -q) --force
+    docker rmi (docker images -q) --force
 end
 
 # ---- ~ ----
 
 function fish_greeting -d "motd"
     if test (id -u) != 0
-       cat "$HOME"/.termlogo | xargs -0 echo -e
+       echo -e (cat "$HOME"/.termlogo)
     end
 end
 
 function fish_prompt -d "Prompt"
     set laststatus $status
 
-    # u+168b/u+169c/u+169b/u+168b
-    printf '%s%s%s%s@%s%s%s: %s%s ' \
-           $__prompt_color_separator \
-           $__prompt_color_user      \
-           $USER                     \
-           $__prompt_color_separator \
-           $__prompt_color_hostname  \
-           (hostname)                \
-           $__prompt_color_separator \
-           $__prompt_color_pwd       \
-           (echo $PWD | sed -e "s|^$HOME|~|")
+    set c_white (set_color white)
+    set c_purple (set_color purple)
+    set c_green (set_color green)
+    set c_yellow (set_color yellow)
+    set c_b_green (set_color -o green)
+    set c_b_red (set_color -o red)
+
+    set my_cwd (echo $PWD | sed -e "s|^$HOME|~|")
+
+    printf "$c_purple%s$c_white@$c_green%s: $c_yellow%s " $USER (hostname) $my_cwd
 
     if test $laststatus -eq 0
-        printf "%s:) " $__prompt_color_good
+        printf "$c_b_green:) "
     else
-        printf "%s:( " $__prompt_color_bad
+        printf "$c_b_red:( "
     end
 
-    printf "%s" (set_color normal)
+    printf (set_color normal)
 end

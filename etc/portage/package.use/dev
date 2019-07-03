@@ -1,7 +1,0 @@
-dev-lang/php                       fpm cgi gd pcntl curl zip # (gd) dev-lang/php[truetype, exif]
-                                                             # (pcntl,curl,zip) app-benchmarks/phoronix-test-suite
-dev-libs/quazip                    qt5 # (qt5) sci-electronics/fritzing
-dev-libs/libpcre                   pcre16
-dev-vcs/git                        gpg -webdav -pcre -perl -python -gtk
-dev-embedded/arduino               -minimal
-dev-util/astyle                    java # (java) dev-embedded/arduino-ide

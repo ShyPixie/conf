@@ -1,6 +1,0 @@
-[Unit]
-Description=Drop Caches... NOW
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/sysctl -w vm.drop_caches=3

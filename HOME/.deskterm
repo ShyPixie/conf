@@ -1,3 +1,0 @@
-xfce4-terminal --title=deskterm --drop-down -e 'tmux -2 new-session -A -s xfce -t principal' &
-sleep .2
-wmctrl -a deskterm

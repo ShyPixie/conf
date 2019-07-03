@@ -1,7 +1,0 @@
-sys-apps/util-linux                -cramfs
-sys-auth/pambase                   minimal
-sys-block/gparted                  -mdadm -reiser4 -xfs -jfs
-sys-libs/glibc                     nscd
-sys-libs/zlib                      minizip
-sys-kernel/linux-firmware          savedconfig
-sys-process/procps                 modern-top

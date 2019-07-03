@@ -1,5 +1,0 @@
-media-gfx/gimp                     aalib curl
-media-libs/mesa                    gbm d3d9
-media-libs/libmypaint              gegl # (gegl) media-gfx/gimp
-media-plugins/audacious-plugins    http
-media-sound/pulseaudio             equalizer realtime -eipv6 -tcpd -ssl -webrtc-aec
