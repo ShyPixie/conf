@@ -1,20 +1,9 @@
 # Lara Maia <dev@lara.click> © 2018
-# fish config for msys2
-# PATH
-#set -xg PATH /c/Program\ Files/Docker/Docker/Resources/bin /c/Program\ Files\ \(x86\)/gnupg/bin /c/Program\ Files\ \(x86\)/Gpg4win/bin /mingw64/bin /usr/bin /bin /usr/local/bin /c/Windows /c/Windows/system32
-set -xg PATH /mingw64/bin /usr/bin /bin /usr/local/bin /c/Windows /c/Windows/system32
-
-# DISPLAY
-set -xg DISPLAY :0
 
 # GPG Authentication
-#set -xg GNUPGHOME /c/Users/Lara/AppData/Roaming/gnupg
-#eval (/usr/bin/ssh-pageant -cra "/tmp/.ssh-pageant-Lara")
-set -xg SSH_AUTH_SOCK /home/lara/.gnupg/S.gpg-agent.ssh
+set -xg SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 set -xg GPG_TTY (tty)
 gpgconf --launch gpg-agent
-
-set -xg HOME2 /c/Users/Lara
 
 # Colors
 set fish_color_normal white
@@ -23,9 +12,6 @@ set fish_color_redirection blue
 set fish_color_end yellow -o
 set fish_color_error red -o
 set fish_color_match blue -o
-
-# XDG
-set -x XDG_CONFIG_HOME /c/Users/Lara/.config
 
 # History
 set -x HISTCONTROL "ignoredups"
@@ -38,10 +24,6 @@ set -g gh https://github.com
 set -g ghl git@github.com:ShyPixie
 set -g ghr git@github.com:RaspberryLove
 set -g ghth git@github.com:TOSHACK
-
-# mingw
-set -g mingwpkg mingw-w64-x86_64
-set -g mingwpkg32 mingw-w64-i686
 
 # =============== Aliases =========================
 
@@ -67,10 +49,6 @@ function back2; cd $PWD; end
 function reload; source ~/.config/fish/config.fish; end
 function edit; vim ~/.config/fish/config.fish; end
 
-function notepad++; /c/Program\ Files/Notepad++/Notepad++.exe $argv; end
-function note; notepad++ $argv; end
-function winrar; /c/Program\ Files/WinRAR/WinRAR.exe $argv; end
-
 function cd; builtin cd $argv; and ls; end
 function rm; command rm -vI --preserve-root $argv; end
 function mv; command mv -vi $argv; end
@@ -87,9 +65,21 @@ function allmounts; mount | column -t; end
 
 function psc; ps xawfe; end
 
-function exit; kill (pgrep -u $USER); end
-
 # ============== Useful functions ==========================
+
+if test ! -z "$SSH_TTY" -a -z "$STY"
+    tmux -2 new-session -A -s ssh -t principal
+end
+
+function exit -d "exit ssh session without close terminal window"
+    if test "$TERM" = "screen-256color" -a \
+    (tmux display-message -p '#S') = "ssh"
+        tmux detach -P
+    else
+        tmux detach -P -s ssh
+        builtin exit
+    end
+end
 
 function lp -d "ls with numerical permissions"
     if not contains -- -l $argv
